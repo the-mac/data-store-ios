@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DataStore_Example' do
+  pod 'DataStore', :path => '../'
+
+  target 'DataStore_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
