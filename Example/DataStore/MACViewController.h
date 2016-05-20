@@ -9,5 +9,5 @@
 @import UIKit;
 
 @interface MACViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UILabel *flightCountLabel;
 @end

@@ -2,10 +2,9 @@ use_frameworks!
 
 target 'DataStore_Example' do
   pod 'DataStore', :path => '../'
+  pod 'FMDB'
 
-  target 'DataStore_Tests' do
-    inherit! :search_paths
-
-    
+target 'DataStore_Tests' do
+  inherit! :search_paths
   end
 end

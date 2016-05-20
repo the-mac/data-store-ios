@@ -1,16 +1,22 @@
 PODS:
-  - DataStore (0.1.0)
+  - DataStore (0.1.0):
+    - FMDB
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
 
 DEPENDENCIES:
   - DataStore (from `../`)
+  - FMDB
 
 EXTERNAL SOURCES:
   DataStore:
     :path: ../
 
 SPEC CHECKSUMS:
-  DataStore: 7b1f490582b90439965c9402e01450d9511727f4
+  DataStore: 7d7b40bcf939a61acefbf43860aa653fe4c52fe6
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
 
-PODFILE CHECKSUM: 05b42ff3d9bcce2758edb3b3d05c81a12ccb7c75
+PODFILE CHECKSUM: 8769f7f32b21b52ed102de667f6f2eda97ecb6cb
 
 COCOAPODS: 1.0.0

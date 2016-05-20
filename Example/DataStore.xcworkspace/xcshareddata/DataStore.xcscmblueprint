@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "71F9DCB180DF486F295CE2574E0ED5F8C8F84E19",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "069D1A10015D498825B3FF01E8949D8244A64106" : 0,
+    "71F9DCB180DF486F295CE2574E0ED5F8C8F84E19" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9760C38D-228F-4E55-9789-8D8AE88BAA6B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "069D1A10015D498825B3FF01E8949D8244A64106" : "..\/..",
+    "71F9DCB180DF486F295CE2574E0ED5F8C8F84E19" : "DataStore\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DataStore",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/DataStore.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/the-mac\/Tool-Kit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "069D1A10015D498825B3FF01E8949D8244A64106"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/the-mac\/data-store-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "71F9DCB180DF486F295CE2574E0ED5F8C8F84E19"
+    }
+  ]
+}

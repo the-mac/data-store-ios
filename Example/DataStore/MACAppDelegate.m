@@ -6,13 +6,14 @@
 //  Copyright (c) 2016 Christopher Miller. All rights reserved.
 //
 
+#import "DataStore.h"
 #import "MACAppDelegate.h"
 
 @implementation MACAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [DataStore setup:@"FlightsExampleDB.sqlite"];
     return YES;
 }
 

@@ -22,6 +22,9 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		9D8063301CEEE2D9003DD99E /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D80632F1CEEE2D9003DD99E /* Flight.m */; settings = {ASSET_TAGS = (); }; };
+		9D8063371CEEEC41003DD99E /* FlightsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8063361CEEEC41003DD99E /* FlightsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9D80633A1CEEF385003DD99E /* BookFlightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8063391CEEF385003DD99E /* BookFlightViewController.m */; settings = {ASSET_TAGS = (); }; };
 		DA012C6B91D8A7EEC14B9F07 /* Pods_DataStore_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A84847959C6FE71B281A4C /* Pods_DataStore_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +66,12 @@
 		712D60AE2F4F905BA0EB24F4 /* Pods-DataStore_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataStore_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataStore_Example/Pods-DataStore_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8F1C77034E6AE6B528FD5D9C /* Pods-DataStore_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataStore_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataStore_Tests/Pods-DataStore_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9D80632E1CEEE2D9003DD99E /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flight.h; sourceTree = "<group>"; };
+		9D80632F1CEEE2D9003DD99E /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flight.m; sourceTree = "<group>"; };
+		9D8063351CEEEC41003DD99E /* FlightsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsTableViewController.h; sourceTree = "<group>"; };
+		9D8063361CEEEC41003DD99E /* FlightsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsTableViewController.m; sourceTree = "<group>"; };
+		9D8063381CEEF385003DD99E /* BookFlightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookFlightViewController.h; sourceTree = "<group>"; };
+		9D8063391CEEF385003DD99E /* BookFlightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookFlightViewController.m; sourceTree = "<group>"; };
 		BF19586E403478FE35ECDDC3 /* Pods_DataStore_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataStore_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF770437B12557452DFB4614 /* Pods-DataStore_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataStore_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataStore_Example/Pods-DataStore_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,13 +150,13 @@
 		6003F593195388D20070C39A /* Example for DataStore */ = {
 			isa = PBXGroup;
 			children = (
-				6003F59C195388D20070C39A /* MACAppDelegate.h */,
-				6003F59D195388D20070C39A /* MACAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* MACViewController.h */,
-				6003F5A6195388D20070C39A /* MACViewController.m */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
+				9D80632D1CEEE29B003DD99E /* Headers */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				9D80632F1CEEE2D9003DD99E /* Flight.m */,
+				6003F59D195388D20070C39A /* MACAppDelegate.m */,
+				6003F5A6195388D20070C39A /* MACViewController.m */,
+				9D8063361CEEEC41003DD99E /* FlightsTableViewController.m */,
+				9D8063391CEEF385003DD99E /* BookFlightViewController.m */,
 			);
 			name = "Example for DataStore";
 			path = DataStore;
@@ -156,6 +165,8 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F595195388D20070C39A /* DataStore-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
@@ -191,6 +202,18 @@
 				6325267D8F4E15C0262A17A1 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		9D80632D1CEEE29B003DD99E /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				9D8063381CEEF385003DD99E /* BookFlightViewController.h */,
+				9D8063351CEEEC41003DD99E /* FlightsTableViewController.h */,
+				9D80632E1CEEE2D9003DD99E /* Flight.h */,
+				6003F59C195388D20070C39A /* MACAppDelegate.h */,
+				6003F5A5195388D20070C39A /* MACViewController.h */,
+			);
+			name = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +414,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* MACAppDelegate.m in Sources */,
+				9D8063301CEEE2D9003DD99E /* Flight.m in Sources */,
+				9D8063371CEEEC41003DD99E /* FlightsTableViewController.m in Sources */,
+				9D80633A1CEEF385003DD99E /* BookFlightViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* MACViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
