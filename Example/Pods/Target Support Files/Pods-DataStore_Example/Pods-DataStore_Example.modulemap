@@ -1,0 +1,6 @@
+framework module Pods_DataStore_Example {
+  umbrella header "Pods-DataStore_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

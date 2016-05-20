@@ -1,0 +1,6 @@
+framework module DataStore {
+  umbrella header "DataStore-umbrella.h"
+
+  export *
+  module * { export * }
+}

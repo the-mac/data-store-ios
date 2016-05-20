@@ -1,0 +1,16 @@
+PODS:
+  - DataStore (0.1.0)
+
+DEPENDENCIES:
+  - DataStore (from `../`)
+
+EXTERNAL SOURCES:
+  DataStore:
+    :path: ../
+
+SPEC CHECKSUMS:
+  DataStore: 7b1f490582b90439965c9402e01450d9511727f4
+
+PODFILE CHECKSUM: 05b42ff3d9bcce2758edb3b3d05c81a12ccb7c75
+
+COCOAPODS: 1.0.0
