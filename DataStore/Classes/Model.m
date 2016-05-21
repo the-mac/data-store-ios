@@ -12,180 +12,179 @@
 #import <objc/runtime.h>
 
 static NSMutableString * queryString = nil;
+static NSMutableDictionary * queryFields = nil;
 
 @implementation Model
 + (void) initialize {
+    [Model clearQuery];
+}
++ (void) clearQuery {
     queryString = [@"" mutableCopy];
+}
++ (NSMutableArray *) getFields:(Class) class {
+    if(queryFields == nil) queryFields = [@{} mutableCopy];
+    
+    NSString *tableName = NSStringFromClass(class);
+    NSMutableArray* fields = [queryFields objectForKey:tableName];
+    
+    if(fields != nil) return fields;
+    
+    fields = [DataStore getFields:class];
+    [queryFields setValue:fields forKey:tableName];
+    
+    return fields;
+}
++ (NSMutableArray *) getValues:(NSObject*) obj {
+    Class class = [obj class];
+    NSMutableArray* fields = [Model getFields:class];
+    NSMutableArray* values = [@[] mutableCopy];
+    
+    for (NSDictionary* field in fields) {
+        NSString *value = [obj valueForKey:field[@"column"]];
+        [values addObject:value];
+    }
+    
+    return values;
+}
+
+- (BOOL) save {
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
+    
+    [queue inDatabase:^(FMDatabase *db) {
+        
+        NSArray * fields = [Model getFields: [self class]];
+        NSArray * values = [Model getValues: self];
+        NSString *table = NSStringFromClass([self class]);
+        
+        NSString *param = @", ?";
+        NSString *params = [@"?" stringByPaddingToLength:(fields.count - 1) * param.length + 1 withString:param startingAtIndex:0];
+        NSString *query = [NSString stringWithFormat:@"insert into %@ values (%@)", table, params];
+        
+        [queryString appendString:query];
+        [db executeUpdate:queryString withArgumentsInArray:values];
+
+    }];
+    
+    [Model clearQuery];
+    return YES;
 }
 + (NSArray *) all {
     
     NSMutableArray *allResults = [[NSMutableArray alloc] init];
-    
-    NSArray *docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDir = [docPaths objectAtIndex:0];
-    NSString *dbPath = [documentsDir   stringByAppendingPathComponent:[DataStore databasePath]];
-    
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
     
     [queue inDatabase:^(FMDatabase *db) {
         
-        NSString *query = [NSString stringWithFormat:@"select * from %@", NSStringFromClass([self class])];
-        FMResultSet *results = [db executeQuery:query];
+        NSString *table = NSStringFromClass([self class]);
+        [queryString appendString:[NSString stringWithFormat:@"select * from %@", table]];
+        FMResultSet *results = [db executeQuery:queryString];
         
-        while([results next])
-        {
-            NSObject * object = [self generateNSObject:results forClass:[self class]];
-            [allResults addObject:object];
+        while([results next]) {
+            [allResults addObject:[self generateNSObject:results forClass:[self class]]];
         }
+        [results close];
     }];
     
-    
-    return @[];
+    [Model clearQuery];
+    return allResults;
 }
 + (int) count {
-    return 0;
+    
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
+    __block int count = -1;
+    
+    [queue inDatabase:^(FMDatabase *db) {
+        
+        NSString *table = NSStringFromClass([self class]);
+        NSString *query = [NSString stringWithFormat:@"SELECT COUNT(*) FROM (%@)", table];
+        
+        [queryString appendString:query];
+        FMResultSet *rsl = [db executeQuery:queryString];
+        while ([rsl next]) {
+            count = [rsl intForColumnIndex:0];
+        }
+        [rsl close];
+    }];
+    [Model clearQuery];
+    return count;
 }
 + (BOOL) truncate {
-    return YES;
-}
-- (BOOL) save {
-    return YES;
-}
-
-+ (NSMutableArray *) getFields:(Class) class
-{
-    NSMutableArray * fields = [@[] mutableCopy];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
+    [queue inDatabase:^(FMDatabase *db) {
+        NSString *table = NSStringFromClass([self class]);
+        [queryString appendString:[NSString stringWithFormat:@"delete from %@", table]];
+        [db executeUpdate:queryString];
+    }];
     
-    unsigned int numberOfProperties = 0;
-    objc_property_t *propertyArray = class_copyPropertyList([self class], &numberOfProperties);
-    for (NSUInteger i = 0; i < numberOfProperties; i++) {
-        
-        objc_property_t property = propertyArray[i];
-        NSString *name = [[NSString alloc] initWithUTF8String:property_getName(property)];
-        [fields addObject:name];
-    }
-    return fields;
+    [Model clearQuery];
+    return YES;
 }
-
 
 + (NSObject *) generateNSObject:(FMResultSet *) result forClass:(Class) class {
     
     NSObject * object = [class new];
     NSArray *columns = [Model getFields:class];
     
-//    NSDictionary * dictionary = [object getObjDictionary];
-    
-    NSArray  *ignoredList   = [class performSelector:@selector(ignoredProperties)];
-    
-    for(int i=0; i < [columns count]; i++)
-    {
-        NSDictionary *keyval    = (NSDictionary *) columns[i];
-        NSString *colName       = [keyval valueForKey:@"column"];
-        NSString *typeValue       = [keyval valueForKey:@"type"];
+    for (NSDictionary *field in columns) {
+        NSString *column       = [field valueForKey:@"column"];
+        NSString *type       = [field valueForKey:@"dataType"];
         
-        if([ignoredList containsObject:colName]) continue;
+        const char *typeValue = [type UTF8String];
         
-        const char *type = [typeValue UTF8String];
-        
-        switch (type[0])
-        {
-            case 'i':
-                [object setValue:[NSNumber numberWithInt:[result intForColumn:colName]] forKey:colName];
-                //            NSLog(@"int");
-                break;
-            case 's':
-                [object setValue:[NSNumber numberWithShort:[result intForColumn:colName]] forKey:colName];
-                //            NSLog(@"short");
-                break;
-            case 'l':
-                [object setValue:[NSNumber numberWithLong:[result longForColumn:colName]] forKey:colName];
-                //            NSLog(@"long");
-                break;
-            case 'q':
-                [object setValue:[NSNumber numberWithLongLong:[result longLongIntForColumn:colName]] forKey:colName];
-                //            NSLog(@"long long");
-                break;
-            case 'C':
-                [object setValue:[result stringForColumn:colName] forKey:colName];
-                //            NSLog(@"char");
-                break;
-            case 'c':
-                [object setValue:[result stringForColumn:colName] forKey:colName];
-                //            NSLog(@"char");
-                break;
-            case 'I':
-                [object setValue:[NSNumber numberWithInt:[result intForColumn:colName]] forKey:colName];
-                //            NSLog(@"int");
-                break;
-            case 'S':
-                [object setValue:[result stringForColumn:colName] forKey:colName];
-                //            NSLog(@"short");
-                break;
-            case 'L':
-                [object setValue:[NSNumber numberWithLong:[result longForColumn:colName]] forKey:colName];
-                //            NSLog(@"long");
-                break;
-            case 'Q':
-                [object setValue:[NSNumber numberWithLong:[result longForColumn:colName]] forKey:colName];
-                //            NSLog(@"long");
-                break;
-            case 'f':
-                [object setValue:[NSNumber numberWithFloat:[result doubleForColumn:colName]] forKey:colName];
-                //            NSLog(@"float");
-                break;
-            case 'd':
-                [object setValue:[NSNumber numberWithDouble:[result doubleForColumn:colName]] forKey:colName];
-                //            NSLog(@"double");
-                break;
-            case 'B':
-                [object setValue:[NSNumber numberWithInt:[result intForColumn:colName]] forKey:colName];
-                //            NSLog(@"bool");
-                break;
+        switch (typeValue[0]) {
+            case 'i': [object setValue:[NSNumber numberWithInt:[result intForColumn:column]] forKey:column]; break;
+            case 's': [object setValue:[NSNumber numberWithShort:[result intForColumn:column]] forKey:column]; break;
+            case 'l': [object setValue:[NSNumber numberWithLong:[result longForColumn:column]] forKey:column]; break;
+            case 'q': [object setValue:[NSNumber numberWithLongLong:[result longLongIntForColumn:column]] forKey:column]; break;
+            case 'I': [object setValue:[NSNumber numberWithInt:[result intForColumn:column]] forKey:column]; break;
+            case 'S': [object setValue:[result stringForColumn:column] forKey:column]; break;
+            case 'L': [object setValue:[NSNumber numberWithLong:[result longForColumn:column]] forKey:column]; break;
+            case 'Q': [object setValue:[NSNumber numberWithLong:[result longForColumn:column]] forKey:column]; break;
+            case 'f': [object setValue:[NSNumber numberWithFloat:[result doubleForColumn:column]] forKey:column]; break;
+            case 'd': [object setValue:[NSNumber numberWithDouble:[result doubleForColumn:column]] forKey:column]; break;
+            case 'B': [object setValue:[NSNumber numberWithInt:[result intForColumn:column]] forKey:column]; break;
+            case 'C': [object setValue:[result stringForColumn:column] forKey:column]; break;
+            case 'c': [object setValue:[result stringForColumn:column] forKey:column]; break;
             default:
                 
-                if([typeValue isEqualToString:@"@\"NSNumber\""]) {
-                    [object setValue:[result objectForColumnName:colName] forKey:colName];
+                if([type isEqualToString:@"@\"NSNumber\""]) {
+                    [object setValue:[result objectForColumnName:column] forKey:column];
                 }
-                else if([typeValue isEqualToString:@"@\"NSString\""]) {
-                    [object setValue:[result stringForColumn:colName] forKey:colName];
+                else if([type isEqualToString:@"@\"NSString\""]) {
+                    [object setValue:[result stringForColumn:column] forKey:column];
                 }
-                else if([typeValue isEqualToString:@"@\"NSArray\""]) {
-                    NSData *data = [result dataForColumn:colName];
+                else if([type isEqualToString:@"@\"NSArray\""]) {
+                    NSData *data = [result dataForColumn:column];
                     NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-                    [object setValue:array forKey:colName];
+                    [object setValue:array forKey:column];
                 }
-                else if([typeValue isEqualToString:@"@\"NSData\""]) {
-                    [object setValue:[result dataForColumn:colName] forKey:colName];
+                else if([type isEqualToString:@"@\"NSData\""]) {
+                    [object setValue:[result dataForColumn:column] forKey:column];
                 }
-                else if([typeValue isEqualToString:@"@\"NSSet\""]) {
-                    NSData *data = [result dataForColumn:colName];
+                else if([type isEqualToString:@"@\"NSSet\""]) {
+                    NSData *data = [result dataForColumn:column];
                     NSSet *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-                    [object setValue:array forKey:colName];
+                    [object setValue:array forKey:column];
                 }
-                else if([typeValue isEqualToString:@"@\"NSURL\""]) {
-                    [object setValue:[NSURL URLWithString:[result stringForColumn:colName]] forKey:colName];
+                else if([type isEqualToString:@"@\"NSURL\""]) {
+                    [object setValue:[NSURL URLWithString:[result stringForColumn:column]] forKey:column];
                 }
-                else if([typeValue isEqualToString:@"@\"NSInteger\""]) {
-                    [object setValue:[NSNumber numberWithInt:[result intForColumn:colName]] forKey:colName];
+                else if([type isEqualToString:@"@\"NSInteger\""]) {
+                    [object setValue:[NSNumber numberWithInt:[result intForColumn:column]] forKey:column];
                 }
-                else if([typeValue isEqualToString:@"@\"UIImage\""]) {
-                    NSData *data = [result dataForColumn:colName];
-                    [object setValue:[UIImage imageWithData:data] forKey:colName];
+                else if([type isEqualToString:@"@\"UIImage\""]) {
+                    NSData *data = [result dataForColumn:column];
+                    [object setValue:[UIImage imageWithData:data] forKey:column];
                 }
-                else if([typeValue isEqualToString:@"@\"NSDate\""]) {
-                    NSDate *date = [result dateForColumn:colName];
-                    [object setValue:date forKey:colName];
+                else if([type isEqualToString:@"@\"NSDate\""]) {
+                    NSDate *date = [result dateForColumn:column];
+                    [object setValue:date forKey:column];
                 }
-                else {
-                    [object setValue:[result dataForColumn:colName] forKey:colName];
-                }
+                else [object setValue:[result dataForColumn:column] forKey:column];
                 
                 break;
         }
-        
     }
-    
-//    [object setObjDictionary:dictionary];
     
     return object;
 }

@@ -31,37 +31,41 @@ The [Model](http://the-mac.github.io/data-store-ios/Classes/Model.html) can be d
 Alternatively [Model](http://the-mac.github.io/data-store-ios/Classes/Model.html) can be defined in Swift as well:
 ```    
 class Flight : Model {
-var name: String?
-var destination: String?
+    var name: String?
+    var destination: String?
 }
 ```
 
-### Getting Started
-Now you can begin to use some basic functions like [[Model save]](), [[Model count]]() or even [[Model all]]() on your model.
+### Basic Inserts
+To create a new record in the database, simply create a new model instance, set attributes on the model, then call the [save]() method on your model.
 ```
 - (void)viewDidAppear:(BOOL)animated {
-[super viewDidAppear:animated];
+    [super viewDidAppear:animated];
 
-Flight *flight = [[Flight alloc] init];
-flight.name = @"Flight 143";
-flight.destination = @"Lovemade, CA";
+    Flight *flight = [[Flight alloc] init];
+    flight.name = @"Flight 143";
+    flight.destination = @"Lovemade, CA";
 
-[flight save];
-
-
-NSInteger count = [Flight count];
-self.flightCountLabel.text = [NSString stringWithFormat:@"%d Flights Available", count];
-
-
-NSArray* flights = [Flight all];
-NSLog(@"All Flights = %@", flights);
-
-flight = flights[0];
-NSLog(@"First Flight (name = %@, destination = %@)", flight.name, flight.destination);
+    [flight save];
 }
 ```
+In this example, we simply assign the name and destination attributes of the Flight model instance. When we call the save method, a record will be inserted into the database.
 
-## Example
+### Retrieving Aggregates
+Of course, you may also use count provided by the Model class. This method returns the appropriate scalar value instead of a full model instance:
+```
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    NSInteger count = [Flight count];
+    self.flightCountLabel.text = [NSString stringWithFormat:@"%d Flight(s) Booked", count];
+}
+```
+In this example, we simply assign the count variable from the Flight model class' count method and report it to the UI component.
+
+
+
+## Example Project
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 

@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 Christopher Miller. All rights reserved.
 //
 
+#import "Flight.h"
 #import "DataStore.h"
 #import "MACAppDelegate.h"
 
@@ -13,7 +14,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [DataStore setup:@"FlightsExampleDB.sqlite"];
+    NSArray* tables = @[ [Flight class] ];
+    [DataStore setup:@"FlightsExampleDB.sqlite" with:tables];
     return YES;
 }
 

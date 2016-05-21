@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface DataStore : NSObject
-+ (void) setup:(NSString*) database;
++ (NSMutableArray *) getFields:(Class) class;
++ (void) setup:(NSString*) database with:(NSArray*) tables;
 + (NSString*) databasePath;
 @end
