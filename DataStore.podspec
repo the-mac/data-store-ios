@@ -22,7 +22,7 @@ s.author           = { "Christopher Miller" => "christopher.d.miller.1@gmail.com
 s.source           = { :git => "https://github.com/the-mac/data-store-ios.git", :tag => s.version.to_s }
 # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-s.ios.deployment_target = '8.0'
+s.ios.deployment_target = '9.0'
 
 s.source_files = 'Pods/FMDB/standard/*.{m,h}', 'DataStore/Classes/**/*', 'DataStore/Classes/*.{m,h}'
 s.dependency 'FMDB'

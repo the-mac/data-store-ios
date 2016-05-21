@@ -69,7 +69,7 @@ We are ready to start retrieving data from your database. Think of each Model as
 ```
 
 ### Retrieving Single Models
-In addition to retrieving all of the records for a given table, you may also retrieve single records using find and first. Instead of returning a collection of models, the find method returns a single model instance:
+In addition to retrieving all of the records for a given table, you can also retrieve single records using find. Instead of returning a collection of models, the find method returns a single model instance:
 ```
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -78,7 +78,7 @@ In addition to retrieving all of the records for a given table, you may also ret
     self.flightLabel.text = flight.name;
 }
 ```
-Once you have a Model instance, you can access the column values of the Model by accessing the corresponding property. For example, above we have a Flight instance accessing the name column.
+Once you have a Model instance, you can access the column values of the table by accessing the corresponding Model property. For example, above we have a Flight instance accessing the name column frmo the Flight table.
 
 
 ### Retrieving Aggregates
@@ -97,8 +97,7 @@ In this example, we simply assign the count variable from the Flight model class
 ### Deleting Models
 To delete a model, call the remove method on a model instance:
 ```
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (IBAction)cancelFlight {
 
     Flight *flight = (Flight *)[Flight find:1];
     [flight remove];
@@ -107,16 +106,14 @@ To delete a model, call the remove method on a model instance:
 
 Alternatively, to delete all models, call the truncate method:
 ```
-- (void)viewDidAppear:(BOOL)animated {
-[super viewDidAppear:animated];
+- (IBAction)cancelAllFlights {
 
     [Flight truncate];
 }
 ```
 
-
-
 ## Example Project
+![launch](0launch.png "UISwipesView") ![bookflight](1bookflight.png "Book Flight") ![showflights](2showflights.png "Show Flights")
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 

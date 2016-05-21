@@ -38,6 +38,16 @@
                ReferencedContainer = "container:DataStore.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9DE505AB1CF0F40F00005C69"
+               BuildableName = "MACSnapshotTests.xctest"
+               BlueprintName = "MACSnapshotTests"
+               ReferencedContainer = "container:DataStore.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

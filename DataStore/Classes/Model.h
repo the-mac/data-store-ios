@@ -9,6 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+/** The Model class is a new Object Relational Model (ORM) implementation for iOS, specifically made for ease of use. This implementation is loosely based upon Laravel Eloquent Models. Each property of the Model class implementation will generate the appropriate column in the underlying database table.<br/><br/>As in the example below, to pass data to the Flight database table, the Model class needs to be implemented and a save message needs to passed to the Model instance.
+ 
+ ```
+ Flight *flight = [[Flight alloc] init];
+ // Or in Swift: let flight = Flight()
+ 
+ flight.name = @"Flight 143";
+ // Or in Swift: flight.name = "Flight 143"
+ 
+ [flight save];
+ // Or in Swift: flight.save()
+ ```
+ */
 @interface Model : NSObject
 /*!
  @brief         The autoincrementing database id all Model records in database table
