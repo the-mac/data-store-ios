@@ -14,6 +14,10 @@
 static NSMutableString * queryString = nil;
 static NSMutableDictionary * queryFields = nil;
 
+@interface Model ()
+@property(readwrite, nonatomic, strong) NSNumber *_id;
+@end
+
 @implementation Model
 + (void) initialize {
     [Model clearQuery];
@@ -34,6 +38,17 @@ static NSMutableDictionary * queryFields = nil;
     
     return fields;
 }
++ (NSMutableArray *) getKeys:(NSObject*) obj {
+    Class class = [obj class];
+    NSMutableArray* fields = [Model getFields:class];
+    NSMutableArray* keys = [@[] mutableCopy];
+    
+    for (NSDictionary* field in fields) {
+        [keys addObject:field[@"column"]];
+    }
+    
+    return keys;
+}
 + (NSMutableArray *) getValues:(NSObject*) obj {
     Class class = [obj class];
     NSMutableArray* fields = [Model getFields:class];
@@ -46,27 +61,97 @@ static NSMutableDictionary * queryFields = nil;
     
     return values;
 }
++ (NSMutableString *) getParams:(NSObject*) obj {
+    Class class = [obj class];
+    NSMutableArray* fields = [Model getFields:class];
+    NSMutableString* values = [@"" mutableCopy];
+    
+    for (NSDictionary* field in fields) {
+        NSString *value = [obj valueForKey:field[@"column"]];
+        [values appendFormat:@"%@='%@',", field[@"column"], value];
+    }
+    
+    [values deleteCharactersInRange:NSMakeRange([values length] - 1, 1)];
 
+    return values;
+}
+
+-(id)init {
+    self = [super init];
+    if(self) {
+        self._id = [NSNumber numberWithInt:-111];
+    }
+    return self;
+}
 - (BOOL) save {
+    NSLog(@"called %s", __FUNCTION__);
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
     
     [queue inDatabase:^(FMDatabase *db) {
         
         NSArray * fields = [Model getFields: [self class]];
-        NSArray * values = [Model getValues: self];
         NSString *table = NSStringFromClass([self class]);
         
-        NSString *param = @", ?";
-        NSString *params = [@"?" stringByPaddingToLength:(fields.count - 1) * param.length + 1 withString:param startingAtIndex:0];
-        NSString *query = [NSString stringWithFormat:@"insert into %@ values (%@)", table, params];
+        NSString *query = nil;
         
-        [queryString appendString:query];
-        [db executeUpdate:queryString withArgumentsInArray:values];
+        if(![self._id isEqual:[NSNumber numberWithInt:-111]]) {
 
+            NSString *params = [Model getParams: self];
+            query = [NSString stringWithFormat:@"update %@ set %@ where _id='%@'", table, params, self._id];
+            NSLog(@"query =%@", query);
+
+            [queryString appendString:query];
+            [db executeUpdate:queryString];
+        } else {
+        
+            NSString *param = @", ?";
+            NSString *params = [@"?" stringByPaddingToLength:(fields.count - 1) * param.length + 1 withString:param startingAtIndex:0];
+            
+            NSMutableArray *keys = [Model getKeys: self];
+            NSLog(@"keys =%@", [keys description]);
+            
+            NSString *columns =  [[keys valueForKey:@"description"] componentsJoinedByString:@", "];
+            NSLog(@"columns =%@", columns);
+            
+            query = [NSString stringWithFormat:@"insert into %@(%@) values (%@)", table, columns, params];
+            NSLog(@"query =%@", query);
+            
+            self._id = [NSNumber numberWithInt:[[self class] count] + 1];
+            
+            [queryString appendString:query];
+            
+            NSArray * values = [Model getValues: self];
+            [db executeUpdate:queryString withArgumentsInArray:values];
+        }
     }];
     
     [Model clearQuery];
     return YES;
+}
+
++ (Model *) find:(int)identifier {
+    
+    __block int _id = identifier;
+    __block Model *model = nil;
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
+    
+    [queue inDatabase:^(FMDatabase *db) {
+        
+        NSString *table = NSStringFromClass([self class]);
+        [queryString appendString:[NSString stringWithFormat:@"select * from %@ where _id='%d'", table, _id]];
+        FMResultSet *results = [db executeQuery:queryString];
+        
+        while([results next]) {
+            model = (Model*) [self generateNSObject:results forClass:[self class]];
+            model._id = [NSNumber numberWithInt:[results intForColumnIndex:0]];
+            break;
+        }
+        [results close];
+    }];
+    
+    [Model clearQuery];
+    return model;
+    
 }
 + (NSArray *) all {
     
@@ -96,7 +181,7 @@ static NSMutableDictionary * queryFields = nil;
     [queue inDatabase:^(FMDatabase *db) {
         
         NSString *table = NSStringFromClass([self class]);
-        NSString *query = [NSString stringWithFormat:@"SELECT COUNT(*) FROM (%@)", table];
+        NSString *query = [NSString stringWithFormat:@"select count(*) from (%@)", table];
         
         [queryString appendString:query];
         FMResultSet *rsl = [db executeQuery:queryString];
@@ -107,6 +192,17 @@ static NSMutableDictionary * queryFields = nil;
     }];
     [Model clearQuery];
     return count;
+}
+- (BOOL) remove {
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
+    [queue inDatabase:^(FMDatabase *db) {
+        NSString *table = NSStringFromClass([self class]);
+        [queryString appendString:[NSString stringWithFormat:@"delete from %@ where _id='%@'", table, self._id]];
+        [db executeUpdate:queryString];
+    }];
+    
+    [Model clearQuery];
+    return YES;
 }
 + (BOOL) truncate {
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];

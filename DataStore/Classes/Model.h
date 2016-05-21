@@ -10,6 +10,12 @@
 #import <Foundation/Foundation.h>
 
 @interface Model : NSObject
+/*!
+ @brief         The autoincrementing database id all Model records in database table
+ @discussion    This property can be used to find records, as well as update the Model.
+ @return        <b>NSNumber</b> The Model autoincrementing identifier.
+ */
+@property (readonly, nonatomic) NSNumber *_id;
 
 /*!
  @brief         The method for counting the total of your Model in database
@@ -72,7 +78,7 @@
  @discussion    Call this method when you want to find data by the database primaryKey.
  @return        <b>NSArray</b> The results of the query, or returns nil when not found.
  */
-//- (NSArray *) find:(id)identifier;
++ (Model *) find:(int)identifier;
 
 /*!
  @brief         Search method for queries to the database, that fails when data not found
@@ -170,7 +176,7 @@
  @discussion    Call this method when you want to remove the object in the database.
  @return        <b>BOOL</b> YES on success and NO on failiure.
  */
-//- (BOOL) remove;
+- (BOOL) remove;
 
 /*!
  @brief         Truncate the objects from the database

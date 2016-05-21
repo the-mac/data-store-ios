@@ -124,11 +124,13 @@ static NSString * cachedDatabasePath = nil;
             }
         }
         
-        // DATABASE TABLE NEEDS MIGRATION
-        [queryString appendString:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' (", className]];
+        // DATABASE TABLE NEEDS MIGRATION ()
+        [queryString appendString:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ( ", className]];
         
         int position = 0;
         int last_position = (int) [columns count] - 1;
+        
+        [queryString appendString:@"_id INTEGER PRIMARY KEY AUTOINCREMENT, "];
         
         for (NSDictionary *field in columns) {
             NSString *column = [field valueForKey:@"column"];
@@ -142,7 +144,15 @@ static NSString * cachedDatabasePath = nil;
         [queryString appendString:@");"];
         
         FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
-        [queue inTransaction:^(FMDatabase *db, BOOL *rollback) { [db executeStatements:queryString]; }];
+        [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            
+            NSLog(@"queryString=%@",queryString);
+            
+            [db executeStatements:queryString];
+            
+            NSString *queryResult = @"";
+            NSLog(@"queryResult=%@",queryResult);
+        }];
         
         [defaults setObject:version forKey:className];
         [defaults synchronize];
