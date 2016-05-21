@@ -116,7 +116,11 @@ Alternatively, to delete all models, call the truncate method:
 ![launch](0launch.png "UISwipesView") ![bookflight](1bookflight.png "Book Flight") ![showflights](2showflights.png "Show Flights")
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
+```
+git clone https://github.com/the-mac/data-store-ios.git
+cd Example
+pod install
+```
 ## Requirements
 
 ## Author
