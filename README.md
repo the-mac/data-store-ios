@@ -113,6 +113,8 @@ Alternatively, to delete all models, call the truncate method:
 ```
 
 ## Example Project
+The Example Project displays the Flight class' basic CRUD operations of [count](), [truncate](), [save]() and [all](). The [advanced branch]() contains a more in depth [Laravel Eloquent]() implementation and Example project.
+
 ![launch](0launch.png "UISwipesView") ![bookflight](1bookflight.png "Book Flight") ![showflights](2showflights.png "Show Flights")
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -122,6 +124,7 @@ cd Example
 pod install
 ```
 ## Requirements
+This pod uses FMDB, and is already included in the Podfile.
 
 ## Author
 
