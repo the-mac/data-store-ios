@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-/** The Model class is a new Object Relational Model (ORM) based upon Laravel Eloquent Models, and made specifically for iOS development.<br/><br/>Each property of the Model class implementation will generate the appropriate column in the underlying database table.<br/><br/>As in the example below, to pass data to a Flight database table, the Model class needs to be subclassed and a save message needs to passed to the Flight instance.
+/** The Model class is a new Object Relational Model (ORM) based upon Laravel Eloquent Models, and made specifically for iOS development.<br/><br/>Each property of the Model class implementation will generate the appropriate column in the underlying database table.<br/><br/>As in the example below, to pass data to a Flight database table, the Model class needs to be subclassed and a save message needs to be passed to the Flight instance.
  
  ```
      Flight *flight = [[Flight alloc] init];    // Or in Swift: let flight = Flight()

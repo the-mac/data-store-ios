@@ -108,7 +108,6 @@ static NSString * cachedDatabasePath = nil;
     }
     
     for (id element in tables){
-        NSLog(@"%@",element);
         Class class = [element class];
         
         NSArray *columns = [DataStore getFields:class];
@@ -119,39 +118,22 @@ static NSString * cachedDatabasePath = nil;
         if(savedValue != nil) { // DATABASE TABLE IS CACHED
             if([version isEqualToString:savedValue]) continue;  // DATABASE TABLE ALREADY AT CORRECT VERSION
             else {
-                // DATABASE TABLE NEEDS MIGRATION/SEED
+                // DATABASE TABLE NEEDS SEED
                 [queryString appendString:[NSString stringWithFormat:@"DROP TABLE IF EXISTS '%@'; ", className]];
             }
         }
         
         // DATABASE TABLE NEEDS MIGRATION ()
         [queryString appendString:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ( ", className]];
-        
-        int position = 0;
-        int last_position = (int) [columns count] - 1;
-        
-        [queryString appendString:@"_id INTEGER PRIMARY KEY AUTOINCREMENT, "];
-        
-        for (NSDictionary *field in columns) {
-            NSString *column = [field valueForKey:@"column"];
-            NSString *type = [field valueForKey:@"type"];
-            
-            if(position == last_position) [queryString appendString:[NSString stringWithFormat:@"%@ %@ ", column, type]];
-            else [queryString appendString:[NSString stringWithFormat:@"%@ %@, ", column, type]];
-            position++;
-        }
-        
+        [queryString appendString:[self generateColumns:columns]];
         [queryString appendString:@");"];
         
         FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
         [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
             
-            NSLog(@"queryString=%@",queryString);
+            BOOL queryResult = [db executeStatements:queryString];
             
-            [db executeStatements:queryString];
-            
-            NSString *queryResult = @"";
-            NSLog(@"queryResult=%@",queryResult);
+            NSLog(@"Model: %@\nqueryString=%@\nqueryResult=%d", element, queryString, queryResult);
         }];
         
         [defaults setObject:version forKey:className];
@@ -159,6 +141,24 @@ static NSString * cachedDatabasePath = nil;
     }
     
     
+}
+
++ (NSString*) generateColumns:(NSArray*)fields {
+    
+    int position = 0;
+    int last_position = (int) [fields count] - 1;
+    NSMutableString *query = [[NSMutableString alloc] init];
+    [query appendString:@"_id INTEGER PRIMARY KEY AUTOINCREMENT, "];
+    
+    for (NSDictionary *field in fields) {
+        NSString *column = [field valueForKey:@"column"];
+        NSString *type = [field valueForKey:@"type"];
+        
+        if(position == last_position) [query appendString:[NSString stringWithFormat:@"%@ %@ ", column, type]];
+        else [query appendString:[NSString stringWithFormat:@"%@ %@, ", column, type]];
+        position++;
+    }
+    return query;
 }
 
 + (NSString*) databasePath {

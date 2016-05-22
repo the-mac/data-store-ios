@@ -18,6 +18,29 @@
 @implementation Flight
 @end
 
+
+@interface Reel : Model
+@property (nonatomic, strong) NSString * Certificate;
+@property (nonatomic, strong) NSString * Directors;
+@property (nonatomic, strong) NSString * Name;
+@property (nonatomic, strong) NSString * NotSure;
+@property (nonatomic, strong) NSString * reel_id;
+@property (nonatomic, strong) NSString * ReelPlot;
+@property (nonatomic, strong) NSString * ReelRating;
+@property (nonatomic, strong) NSString * RunTime;
+@property (nonatomic, strong) NSString * SubGenre;
+@property (nonatomic, strong) NSString * Trailer;
+@property (nonatomic, strong) NSString * WatchedBad;
+@property (nonatomic, strong) NSString * WatchedGood;
+@property (nonatomic, strong) NSString * WatchLater;
+@property (nonatomic, strong) NSString * Year;
+@end
+
+@implementation Reel
+@end
+
+
+
 @interface Tests : XCTestCase
 @property FMDatabaseQueue *queue;
 @end
@@ -44,7 +67,7 @@
     
 }
 
-- (void)testWhiteBoxSave {
+- (void)testWhiteBoxFlightSave {
     [self.queue inDatabase:^(FMDatabase *db) {
         
         [db executeUpdate:@"drop table if exists Flight"];
@@ -66,7 +89,7 @@
         
     }];
 }
-- (void)testBlackBoxSave {
+- (void)testBlackBoxFlightSave {
     
     [self.queue inDatabase:^(FMDatabase *db) {
         
@@ -113,6 +136,63 @@
         FMResultSet *rsl = [db executeQuery:@"select * from Flight"];
         while ([rsl next]) {
             NSLog(@"\n\n%@ = %@\n", @"select * from Flight", [rsl stringForColumnIndex:0]);
+            count++;
+        }
+        
+        XCTAssertEqual(count, 1);
+    }];
+}
+
+- (void)testBlackBoxReelSave {
+    
+    [self.queue inDatabase:^(FMDatabase *db) {
+        
+        [db executeUpdate:@"drop table if exists Reel"];
+        
+        NSArray *fields = [DataStore getFields:[Reel class]];
+        [db executeUpdate:[NSString stringWithFormat:@"create table Reel (%@)", [DataStore generateColumns:fields]]];
+        
+        
+        int count = 0;
+        NSString *query = @"select * from Reel";
+        FMResultSet *rsl = [db executeQuery:query];
+        while ([rsl next]) {
+            NSLog(@"\n\n%@ = %@\n", query, [rsl stringForColumnIndex:0]);
+            count++;
+        }
+        
+        XCTAssertEqual(count, 0);
+    }];
+    
+    
+    Reel *reel = [[Reel alloc] init];
+    reel.Name = @"Pulp Fiction";
+    reel.reel_id = @"0110912";
+    
+    [reel save];
+    
+    [self.queue inDatabase:^(FMDatabase *db) {
+        
+        int count = 0;
+        FMResultSet *rsl = [db executeQuery:@"select * from Reel"];
+        while ([rsl next]) {
+            NSLog(@"\n\n%@ = %@\n", @"select * from Reel", [rsl stringForColumnIndex:0]);
+            count++;
+        }
+        
+        XCTAssertEqual(count, 1);
+    }];
+    
+    reel.WatchedGood = @"16.05.22.03.02";
+    
+    [reel save];
+    
+    [self.queue inDatabase:^(FMDatabase *db) {
+        
+        int count = 0;
+        FMResultSet *rsl = [db executeQuery:@"select * from Reel"];
+        while ([rsl next]) {
+            NSLog(@"\n\n%@ = %@\n", @"select * from Reel", [rsl stringForColumnIndex:0]);
             count++;
         }
         

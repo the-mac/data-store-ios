@@ -23,6 +23,8 @@
 		84E87CDF5C5D6417AFB4A57DCABAE167 /* DataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = A8CDF84C5DA96DC8896C5D5AD10774C8 /* DataStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		85C1A15E7FDBDA527CE5DA8CD53D44F6 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D2F8382360C935E0097F1CB2E26820 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		94BDD27C91BAD3213EAF5866191BF971 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B97A597AFE8B5A90EDFF8560393C46B /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9DE505C41CF21AA100005C69 /* ExtendNSLogFunctionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DE505C21CF21AA100005C69 /* ExtendNSLogFunctionality.h */; settings = {ASSET_TAGS = (); }; };
+		9DE505C51CF21AA100005C69 /* ExtendNSLogFunctionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE505C31CF21AA100005C69 /* ExtendNSLogFunctionality.m */; settings = {ASSET_TAGS = (); }; };
 		A175727BDBE481292032626C011E385E /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C4BBD76359D36C69E5804A290D1C5ED2 /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3ADA852C68BCBEE5C313AA5CA726FE4 /* DataStore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 655081344BECCD584F7799D159CF71CE /* DataStore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A44DB3DEAA88650E2A493E644DCC333A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9B9008DA230F7311D67B7F84A21CB6 /* Foundation.framework */; };
@@ -92,6 +94,8 @@
 		850EA9CD6A0EAC08130B53604810C401 /* Model.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		8DF62A1F971FFFC84C36F474CF296297 /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DE505C21CF21AA100005C69 /* ExtendNSLogFunctionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendNSLogFunctionality.h; sourceTree = "<group>"; };
+		9DE505C31CF21AA100005C69 /* ExtendNSLogFunctionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendNSLogFunctionality.m; sourceTree = "<group>"; };
 		A2D2F8382360C935E0097F1CB2E26820 /* FMDatabasePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
 		A2FEE1C2CB8A93E334EC93A9DE72BE84 /* Model.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		A82124697E95B25065BF5AC6D962526C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 				17840EC0FDD9A1F04245912E2780A2E9 /* DataStore.m */,
 				850EA9CD6A0EAC08130B53604810C401 /* Model.h */,
 				A2FEE1C2CB8A93E334EC93A9DE72BE84 /* Model.m */,
+				9DE505C21CF21AA100005C69 /* ExtendNSLogFunctionality.h */,
+				9DE505C31CF21AA100005C69 /* ExtendNSLogFunctionality.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE505C41CF21AA100005C69 /* ExtendNSLogFunctionality.h in Headers */,
 				A3ADA852C68BCBEE5C313AA5CA726FE4 /* DataStore-umbrella.h in Headers */,
 				84E87CDF5C5D6417AFB4A57DCABAE167 /* DataStore.h in Headers */,
 				D11675669E86D6405861C0CC852EDB19 /* Model.h in Headers */,
@@ -521,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D34E7CB9C4033064A80CC7D4AA689CF /* DataStore-dummy.m in Sources */,
+				9DE505C51CF21AA100005C69 /* ExtendNSLogFunctionality.m in Sources */,
 				60572D762E61DC2542541C848FDAD2B9 /* DataStore.m in Sources */,
 				825B930D824DDC98F3795C6425C27D45 /* Model.m in Sources */,
 			);

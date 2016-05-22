@@ -39,6 +39,12 @@
 + (NSMutableArray *) getFields:(Class) class;
 
 /**
+ Generates CREATE Statement columns string from fields array.
+ @param fields The fields generated from getFields:(Class)
+ @return <b>NSString</b> A string of the database columns for CREATE Statement
+ */
++ (NSString*) generateColumns:(NSArray*)fields;
+/**
  Sets up the sqlite database for the application
  @param database The SQLite database name, that can also be a prepopulated and bundled db.
  @param tables The collection of Model class references to be used with the database

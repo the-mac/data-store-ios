@@ -1,0 +1,9 @@
+clear && printf '\e[3J' && \
+VERSION=0.1.3 && \
+cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStore/ && \
+git add . && \
+git commit -m "v$VERSION: Added DataStore generateColumns, Fixed Saving issue (#2), Updated docs and README, Passed 9/9 Unit Test" && \
+git push origin basic && \
+git tag $VERSION && \
+git push origin basic $VERSION && \
+pod trunk push DataStore.podspec --allow-warnings

@@ -44,7 +44,8 @@ static NSMutableDictionary * queryFields = nil;
     NSMutableArray* keys = [@[] mutableCopy];
     
     for (NSDictionary* field in fields) {
-        [keys addObject:field[@"column"]];
+        NSString *value = [obj valueForKey:field[@"column"]];
+        if(value != nil) [keys addObject:field[@"column"]];
     }
     
     return keys;
@@ -56,7 +57,11 @@ static NSMutableDictionary * queryFields = nil;
     
     for (NSDictionary* field in fields) {
         NSString *value = [obj valueForKey:field[@"column"]];
-        [values addObject:value];
+        if(value != nil) [values addObject:value];
+//        NSString *value = [obj valueForKey:field[@"column"]];
+//        if(value == nil)
+//            [values addObject:[NSNull null]];
+//        else [values addObject:value];
     }
     
     return values;
@@ -68,7 +73,10 @@ static NSMutableDictionary * queryFields = nil;
     
     for (NSDictionary* field in fields) {
         NSString *value = [obj valueForKey:field[@"column"]];
-        [values appendFormat:@"%@='%@',", field[@"column"], value];
+        if(value != nil) [values appendFormat:@"%@='%@',", field[@"column"], value];
+        
+//        NSString *value = [obj valueForKey:field[@"column"]];
+//        [values appendFormat:@"%@='%@',", field[@"column"], value];
     }
     
     [values deleteCharactersInRange:NSMakeRange([values length] - 1, 1)];
@@ -104,14 +112,15 @@ static NSMutableDictionary * queryFields = nil;
             [db executeUpdate:queryString];
         } else {
         
-            NSString *param = @", ?";
-            NSString *params = [@"?" stringByPaddingToLength:(fields.count - 1) * param.length + 1 withString:param startingAtIndex:0];
             
             NSMutableArray *keys = [Model getKeys: self];
             NSLog(@"keys =%@", [keys description]);
             
             NSString *columns =  [[keys valueForKey:@"description"] componentsJoinedByString:@", "];
             NSLog(@"columns =%@", columns);
+            
+            NSString *param = @", ?";
+            NSString *params = [@"?" stringByPaddingToLength:(keys.count - 1) * param.length + 1 withString:param startingAtIndex:0];
             
             query = [NSString stringWithFormat:@"insert into %@(%@) values (%@)", table, columns, params];
             NSLog(@"query =%@", query);
