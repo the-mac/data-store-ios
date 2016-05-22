@@ -1,5 +1,5 @@
 # Data Store iOS
-[DataStore](http://the-mac.github.io/data-store-ios) is the [Eloquent](https://laravel.com/docs/5.1/eloquent) based ORM (for iOS) that also provides a beautiful, simple ActiveRecord implementation for working with your data storage. Each database table has a corresponding "[Model](http://the-mac.github.io/data-store-ios/Classes/Model.html)" which is used to interact with that table. Models allow you to insert new records into the table, query for data in your tables, as well as update (and delete from) the table.
+[DataStore](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/DataStore.html) is the [Eloquent](https://laravel.com/docs/5.2/eloquent) based ORM (for iOS) that also provides a beautiful, simple ActiveRecord implementation for working with your data storage. Each database table has a corresponding [Model](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html) which is used to interact with a table by the same name. Models allow you to insert new records into the table, query for data in your tables, as well as update (and delete from) the table.
 
 More can be found on the Eloquent Model here:
 - https://laravel.com/docs/5.2/eloquent#inserting-and-updating-models
@@ -18,10 +18,8 @@ pod "DataStore"
 
 ### Defining Models
 
-The [Model](http://the-mac.github.io/data-store-ios/Classes/Model.html) can be defined in Objective-C:
+You can update any class to implmenet [Model](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html) in Objective-C:
 
-
-* First update your class to implement [Model](http://the-mac.github.io/data-store-ios/Classes/Model.html)
 ```
 @interface Flight : Model
 @property (strong, nonatomic) NSString *name;
@@ -32,7 +30,7 @@ The [Model](http://the-mac.github.io/data-store-ios/Classes/Model.html) can be d
 @end
 ```
 
-Alternatively [Model](http://the-mac.github.io/data-store-ios/Classes/Model.html) can be defined in Swift as well:
+Alternatively [Model](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html) subclasses can be defined in Swift as well:
 ```    
 class Flight : Model {
     var name: String?
@@ -41,7 +39,8 @@ class Flight : Model {
 ```
 
 ### Basic Inserts / Updates
-To create a new record in the database, simply create a new model instance, set attributes on the model, then call the [save]() method on your model.
+To create a new record in the database, simply create a new instance of your [Model](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html) subclass, set attributes on that model, then call the [save](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/save) method on your model.
+
 ```
 - (IBAction)bookFlight {
 
@@ -54,10 +53,10 @@ To create a new record in the database, simply create a new model instance, set 
     [self.navigationController popViewControllerAnimated:YES];
 }
 ```
-In this example, we simply assign the name and destination attributes of the Flight model instance. When we call the save method, a record will be inserted into the database. Alternatively, if you make another change to the Model instance and save again it will update the database record.
+In the example above, we simply assign the name and destination attributes of the Flight model instance. When we call the save method, a record will be inserted into the database. Alternatively, if you make another change to the Model instance and save again it will update the database record.
 
 ### Retrieving Multiple Models
-We are ready to start retrieving data from your database. Think of each Model as a powerful query builder allowing you to fluently query the database table associated with the model. Take the Flight class for example:
+Now that we have seen how to [save](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/save) data with a [Model](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html), we are ready to start retrieving data from your database. Think of each model as a powerful query builder allowing you to fluently query the database table associated with the model. Take the [all](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/all) function for example:
 ```
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -67,9 +66,13 @@ We are ready to start retrieving data from your database. Think of each Model as
     self.flightCountLabel.text = [NSString stringWithFormat:@"%d Flight(s) Booked", count];
 }
 ```
+In this example, we simply assign the NSArray from the [all](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/all) function of the Flight model. It's just that simple to get all records of a specific table.
+
+Alternatively, if you want to query a subset you will have to use the [advanced branch]() of the DataStore Framework to use the [where]() and [orWhere]() query builder methods and the [get]() method to execute the queries.
+
 
 ### Retrieving Single Models
-In addition to retrieving all of the records for a given table, you can also retrieve single records using find. Instead of returning a collection of models, the find method returns a single model instance:
+In addition to retrieving all of the records for a given table, you can also retrieve a single record. Instead of returning a collection of models like with the [all](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/all) function, the [find](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/find) function returns a single model instance:
 ```
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -78,11 +81,11 @@ In addition to retrieving all of the records for a given table, you can also ret
     self.flightLabel.text = flight.name;
 }
 ```
-Once you have a Model instance, you can access the column values of the table by accessing the corresponding Model property. For example, above we have a Flight instance accessing the name column frmo the Flight table.
+Once you have a Model instance, you can access the column values of the table by accessing the corresponding Model property. For example, above we have a Flight instance accessing the name column from the Flight table.
 
 
 ### Retrieving Aggregates
-Of course, you may also use the count method provided by the Model class. This method returns the appropriate scalar value instead of a full model instance (or collection of instances):
+Of course, you may also use the [count](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/count) function provided by the Model class. This function returns the appropriate scalar value instead of a full model instance (or collection of instances):
 ```
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -91,11 +94,11 @@ Of course, you may also use the count method provided by the Model class. This m
     self.flightCountLabel.text = [NSString stringWithFormat:@"%d Flight(s) Booked", count];
 }
 ```
-In this example, we simply assign the count variable from the Flight model class' count method and report it to the UI component.
+In this example, we simply assign the count variable from the Flight model class' [count](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/count) function and report it to the UI component.
 
 
 ### Deleting Models
-To delete a model, call the remove method on a model instance:
+To delete a model, call the [remove](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/remove) method on a model instance:
 ```
 - (IBAction)cancelFlight {
 
@@ -104,7 +107,7 @@ To delete a model, call the remove method on a model instance:
 }
 ```
 
-Alternatively, to delete all models, call the truncate method:
+Alternatively, to delete all models, call the [truncate](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/truncate) function:
 ```
 - (IBAction)cancelAllFlights {
 
@@ -113,7 +116,7 @@ Alternatively, to delete all models, call the truncate method:
 ```
 
 ## Example Project
-The Example Project displays the Flight class' basic CRUD operations of [count](), [truncate](), [save]() and [all](). The [advanced branch]() contains a more in depth [Laravel Eloquent]() implementation and Example project.
+The Example Project displays the Flight class' basic CRUD operations of [count](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/count), [truncate](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/truncate), [save](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/save) and [all](http://cocoadocs.org/docsets/DataStore/0.1.0/Classes/Model.html#//api/name/all). The [advanced branch]() contains a more in depth [Laravel Eloquent](https://laravel.com/docs/5.2/eloquent) implementation and Example project.
 
 ![launch](0launch.png "UISwipesView") ![bookflight](1bookflight.png "Book Flight") ![showflights](2showflights.png "Show Flights")
 
@@ -124,13 +127,23 @@ cd Example
 pod install
 ```
 ## Requirements
-This pod uses FMDB, and is already included in the Podfile.
+This pod uses [FMDB](http://cocoadocs.org/docsets/FMDB/2.6.2/), and is already included in the example Podfile. For your own Podfile, it could look as follows:
+```
+platform :ios, '8.0'
+target 'MyApp'
+pod 'DataStore'
+```
 
-## Author
+## Author: Christopher Miller
+Android/iOS Project Manager
 
-[Christopher Miller, Android/iOS Project Manager](https://github.com/cdm2012)
+- [Github Profile](https://github.com/cdm2012)
+- [Linked-In Profile](https://www.linkedin.com/in/christophermiller64)
 
-## Contributors
+## Contributing
+See [CONTRIBUTING.md]() for more on what is require to contribute.
+
+### Current Contributors
 
 [Your Name Here](#)
 

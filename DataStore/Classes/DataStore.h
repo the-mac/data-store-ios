@@ -12,24 +12,21 @@
  
  OBJ-C
  ```
- 
- @interface Flight : Model
- @property (strong, nonatomic) NSString *name;
- @property (strong, nonatomic) NSString *destination;
- @end
- 
- @implementation Flight
- @end
- 
+     @interface Flight : Model
+     @property (strong, nonatomic) NSString *name;
+     @property (strong, nonatomic) NSString *destination;
+     @end
+     
+     @implementation Flight
+     @end
  ```
  
  SWIFT
  ```
- 
- class Flight : Model {
- var name: String?
- var destination: String?
- }
+     class Flight : Model {
+         var name: String?
+         var destination: String?
+     }
  ```
  */
 @interface DataStore : NSObject
