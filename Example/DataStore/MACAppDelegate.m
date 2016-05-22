@@ -16,7 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSArray* tables = @[ [Flight class], [Reel class] ];
-    [DataStore setup:@"FlightsExampleDB.sqlite" with:tables];
+    [DataStoreHelper setup:@"FlightsExampleDB.sqlite" with:tables];
     return YES;
 }
 

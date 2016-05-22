@@ -6,7 +6,7 @@
 //  Copyright © 2016 Christopher Miller. All rights reserved.
 //
 
-#import <DataStore/Model.h>
+#import <DataStore/DataStore.h>
 
 @interface Reel : Model
 @property (nonatomic, strong) NSString * Certificate;

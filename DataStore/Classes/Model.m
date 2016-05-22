@@ -7,7 +7,6 @@
 //
 
 #import "FMDB.h"
-#import "Model.h"
 #import "DataStore.h"
 #import <objc/runtime.h>
 
@@ -33,7 +32,7 @@ static NSMutableDictionary * queryFields = nil;
     
     if(fields != nil) return fields;
     
-    fields = [DataStore getFields:class];
+    fields = [DataStoreHelper getFields:class];
     [queryFields setValue:fields forKey:tableName];
     
     return fields;
@@ -58,10 +57,6 @@ static NSMutableDictionary * queryFields = nil;
     for (NSDictionary* field in fields) {
         NSString *value = [obj valueForKey:field[@"column"]];
         if(value != nil) [values addObject:value];
-//        NSString *value = [obj valueForKey:field[@"column"]];
-//        if(value == nil)
-//            [values addObject:[NSNull null]];
-//        else [values addObject:value];
     }
     
     return values;
@@ -74,9 +69,6 @@ static NSMutableDictionary * queryFields = nil;
     for (NSDictionary* field in fields) {
         NSString *value = [obj valueForKey:field[@"column"]];
         if(value != nil) [values appendFormat:@"%@='%@',", field[@"column"], value];
-        
-//        NSString *value = [obj valueForKey:field[@"column"]];
-//        [values appendFormat:@"%@='%@',", field[@"column"], value];
     }
     
     [values deleteCharactersInRange:NSMakeRange([values length] - 1, 1)];
@@ -93,11 +85,10 @@ static NSMutableDictionary * queryFields = nil;
 }
 - (BOOL) save {
     NSLog(@"called %s", __FUNCTION__);
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStoreHelper databasePath]];
     
     [queue inDatabase:^(FMDatabase *db) {
         
-        NSArray * fields = [Model getFields: [self class]];
         NSString *table = NSStringFromClass([self class]);
         
         NSString *query = nil;
@@ -142,7 +133,7 @@ static NSMutableDictionary * queryFields = nil;
     
     __block int _id = identifier;
     __block Model *model = nil;
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStoreHelper databasePath]];
     
     [queue inDatabase:^(FMDatabase *db) {
         
@@ -165,7 +156,7 @@ static NSMutableDictionary * queryFields = nil;
 + (NSArray *) all {
     
     NSMutableArray *allResults = [[NSMutableArray alloc] init];
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStoreHelper databasePath]];
     
     [queue inDatabase:^(FMDatabase *db) {
         
@@ -184,7 +175,7 @@ static NSMutableDictionary * queryFields = nil;
 }
 + (int) count {
     
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStoreHelper databasePath]];
     __block int count = -1;
     
     [queue inDatabase:^(FMDatabase *db) {
@@ -203,7 +194,7 @@ static NSMutableDictionary * queryFields = nil;
     return count;
 }
 - (BOOL) remove {
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStoreHelper databasePath]];
     [queue inDatabase:^(FMDatabase *db) {
         NSString *table = NSStringFromClass([self class]);
         [queryString appendString:[NSString stringWithFormat:@"delete from %@ where _id='%@'", table, self._id]];
@@ -214,7 +205,7 @@ static NSMutableDictionary * queryFields = nil;
     return YES;
 }
 + (BOOL) truncate {
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStoreHelper databasePath]];
     [queue inDatabase:^(FMDatabase *db) {
         NSString *table = NSStringFromClass([self class]);
         [queryString appendString:[NSString stringWithFormat:@"delete from %@", table]];

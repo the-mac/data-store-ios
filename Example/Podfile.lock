@@ -1,5 +1,5 @@
 PODS:
-  - DataStore (0.1.0):
+  - DataStore (0.1.3):
     - FMDB
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  DataStore: 7d7b40bcf939a61acefbf43860aa653fe4c52fe6
+  DataStore: b66a7a50ce7515bcfd19b350d3620ca2c3d032c1
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
 
 PODFILE CHECKSUM: 8769f7f32b21b52ed102de667f6f2eda97ecb6cb

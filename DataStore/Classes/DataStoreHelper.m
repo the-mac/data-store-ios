@@ -12,7 +12,7 @@
 
 static NSString * cachedDatabasePath = nil;
 
-@implementation DataStore
+@implementation DataStoreHelper
 
 /*!
  
@@ -67,7 +67,7 @@ static NSString * cachedDatabasePath = nil;
         
         NSString *name = [[NSString alloc] initWithUTF8String:property_getName(property)];
         NSString *dataType = [NSString stringWithUTF8String:property_copyAttributeValue(property, "T")];
-        NSString *type = [DataStore getType:property_copyAttributeValue(property, "T")];
+        NSString *type = [self getType:property_copyAttributeValue(property, "T")];
         
         [column setValue:name forKey:@"column"];
         [column setValue:dataType forKey:@"dataType"];
@@ -89,7 +89,7 @@ static NSString * cachedDatabasePath = nil;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSFileManager * defaultManager = [NSFileManager defaultManager];
-    NSString *databaseDir = [DataStore directoryForDatabaseFilename];
+    NSString *databaseDir = [self directoryForDatabaseFilename];
     
     [defaultManager createDirectoryAtPath:databaseDir
               withIntermediateDirectories:YES
@@ -110,7 +110,7 @@ static NSString * cachedDatabasePath = nil;
     for (id element in tables){
         Class class = [element class];
         
-        NSArray *columns = [DataStore getFields:class];
+        NSArray *columns = [self getFields:class];
         NSString *className = NSStringFromClass (class);
         NSString *savedValue = [defaults stringForKey:className];
         NSMutableString *queryString = [[NSMutableString alloc] init];
@@ -128,7 +128,7 @@ static NSString * cachedDatabasePath = nil;
         [queryString appendString:[self generateColumns:columns]];
         [queryString appendString:@");"];
         
-        FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStore databasePath]];
+        FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[self databasePath]];
         [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
             
             BOOL queryResult = [db executeStatements:queryString];

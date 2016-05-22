@@ -1,8 +1,8 @@
 {
   "name": "DataStore",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "summary": "Data Store (a Laravel Eloquent like ORM) syncs your Objects (or Models) to an underlying SQLite table.",
-  "description": "This Eloquent based ORM (for iOS) also provides a beautiful, simple ActiveRecord implementation for working with your data storage. Each database table has a corresponding \"Model\" which is used to interact with that table. Models allow you to query for data in your tables, insert new records into the table, as well as update the table.",
+  "description": "DataStore is the Eloquent based ORM (for iOS) that also provides a beautiful, simple ActiveRecord implementation for working with your data storage. Each database table has a corresponding \"Model\" which is used to communicate. A Model allows you to insert new records into the table, query for data in your table, as well as update (and delete from) the table.\n\nMore can be found on the Eloquent Model here:\n\nhttps://laravel.com/docs/5.2/eloquent#inserting-and-updating-models\nhttps://laravel.com/api/5.2/Illuminate/Database/Eloquent/Model.html",
   "homepage": "https://github.com/the-mac/data-store-ios",
   "license": "MIT",
   "authors": {
@@ -10,12 +10,13 @@
   },
   "source": {
     "git": "https://github.com/the-mac/data-store-ios.git",
-    "tag": "0.1.0"
+    "tag": "0.1.3"
   },
   "platforms": {
     "ios": "8.0"
   },
   "source_files": [
+    "Pods/FMDB/standard/*.{m,h}",
     "DataStore/Classes/**/*",
     "DataStore/Classes/*.{m,h}"
   ],

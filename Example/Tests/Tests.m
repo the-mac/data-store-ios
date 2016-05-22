@@ -49,7 +49,7 @@
 
 - (void)setUp {
     [super setUp];
-    self.queue = [FMDatabaseQueue databaseQueueWithPath: [DataStore databasePath]];
+    self.queue = [FMDatabaseQueue databaseQueueWithPath: [DataStoreHelper databasePath]];
 }
 - (void)tearDown {
     [super tearDown];
@@ -149,8 +149,8 @@
         
         [db executeUpdate:@"drop table if exists Reel"];
         
-        NSArray *fields = [DataStore getFields:[Reel class]];
-        [db executeUpdate:[NSString stringWithFormat:@"create table Reel (%@)", [DataStore generateColumns:fields]]];
+        NSArray *fields = [DataStoreHelper getFields:[Reel class]];
+        [db executeUpdate:[NSString stringWithFormat:@"create table Reel (%@)", [DataStoreHelper generateColumns:fields]]];
         
         
         int count = 0;
