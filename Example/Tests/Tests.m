@@ -50,7 +50,7 @@
         [db executeUpdate:@"drop table if exists Flight"];
         [db executeUpdate:@"create table Flight (_id integer primary key autoincrement, name text, destination text)"];
         
-        [db executeUpdate:@"insert into Flight values ('Flight 144', 'Lovemade, CA')"];
+        [db executeUpdate:@"insert into Flight(name, destination) values ('Flight 144', 'Lovemade, CA')"];
         
         int count = 0;
         FMResultSet *rsl = [db executeQuery:@"select * from Flight"];
@@ -197,8 +197,8 @@
         NSString *query = @"SELECT * FROM Flight";
         FMResultSet *rsl = [db executeQuery:query];
         while ([rsl next]) {
-            name = [rsl stringForColumnIndex:0];
-            destination = [rsl stringForColumnIndex:1];
+            name = [rsl stringForColumnIndex:1];
+            destination = [rsl stringForColumnIndex:2];
             NSLog(@"\n\n%@ = (name = %@, destination = %@)\n", query, name, destination);
             count++;
             
