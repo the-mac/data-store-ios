@@ -1,5 +1,5 @@
 //
-//  DataStoreUtil.h
+//  DataStoreHelper.h
 //  Pods
 //
 //  Created by Christopher Miller on 20/05/16.
@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-/** DataStoreUtil is a utility class for data containment, made to support the Object Relational Model (ORM) class. The Model class works just like any other ORM, except it is loosely based upon the Laravel Eloquent Model and the following are basic implementations of the Model class in Objective-C and Swift:
+/** DataStoreHelper is a utility class for data containment, made to support the Object Relational Model (ORM) class. The Model class works just like any other ORM, except it is loosely based upon the Laravel Eloquent Model and the following are basic implementations of the Model class in Objective-C and Swift:
  
+ OBJ-C
  ```
  
      @interface Flight : Model
@@ -21,6 +22,7 @@
      @end
  ```
 
+ SWIFT
  ```
  
      class Flight : Model {
