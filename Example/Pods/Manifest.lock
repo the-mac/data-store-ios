@@ -1,0 +1,22 @@
+PODS:
+  - DataStoreAdvanced (2.1.1):
+    - FMDB
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+
+DEPENDENCIES:
+  - DataStoreAdvanced (from `../`)
+  - FMDB
+
+EXTERNAL SOURCES:
+  DataStoreAdvanced:
+    :path: ../
+
+SPEC CHECKSUMS:
+  DataStoreAdvanced: 48053dc086c3111f616c1c425125ad3e983a7acb
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+
+PODFILE CHECKSUM: 7103f1ddff2ded395c145c20df224f81edcb0dd4
+
+COCOAPODS: 1.0.0

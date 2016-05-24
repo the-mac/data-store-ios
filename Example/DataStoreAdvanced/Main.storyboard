@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lW3-pS-Bz2">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Flights Table View Controller-->
+        <scene sceneID="ILf-Kn-Cmf">
+            <objects>
+                <tableViewController storyboardIdentifier="FlightsTable" id="ubh-eq-cyf" customClass="FlightsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bpQ-te-5MA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hiM-Lo-Vpc">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hiM-Lo-Vpc" id="UwR-Rw-ZZi">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ubh-eq-cyf" id="pnG-6g-GtX"/>
+                            <outlet property="delegate" destination="ubh-eq-cyf" id="pQg-Zz-Gmm"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HHj-ZM-svK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="959" y="115"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="wQg-tq-qST">
             <objects>
@@ -16,12 +45,147 @@
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="# Flights Booked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dr6-pR-J1r">
+                                <rect key="frame" x="20" y="142" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAj-I7-em4">
+                                <rect key="frame" x="20" y="204" width="560" height="30"/>
+                                <state key="normal" title="Show Your Flights"/>
+                                <connections>
+                                    <action selector="showFlights" destination="whP-gf-Uak" eventType="touchUpInside" id="I2j-iX-n7V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLB-gp-Hhd">
+                                <rect key="frame" x="20" y="307" width="560" height="30"/>
+                                <state key="normal" title="Cancel All Flights"/>
+                                <connections>
+                                    <action selector="cancelFlights" destination="whP-gf-Uak" eventType="touchUpInside" id="njO-f9-LEm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUa-V9-QJS">
+                                <rect key="frame" x="20" y="256" width="560" height="30"/>
+                                <state key="normal" title="Book A Flight"/>
+                                <connections>
+                                    <action selector="bookAFlight" destination="whP-gf-Uak" eventType="touchUpInside" id="9EM-rK-Jsp"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dr6-pR-J1r" secondAttribute="trailing" id="4Dl-Ny-nvU"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="rAj-I7-em4" secondAttribute="leading" id="6W1-At-N7V"/>
+                            <constraint firstItem="GLB-gp-Hhd" firstAttribute="top" secondItem="hUa-V9-QJS" secondAttribute="bottom" constant="21" id="Fl4-uk-BSa"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="GLB-gp-Hhd" secondAttribute="leading" id="KC5-Rk-8Kp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GLB-gp-Hhd" secondAttribute="trailing" id="MqC-UI-b9W"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="hUa-V9-QJS" secondAttribute="leading" id="cVM-sO-uJh"/>
+                            <constraint firstItem="rAj-I7-em4" firstAttribute="top" secondItem="Dr6-pR-J1r" secondAttribute="bottom" constant="41" id="f83-kj-QlH"/>
+                            <constraint firstItem="hUa-V9-QJS" firstAttribute="top" secondItem="rAj-I7-em4" secondAttribute="bottom" constant="22" id="fP7-07-kvg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rAj-I7-em4" secondAttribute="trailing" id="guG-ec-hCE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hUa-V9-QJS" secondAttribute="trailing" id="oQ3-sv-g4j"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Dr6-pR-J1r" secondAttribute="leading" id="wad-zT-nF6"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="pie-fh-cQf"/>
+                    <connections>
+                        <outlet property="flightCountLabel" destination="Dr6-pR-J1r" id="q7s-yo-SLo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="433"/>
+        </scene>
+        <!--Book Flight View Controller-->
+        <scene sceneID="csX-ZZ-wJa">
+            <objects>
+                <viewController storyboardIdentifier="BookFlight" id="j51-Ns-dLa" customClass="BookFlightViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RK9-dF-Dvr"/>
+                        <viewControllerLayoutGuide type="bottom" id="FAo-u3-QLr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FU6-zh-0y8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sO0-8n-jam">
+                                <rect key="frame" x="20" y="269" width="560" height="30"/>
+                                <state key="normal" title="Book Flight"/>
+                                <connections>
+                                    <action selector="bookFlight" destination="j51-Ns-dLa" eventType="touchUpInside" id="05U-AH-YD1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Flight #" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0G-LX-Swb">
+                                <rect key="frame" x="20" y="87" width="560" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Dest:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbb-WZ-HHu">
+                                <rect key="frame" x="20" y="155" width="167" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TDB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqb-il-6ks">
+                                <rect key="frame" x="203" y="211" width="377" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Time:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWi-YE-Cec">
+                                <rect key="frame" x="20" y="211" width="167" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Lovemade, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAr-j3-O3B">
+                                <rect key="frame" x="203" y="155" width="377" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="M0G-LX-Swb" secondAttribute="leading" id="0Y1-y7-G9g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M0G-LX-Swb" secondAttribute="trailing" id="5wd-Bl-bo5"/>
+                            <constraint firstItem="MAr-j3-O3B" firstAttribute="leading" secondItem="pbb-WZ-HHu" secondAttribute="trailing" constant="16" id="8HQ-ir-t6Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MAr-j3-O3B" secondAttribute="trailing" id="QIF-nQ-Pao"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sqb-il-6ks" secondAttribute="trailing" id="R0Q-GV-yg1"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="sO0-8n-jam" secondAttribute="leading" id="XNQ-8a-SXj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sO0-8n-jam" secondAttribute="trailing" id="Zaj-Sf-bkd"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="pbb-WZ-HHu" secondAttribute="leading" id="Zpd-fV-9cm"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="XWi-YE-Cec" secondAttribute="leading" id="x4K-ga-QLw"/>
+                            <constraint firstItem="sqb-il-6ks" firstAttribute="leading" secondItem="XWi-YE-Cec" secondAttribute="trailing" constant="16" id="xwg-nB-e9g"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="flightDestinationLabel" destination="MAr-j3-O3B" id="cqY-Oh-oi9"/>
+                        <outlet property="flightNumberLabel" destination="M0G-LX-Swb" id="2Q9-hV-vP1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Wg-lm-liU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="959" y="786"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2QI-ba-IcT">
+            <objects>
+                <navigationController id="lW3-pS-Bz2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3bv-AP-6Sm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="whP-gf-Uak" kind="relationship" relationship="rootViewController" id="OHU-k0-txD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcq-dj-pgf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-423" y="433"/>
         </scene>
     </scenes>
 </document>

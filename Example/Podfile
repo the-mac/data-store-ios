@@ -1,7 +1,8 @@
 use_frameworks!
 
 target 'DataStoreAdvanced_Example' do
-  pod 'DataStoreAdvanced', :path => '../'
+    pod 'DataStoreAdvanced', :path => '../'
+    pod 'FMDB'
 
   target 'DataStoreAdvanced_Tests' do
     inherit! :search_paths

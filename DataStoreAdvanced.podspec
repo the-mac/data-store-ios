@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint DataStoreAdvanced.podspec' to ensure this is a
+# Be sure to run `pod lib lint DataStore.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -7,36 +7,27 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'DataStoreAdvanced'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of DataStoreAdvanced.'
+s.name             = "DataStoreAdvanced"
+s.version          = "2.1.1"
+s.summary          = "Data Store (a Laravel Eloquent like ORM) syncs your Objects (or Models) to an underlying SQLite table."
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+s.description      = <<-DESC
+DataStoreAdvanced is the Eloquent based ORM (for iOS) that also provides a beautiful, simple ActiveRecord implementation for working with your data storage. Each database table has a corresponding "Model" which is used to communicate. A Model allows you to insert new records into the table, query for data in your table, as well as update (and delete from) the table.
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+More can be found on the Eloquent Model here:
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/DataStoreAdvanced'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Christopher Miller' => 'christopher.miller.in.la@gmail.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/DataStoreAdvanced.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+https://laravel.com/docs/5.2/eloquent#inserting-and-updating-models
+https://laravel.com/api/5.2/Illuminate/Database/Eloquent/Model.html
+DESC
 
-  s.ios.deployment_target = '8.0'
+s.homepage         = "https://github.com/the-mac/data-store-ios"
+s.license          = 'MIT'
+s.author           = { "Christopher Miller" => "christopher.d.miller.1@gmail.com" }
+s.source           = { :git => "https://github.com/the-mac/data-store-ios.git", :tag => s.version.to_s }
 
-  s.source_files = 'DataStoreAdvanced/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'DataStoreAdvanced' => ['DataStoreAdvanced/Assets/*.png']
-  # }
+s.ios.deployment_target = '8.0'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+s.source_files = 'Pods/FMDB/standard/*.{m,h}', 'DataStoreAdvanced/Classes/**/*', 'DataStoreAdvanced/Classes/*.{m,h}'
+s.dependency 'FMDB'
+
 end

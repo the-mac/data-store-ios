@@ -1,18 +1,22 @@
 //
 //  MACAppDelegate.m
-//  DataStoreAdvanced
+//  DataStore
 //
-//  Created by Christopher Miller on 05/24/2016.
+//  Created by Christopher Miller on 05/19/2016.
 //  Copyright (c) 2016 Christopher Miller. All rights reserved.
 //
 
+#import "Reel.h"
+#import "Flight.h"
+#import "DataStore.h"
 #import "MACAppDelegate.h"
 
 @implementation MACAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    NSArray* tables = @[ [Flight class], [Reel class] ];
+    [DataStoreHelper setup:@"FlightsExampleDB.sqlite" with:tables];
     return YES;
 }
 

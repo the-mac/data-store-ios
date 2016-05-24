@@ -22,7 +22,13 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		9DF9CBFE1CF4DA00004E0F7B /* ADV_EXECUTION in Resources */ = {isa = PBXBuildFile; fileRef = 9DF9CBFD1CF4DA00004E0F7B /* ADV_EXECUTION */; settings = {ASSET_TAGS = (); }; };
+		9DF9CC001CF4DA0B004E0F7B /* CONTRIBUTING.md in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9CBFF1CF4DA0B004E0F7B /* CONTRIBUTING.md */; settings = {ASSET_TAGS = (); }; };
+		9DF9CC031CF4DB13004E0F7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF9CC021CF4DB13004E0F7B /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		9DF9CC0B1CF4E3BE004E0F7B /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9CC071CF4E3BE004E0F7B /* Flight.m */; settings = {ASSET_TAGS = (); }; };
+		9DF9CC0C1CF4E3BE004E0F7B /* Reel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9CC081CF4E3BE004E0F7B /* Reel.m */; settings = {ASSET_TAGS = (); }; };
+		9DF9CC0D1CF4E3BE004E0F7B /* FlightsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9CC091CF4E3BE004E0F7B /* FlightsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9DF9CC0E1CF4E3BE004E0F7B /* BookFlightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9CC0A1CF4E3BE004E0F7B /* BookFlightViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,10 +63,19 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8D8CF262785D46762CF13B57 /* DataStoreAdvanced.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DataStoreAdvanced.podspec; path = ../DataStoreAdvanced.podspec; sourceTree = "<group>"; };
 		94194D0500444AEE8D66BB2C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9D2903EAB3865DB1E291C11D /* Pods-DataStoreAdvanced_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataStoreAdvanced_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataStoreAdvanced_Example/Pods-DataStoreAdvanced_Example.release.xcconfig"; sourceTree = "<group>"; };
+		9DF9CBFD1CF4DA00004E0F7B /* ADV_EXECUTION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADV_EXECUTION; sourceTree = "<group>"; };
+		9DF9CBFF1CF4DA0B004E0F7B /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		9DF9CC021CF4DB13004E0F7B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9DF9CC041CF4DC56004E0F7B /* BookFlightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookFlightViewController.h; sourceTree = "<group>"; };
+		9DF9CC051CF4DC78004E0F7B /* FlightsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlightsTableViewController.h; sourceTree = "<group>"; };
+		9DF9CC061CF4DC84004E0F7B /* Reel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reel.h; sourceTree = "<group>"; };
+		9DF9CC071CF4E3BE004E0F7B /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flight.m; sourceTree = "<group>"; };
+		9DF9CC081CF4E3BE004E0F7B /* Reel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reel.m; sourceTree = "<group>"; };
+		9DF9CC091CF4E3BE004E0F7B /* FlightsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsTableViewController.m; sourceTree = "<group>"; };
+		9DF9CC0A1CF4E3BE004E0F7B /* BookFlightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookFlightViewController.m; sourceTree = "<group>"; };
 		A9A405BD776405945B9790D3 /* Pods-DataStoreAdvanced_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataStoreAdvanced_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataStoreAdvanced_Example/Pods-DataStoreAdvanced_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D1F56E667111B58D59820E1D /* Pods_DataStoreAdvanced_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataStoreAdvanced_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC849714CB696EDA7CDDA2E /* Pods-DataStoreAdvanced_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataStoreAdvanced_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataStoreAdvanced_Tests/Pods-DataStoreAdvanced_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,13 +145,14 @@
 		6003F593195388D20070C39A /* Example for DataStoreAdvanced */ = {
 			isa = PBXGroup;
 			children = (
-				6003F59C195388D20070C39A /* MACAppDelegate.h */,
-				6003F59D195388D20070C39A /* MACAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* MACViewController.h */,
-				6003F5A6195388D20070C39A /* MACViewController.m */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
+				9DF9CC011CF4DA23004E0F7B /* Headers */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				9DF9CC071CF4E3BE004E0F7B /* Flight.m */,
+				9DF9CC081CF4E3BE004E0F7B /* Reel.m */,
+				9DF9CC091CF4E3BE004E0F7B /* FlightsTableViewController.m */,
+				9DF9CC0A1CF4E3BE004E0F7B /* BookFlightViewController.m */,
+				6003F59D195388D20070C39A /* MACAppDelegate.m */,
+				6003F5A6195388D20070C39A /* MACViewController.m */,
 			);
 			name = "Example for DataStoreAdvanced";
 			path = DataStoreAdvanced;
@@ -145,6 +161,8 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9DF9CC021CF4DB13004E0F7B /* Main.storyboard */,
+				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F595195388D20070C39A /* DataStoreAdvanced-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
@@ -178,8 +196,22 @@
 				8D8CF262785D46762CF13B57 /* DataStoreAdvanced.podspec */,
 				94194D0500444AEE8D66BB2C /* README.md */,
 				F0A49A60627249815157DD29 /* LICENSE */,
+				9DF9CBFF1CF4DA0B004E0F7B /* CONTRIBUTING.md */,
+				9DF9CBFD1CF4DA00004E0F7B /* ADV_EXECUTION */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		9DF9CC011CF4DA23004E0F7B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				9DF9CC061CF4DC84004E0F7B /* Reel.h */,
+				9DF9CC041CF4DC56004E0F7B /* BookFlightViewController.h */,
+				9DF9CC051CF4DC78004E0F7B /* FlightsTableViewController.h */,
+				6003F59C195388D20070C39A /* MACAppDelegate.h */,
+				6003F5A5195388D20070C39A /* MACViewController.h */,
+			);
+			name = Headers;
 			sourceTree = "<group>";
 		};
 		DBAED5BA88BBA6E10D85FFA3 /* Pods */ = {
@@ -276,9 +308,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				9DF9CBFE1CF4DA00004E0F7B /* ADV_EXECUTION in Resources */,
+				9DF9CC031CF4DB13004E0F7B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +424,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* MACAppDelegate.m in Sources */,
+				9DF9CC0C1CF4E3BE004E0F7B /* Reel.m in Sources */,
 				6003F5A7195388D20070C39A /* MACViewController.m in Sources */,
+				9DF9CC0D1CF4E3BE004E0F7B /* FlightsTableViewController.m in Sources */,
+				9DF9CC001CF4DA0B004E0F7B /* CONTRIBUTING.md in Sources */,
+				9DF9CC0E1CF4E3BE004E0F7B /* BookFlightViewController.m in Sources */,
+				9DF9CC0B1CF4E3BE004E0F7B /* Flight.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
