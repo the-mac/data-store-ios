@@ -1,8 +1,8 @@
 clear && printf '\e[3J' && \
-VERSION=0.1.4 && \
+VERSION=0.1.5 && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStore/ && \
 git add . && \
-git commit -m "v$VERSION: Updated DataStore to DataStoreHelper, Updated docs and README, Passed 9/9 Unit Tests" && \
+git commit -m "v$VERSION: Added advanced branch reference, Updated docs and README, Passed 9/9 Unit Tests" && \
 git push origin basic && \
 git tag $VERSION && \
 git push origin basic $VERSION && \
