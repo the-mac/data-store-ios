@@ -63,7 +63,6 @@
     NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
 }
-
 - (void)testNSStringRepeat {
     NSString *abcs = [@"" stringByPaddingToLength:9 withString: @"abc" startingAtIndex:0];
     XCTAssertEqualObjects(@"abcabcabc", abcs);
