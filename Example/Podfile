@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DataStoreAdvanced_Example' do
+  pod 'DataStoreAdvanced', :path => '../'
+
+  target 'DataStoreAdvanced_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
