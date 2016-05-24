@@ -25,7 +25,6 @@
 		9D8063301CEEE2D9003DD99E /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D80632F1CEEE2D9003DD99E /* Flight.m */; settings = {ASSET_TAGS = (); }; };
 		9D8063371CEEEC41003DD99E /* FlightsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8063361CEEEC41003DD99E /* FlightsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9D80633A1CEEF385003DD99E /* BookFlightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8063391CEEF385003DD99E /* BookFlightViewController.m */; settings = {ASSET_TAGS = (); }; };
-		9DE505BB1CF147C500005C69 /* CONTRIBUTING.md in Sources */ = {isa = PBXBuildFile; fileRef = 9DE505BA1CF147C500005C69 /* CONTRIBUTING.md */; settings = {ASSET_TAGS = (); }; };
 		9DE505BD1CF17E3300005C69 /* EXECUTION in Resources */ = {isa = PBXBuildFile; fileRef = 9DE505BC1CF17E3300005C69 /* EXECUTION */; settings = {ASSET_TAGS = (); }; };
 		9DE505C81CF2205200005C69 /* Reel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE505C71CF2205200005C69 /* Reel.m */; settings = {ASSET_TAGS = (); }; };
 		DA012C6B91D8A7EEC14B9F07 /* Pods_DataStore_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A84847959C6FE71B281A4C /* Pods_DataStore_Tests.framework */; };
@@ -76,7 +75,6 @@
 		9D8063381CEEF385003DD99E /* BookFlightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookFlightViewController.h; sourceTree = "<group>"; };
 		9D8063391CEEF385003DD99E /* BookFlightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookFlightViewController.m; sourceTree = "<group>"; };
 		9DE505A51CF0F2AD00005C69 /* DataStore_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataStore_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
-		9DE505BA1CF147C500005C69 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		9DE505BC1CF17E3300005C69 /* EXECUTION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EXECUTION; sourceTree = "<group>"; };
 		9DE505C61CF2202A00005C69 /* Reel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reel.h; sourceTree = "<group>"; };
 		9DE505C71CF2205200005C69 /* Reel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reel.m; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 				0BB7A7B74CFA2FE1FAEDBD50 /* DataStore.podspec */,
 				413ABBC507AF4E517A688812 /* README.md */,
 				6325267D8F4E15C0262A17A1 /* LICENSE */,
-				9DE505BA1CF147C500005C69 /* CONTRIBUTING.md */,
 				9DE505BC1CF17E3300005C69 /* EXECUTION */,
 			);
 			name = "Podspec Metadata";
@@ -433,7 +430,6 @@
 				9D8063301CEEE2D9003DD99E /* Flight.m in Sources */,
 				9D8063371CEEEC41003DD99E /* FlightsTableViewController.m in Sources */,
 				9D80633A1CEEF385003DD99E /* BookFlightViewController.m in Sources */,
-				9DE505BB1CF147C500005C69 /* CONTRIBUTING.md in Sources */,
 				6003F5A7195388D20070C39A /* MACViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

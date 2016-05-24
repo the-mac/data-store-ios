@@ -221,6 +221,9 @@ static NSMutableDictionary * queryFields = nil;
     NSObject * object = [class new];
     NSArray *columns = [Model getFields:class];
     
+    NSNumber* _id = (NSNumber*)[result objectForColumnIndex:0];
+    [object setValue:_id forKey:@"_id"];
+    
     for (NSDictionary *field in columns) {
         NSString *column       = [field valueForKey:@"column"];
         NSString *type       = [field valueForKey:@"dataType"];

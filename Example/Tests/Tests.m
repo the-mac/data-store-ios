@@ -270,6 +270,7 @@
         [flight save];
         
         
+        NSNumber *_id = nil;
         NSString *name = nil;
         NSString *destination = nil;
         
@@ -277,6 +278,7 @@
         NSString *query = @"SELECT * FROM Flight";
         FMResultSet *rsl = [db executeQuery:query];
         while ([rsl next]) {
+            _id = (NSNumber*)[rsl objectForColumnIndex:0];
             name = [rsl stringForColumnIndex:1];
             destination = [rsl stringForColumnIndex:2];
             NSLog(@"\n\n%@ = (name = %@, destination = %@)\n", query, name, destination);
@@ -285,6 +287,7 @@
         }
         
         XCTAssertEqual(count, 1);
+        XCTAssertEqualObjects(_id, @1);
         XCTAssertEqualObjects(name, @"Flight 288");
         XCTAssertEqualObjects(destination, @"Lovemade, CA");
     }];
@@ -329,10 +332,12 @@
     XCTAssertEqual(recount, 2);
     
     flight = all[0];
+    XCTAssertEqualObjects(flight._id, @1);
     XCTAssertEqualObjects(flight.name, @"Flight 288");
     XCTAssertEqualObjects(flight.destination, @"Lovemade, CA");
     
     flight2 = all[1];
+    XCTAssertEqualObjects(flight2._id, @2);
     XCTAssertEqualObjects(flight2.name, @"Flight 144");
     XCTAssertEqualObjects(flight2.destination, @"Lovemade, CA");
 }
