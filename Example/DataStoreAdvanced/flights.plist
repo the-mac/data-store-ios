@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>flights</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>Flight 109</string>
+			<key>departing</key>
+			<string>Los Angeles, CA, LAX</string>
+			<key>arriving</key>
+			<string>Newark, NJ, EWR</string>
+		</dict>
+		<dict>
+			<key>departing</key>
+			<string>Los Angeles, CA, LAX</string>
+			<key>arriving</key>
+			<string>Atlanta, GA, AHJ</string>
+		</dict>
+		<dict>
+			<key>departing</key>
+			<string>Los Angeles, CA, LAX</string>
+			<key>arriving</key>
+			<string>Chicago, IL, ORD</string>
+		</dict>
+		<dict>
+			<key>departing</key>
+			<string>Los Angeles, CA, LAX</string>
+			<key>arriving</key>
+			<string>Newark, NJ, EWR</string>
+		</dict>
+		<dict>
+			<key>departing</key>
+			<string>Newark, NJ, EWR</string>
+			<key>arriving</key>
+			<string>Los Angeles, CA, LAX</string>
+		</dict>
+		<dict>
+			<key>departing</key>
+			<string>Newark, NJ, EWR</string>
+			<key>arriving</key>
+			<string>Atlanta, GA, AHJ</string>
+		</dict>
+		<dict>
+			<key>departing</key>
+			<string>Newark, NJ, EWR</string>
+			<key>arriving</key>
+			<string>Chicago, IL, ORD</string>
+		</dict>
+		<dict>
+			<key>departing</key>
+			<string>Atlanta, GA, AHJ</string>
+			<key>arriving</key>
+			<string>Chicago, IL, ORD</string>
+		</dict>
+		<dict>
+			<key>departing</key>
+			<string>Atlanta, GA, AHJ</string>
+			<key>arriving</key>
+			<string>Los Angeles, CA, LAX</string>
+		</dict>
+		<dict>
+			<key>departing</key>
+			<string>Atlanta, GA, AHJ</string>
+			<key>arriving</key>
+			<string>Newark, NJ, EWR</string>
+		</dict>
+	</array>
+</dict>
+</plist>

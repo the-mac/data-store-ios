@@ -1,8 +1,8 @@
 clear && printf '\e[3J' && \
-VERSION=2.1.1 && \
+VERSION=2.1.2 && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
 git add . && \
-git commit -m "v$VERSION: Created DataStoreAdvanced Model, Updated docs and README, Passed 11/11 Unit Tests" && \
+git commit -m "v$VERSION: Added where, update and get functions, Updated docs and README, Passed 13/13 Unit Tests" && \
 git push origin advanced && \
 git tag $VERSION && \
 git push origin advanced $VERSION && \

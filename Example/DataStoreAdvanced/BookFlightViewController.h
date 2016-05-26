@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BookFlightViewController : UIViewController
-
+@property (strong, nonatomic) Flight *flight;
+@property (assign, nonatomic) NSInteger position;
 @end

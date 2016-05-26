@@ -144,6 +144,8 @@ static NSMutableDictionary * queryFields = nil;
 }
 - (NSInteger) update:(NSMutableDictionary*) attributes {
     
+    if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
+    
     NSLog(@"called %s", __FUNCTION__);
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStoreHelper databasePath]];
     
@@ -164,6 +166,39 @@ static NSMutableDictionary * queryFields = nil;
     [Model clearQuery];
     return 0;
 }
++ (NSInteger) update:(NSMutableDictionary*) attributes {
+    if(queryString.length == 0) queryInstance = [[self class] new];
+    return [queryInstance update:attributes];
+}
+- (NSArray*) get {
+    
+    if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
+    
+    NSLog(@"called %s", __FUNCTION__);
+    NSMutableArray *allResults = [[NSMutableArray alloc] init];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStoreHelper databasePath]];
+    
+    [queue inDatabase:^(FMDatabase *db) {
+        
+        NSString *query = nil;
+        NSString *table = NSStringFromClass([self class]);
+        
+        if(queryString.length == 0) query = [NSString stringWithFormat:@"select * from %@", table];
+        else query = [NSString stringWithFormat:@"select * from %@ where %@", table, queryString];
+        NSLog(@"query =%@", query);
+        
+        
+        FMResultSet *results = [db executeQuery:query];
+        
+        while([results next]) {
+            [allResults addObject:[Model generateNSObject:results forClass:[self class]]];
+        }
+        [results close];
+    }];
+    
+    [Model clearQuery];
+    return allResults;
+}
 
 - (Model*) where:(NSString*) column is:(NSObject*) value {
     if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
@@ -176,7 +211,7 @@ static NSMutableDictionary * queryFields = nil;
     else equivalence = @"like";
     
     if(queryString.length == 0) query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
-    else query = [NSString stringWithFormat:@"and %@ %@ '%@'", column, equivalence, value];
+    else query = [NSString stringWithFormat:@" and %@ %@ '%@'", column, equivalence, value];
     [queryString appendString:query];
     
     return queryInstance;
@@ -185,10 +220,29 @@ static NSMutableDictionary * queryFields = nil;
     if(queryString.length == 0) queryInstance = [[self class] new];
     return [queryInstance where:column is:value];
 }
-+ (NSInteger) update:(NSMutableDictionary*) attributes {
-    if(queryString.length == 0) queryInstance = [[self class] new];
-    return [queryInstance update:attributes];
+
+- (Model *) orWhere:(NSString*)column is:(NSObject*)value {
+    
+    if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
+    
+    NSString *equivalence = nil;
+    NSString *query = nil;
+    
+    if([[value description] rangeOfString:@"%"].location == NSNotFound)
+        equivalence = @"=";
+    else equivalence = @"like";
+    
+    if(queryString.length == 0) query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
+    else query = [NSString stringWithFormat:@" or %@ %@ '%@'", column, equivalence, value];
+    [queryString appendString:query];
+    
+    return queryInstance;
 }
++ (Model*) orWhere:(NSString*) column is:(NSObject*) value {
+    if(queryString.length == 0) queryInstance = [[self class] new];
+    return [queryInstance orWhere:column is:value];
+}
+
 + (Model *) find:(int)identifier {
     
     __block int _id = identifier;
@@ -285,6 +339,9 @@ static NSMutableDictionary * queryFields = nil;
     
     NSObject * object = [class new];
     NSArray *columns = [Model getFields:class];
+    
+    NSNumber* _id = (NSNumber*)[result objectForColumnIndex:0];
+    [object setValue:_id forKey:@"_id"];
     
     for (NSDictionary *field in columns) {
         NSString *column       = [field valueForKey:@"column"];

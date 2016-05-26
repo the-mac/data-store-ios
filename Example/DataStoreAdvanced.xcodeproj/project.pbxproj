@@ -29,6 +29,11 @@
 		9DF9CC0C1CF4E3BE004E0F7B /* Reel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9CC081CF4E3BE004E0F7B /* Reel.m */; settings = {ASSET_TAGS = (); }; };
 		9DF9CC0D1CF4E3BE004E0F7B /* FlightsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9CC091CF4E3BE004E0F7B /* FlightsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9DF9CC0E1CF4E3BE004E0F7B /* BookFlightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9CC0A1CF4E3BE004E0F7B /* BookFlightViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9DF9CC1F1CF5042A004E0F7B /* sky_101.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 9DF9CC1E1CF5042A004E0F7B /* sky_101.bmp */; settings = {ASSET_TAGS = (); }; };
+		9DF9CC211CF518EA004E0F7B /* flight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DF9CC201CF518EA004E0F7B /* flight.jpg */; settings = {ASSET_TAGS = (); }; };
+		9DF9CC241CF525A5004E0F7B /* flight_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DF9CC221CF525A5004E0F7B /* flight_icon.png */; settings = {ASSET_TAGS = (); }; };
+		9DF9CC251CF525A5004E0F7B /* flight_path.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DF9CC231CF525A5004E0F7B /* flight_path.jpg */; settings = {ASSET_TAGS = (); }; };
+		9DF9CC271CF53646004E0F7B /* flights.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DF9CC261CF53646004E0F7B /* flights.plist */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +81,12 @@
 		9DF9CC081CF4E3BE004E0F7B /* Reel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reel.m; sourceTree = "<group>"; };
 		9DF9CC091CF4E3BE004E0F7B /* FlightsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsTableViewController.m; sourceTree = "<group>"; };
 		9DF9CC0A1CF4E3BE004E0F7B /* BookFlightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookFlightViewController.m; sourceTree = "<group>"; };
+		9DF9CC1E1CF5042A004E0F7B /* sky_101.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = sky_101.bmp; sourceTree = "<group>"; };
+		9DF9CC201CF518EA004E0F7B /* flight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flight.jpg; sourceTree = "<group>"; };
+		9DF9CC221CF525A5004E0F7B /* flight_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flight_icon.png; sourceTree = "<group>"; };
+		9DF9CC231CF525A5004E0F7B /* flight_path.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flight_path.jpg; sourceTree = "<group>"; };
+		9DF9CC261CF53646004E0F7B /* flights.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flights.plist; sourceTree = "<group>"; };
+		9DF9CC281CF62CE7004E0F7B /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flight.h; sourceTree = "<group>"; };
 		A9A405BD776405945B9790D3 /* Pods-DataStoreAdvanced_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataStoreAdvanced_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataStoreAdvanced_Example/Pods-DataStoreAdvanced_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D1F56E667111B58D59820E1D /* Pods_DataStoreAdvanced_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataStoreAdvanced_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC849714CB696EDA7CDDA2E /* Pods-DataStoreAdvanced_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataStoreAdvanced_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataStoreAdvanced_Tests/Pods-DataStoreAdvanced_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,12 +172,13 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9DF9CC1D1CF50406004E0F7B /* Images */,
 				9DF9CC021CF4DB13004E0F7B /* Main.storyboard */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F595195388D20070C39A /* DataStoreAdvanced-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
 				6003F59B195388D20070C39A /* DataStoreAdvanced-Prefix.pch */,
+				9DF9CC261CF53646004E0F7B /* flights.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -205,6 +217,7 @@
 		9DF9CC011CF4DA23004E0F7B /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				9DF9CC281CF62CE7004E0F7B /* Flight.h */,
 				9DF9CC061CF4DC84004E0F7B /* Reel.h */,
 				9DF9CC041CF4DC56004E0F7B /* BookFlightViewController.h */,
 				9DF9CC051CF4DC78004E0F7B /* FlightsTableViewController.h */,
@@ -212,6 +225,18 @@
 				6003F5A5195388D20070C39A /* MACViewController.h */,
 			);
 			name = Headers;
+			sourceTree = "<group>";
+		};
+		9DF9CC1D1CF50406004E0F7B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6003F5A8195388D20070C39A /* Images.xcassets */,
+				9DF9CC221CF525A5004E0F7B /* flight_icon.png */,
+				9DF9CC231CF525A5004E0F7B /* flight_path.jpg */,
+				9DF9CC201CF518EA004E0F7B /* flight.jpg */,
+				9DF9CC1E1CF5042A004E0F7B /* sky_101.bmp */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		DBAED5BA88BBA6E10D85FFA3 /* Pods */ = {
@@ -308,9 +333,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DF9CC251CF525A5004E0F7B /* flight_path.jpg in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				9DF9CC241CF525A5004E0F7B /* flight_icon.png in Resources */,
+				9DF9CC1F1CF5042A004E0F7B /* sky_101.bmp in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				9DF9CC211CF518EA004E0F7B /* flight.jpg in Resources */,
 				9DF9CBFE1CF4DA00004E0F7B /* ADV_EXECUTION in Resources */,
+				9DF9CC271CF53646004E0F7B /* flights.plist in Resources */,
 				9DF9CC031CF4DB13004E0F7B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

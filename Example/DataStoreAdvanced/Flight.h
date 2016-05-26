@@ -10,5 +10,9 @@
 
 @interface Flight : Model
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *destination;
+@property (strong, nonatomic) NSNumber *delayed;
+@property (strong, nonatomic) NSString *departing;
+@property (strong, nonatomic) NSString *departingAbbr;
+@property (strong, nonatomic) NSString *arriving;
+@property (strong, nonatomic) NSString *arrivingAbbr;
 @end

@@ -120,7 +120,7 @@
  @discussion    Execute this method when you want to add a where clause to a query to the database.
  @return        <b>Model</b> The query record, which allows appending query components.
  */
-//- (Model *) orWhere:(NSString*)field is:(id);
+- (Model *) orWhere:(NSString*)field is:(NSObject*)obj;
 
 /*!
  @brief         Builder method for queries to the database, with comparison operator included
@@ -148,7 +148,7 @@
  @discussion    Execute this method when you want to get the results from your query to the database table.
  @return        <b>NSArray</b> The results array.
  */
-//- (NSArray *) get;
+- (NSArray *) get;
 
 /*!
  @brief         Retrieves all records from the table
