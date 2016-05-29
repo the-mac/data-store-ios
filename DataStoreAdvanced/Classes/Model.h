@@ -98,15 +98,28 @@
 //- (NSArray *) findOrFail:(id)identifier;
 
 /*!
- @brief         Builder method for queries to the database
  @discussion    Execute this method when you want to add a where clause to a query to the database.
- @return        <b>Model</b> The query record, which allows appending query components.
+ @return        <b>Model</b> The model which allows appending query components.
  */
-//- (Model *) where:(NSString*)field is:(id);
 + (Model*) where:(NSString*) column is:(NSObject*) value;
 
+/*!
+ @discussion    Execute this method when you want to add a where clause to a query to the database.
+ @return        <b>Model</b> The model which allows appending query components.
+ */
 - (Model*) where:(NSString*) column is:(NSObject*) value;
 
+/*!
+ @discussion    Execute this method when you want to add a where clause to a query to the database.
+ @return        <b>Model</b> The model which allows appending query components.
+ */
++ (Model*) where:(NSString*) column inside:(NSArray*) values;
+
+/*!
+ @discussion    Execute this method when you want to add a where clause to a query to the database.
+ @return        <b>Model</b> The model which allows appending query components.
+ */
+- (Model*) where:(NSString*) column inside:(NSArray*) values;
 
 /*!
  @brief         Builder method for queries to the database, with comparison operator included
@@ -185,6 +198,11 @@
  */
 - (NSInteger) update:(NSMutableDictionary*) attributes;
 
+/*!
+ @brief         Update record in the database
+ @discussion    Execute this method when you want to update the record in the database table.
+ @return        <b>NSInteger/BOOL</b> count on successful updates and NO on failiure.
+ */
 + (NSInteger) update:(NSMutableDictionary*) attributes;
 /*!
  @brief         Save record to the database, that fails when data is not saveable

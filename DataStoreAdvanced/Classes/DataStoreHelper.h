@@ -38,7 +38,7 @@
  @param class The class type of the properties to return
  @return <b>NSMutableArray</b> An array of NSDictionary objects @[ @{ @"column":@"...", @"type":@"...", @"dataType":@"..." } ]
  */
-+ (NSMutableArray *) getFields:(Class) class;
++ (NSMutableArray *) getFields:(Class) c;
 
 /**
  Generates CREATE Statement columns string from fields array.

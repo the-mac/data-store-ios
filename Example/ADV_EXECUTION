@@ -1,12 +1,9 @@
 clear && printf '\e[3J' && \
-VERSION=2.1.4 && \
+VERSION=2.1.5 && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
 git add . && \
-git commit -m "v$VERSION: Added where, update and get functions, Updated docs and README, Passed 13/13 Unit Tests" && \
+git commit -m "v$VERSION: Added where:inside function, Updated docs and README, Passed 13/13 Unit Tests" && \
 git push origin advanced && \
 git tag $VERSION && \
 git push origin advanced $VERSION && \
 pod trunk push DataStoreAdvanced.podspec --allow-warnings
-
-
-git tag -d 2.1.2

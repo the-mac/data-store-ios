@@ -1,5 +1,5 @@
 # Data Store iOS
-[DataStoreAdvanced](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/DataStoreAdvancedHelper.html) is the [Eloquent](https://laravel.com/docs/5.2/eloquent) based ORM (for iOS) that also provides a beautiful, simple ActiveRecord implementation for working with your data storage. Each database table has a corresponding [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html) which is used to interact with a table by the same name. The Model class allows us to insert new records into the table, query for data in our table, as well as update (and delete from) the table.
+[DataStoreAdvanced](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/DataStoreAdvancedHelper.html) is the [Eloquent](https://laravel.com/docs/5.2/eloquent) based ORM (for iOS) that also provides a beautiful, simple ActiveRecord implementation for working with your data storage. Each database table has a corresponding [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html) which is used to interact with a table by the same name. The Model class allows us to insert new records into the table, query for data in our table, as well as update (and delete from) the table.
 
 ## Motivation
 This project was started due to the [many issues](https://www.objc.io/issues/4-core-data/SQLite-instead-of-core-data/) that came with depending upon Core Data. We tried to have a propulated database that would speed up the application load times, and were also looking to simplify how we save data (because the assumption is that CoreData is part of iOS, so it should be easy to use and just work). Boy, were we wrong:
@@ -51,7 +51,7 @@ pod 'DataStoreAdvanced', :git => 'https://github.com/the-mac/data-store-ios.git'
 
 ### Defining Models
 
-You can update any class to implement [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html) in Objective-C:
+You can update any class to implement [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html) in Objective-C:
 
 ```
 @interface Flight : Model
@@ -66,7 +66,7 @@ You can update any class to implement [Model](http://cocoadocs.org/docsets/DataS
 @end
 ```
 
-Alternatively [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html) subclasses can be defined in Swift as well:
+Alternatively [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html) subclasses can be defined in Swift as well:
 ```    
 class Flight : Model {
     var name: String?
@@ -78,7 +78,7 @@ class Flight : Model {
 ```
 
 ### Basic Inserts / Updates
-To create a new record in the database, simply create a new instance of your [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html) subclass, set the attributes on that model, and then call the [save](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/save) method on your model instance.
+To create a new record in the database, simply create a new instance of your [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html) subclass, set the attributes on that model, and then call the [save](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/save) method on your model instance.
 
 ```
 - (IBAction)updateFlight {
@@ -98,7 +98,7 @@ To create a new record in the database, simply create a new instance of your [Mo
 In the example above, we simply assign to the attributes of the Flight model instance. Then we call the save method, and the model instance will be inserted into the database. Alternatively, if you make another change to the model instance and save it again, it will update the database record instead.
 
 
-Another way to update a record in the database is to simply call update on your [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html) subclass, passing the attributes to update method on that model.
+Another way to update a record in the database is to simply call update on your [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html) subclass, passing the attributes to update method on that model.
 
 ```
 - (IBAction)shutDownAirport {
@@ -124,9 +124,9 @@ The update method expects an NSDictionary (of column and value pairs) representi
 
 
 ### Retrieving Multiple Records
-Now that we have seen how to use the [save](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/save) method on a [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html), we are ready to start retrieving data from our database.
+Now that we have seen how to use the [save](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/save) method on a [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html), we are ready to start retrieving data from our database.
 
-Next we will query the database table associated with the model for all records, with the [all](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/all) function:
+Next we will query the database table associated with the model for all records, with the [all](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/all) function:
 ```
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -137,9 +137,22 @@ Next we will query the database table associated with the model for all records,
     }
 }
 ```
-In this example, we simply assign the NSArray from the [all](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/all) function of the Flight class. As you can see, with a single function call we can get all the records of a specific database table.
+In this example, we simply assign the NSArray from the [all](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/all) function of the Flight class. As you can see, with a single function call we can get all the records of a specific database table.
 
-Alternatively, if you want to query a subset you will have to use one of the query builder functions [where](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.1/Classes/Model.html#//api/name/where:is:) or the [orWhere](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.1/Classes/Model.html#//api/name/orWhere:is:), with the [get](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.1/Classes/Model.html#//api/name/get) function to execute the query.
+
+Next we will query the database table associated with the model for a subset of records, with the [where:inside](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/where:inside) function:
+```
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    NSArray *insideResults = [[Flight where:@"name" inside: @[@"Flight 1137", @"Flight 843", @"Flight 845"]] get];
+    for (Flight* flight in insideResults) {
+        ...
+    }
+}
+```
+
+Alternatively, if you want to query a subset you can also use one of the query builder functions [where](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.1/Classes/Model.html#//api/name/where:is:) or the [orWhere](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.1/Classes/Model.html#//api/name/orWhere:is:), with the [get](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.1/Classes/Model.html#//api/name/get) function to execute the query. Here is an example of using all three functions together: 
 ```
 - (void)updateFilteredContentFromInput:(NSString *)flightSearch {
 
@@ -155,7 +168,7 @@ Alternatively, if you want to query a subset you will have to use one of the que
 ```
 
 ### Retrieving A Single Record
-In addition to retrieving all of the records for a given table or asubset, you can also retrieve a single record. Instead of returning a collection of records like with the [all](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/all) function, the [find](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/find) function returns a single [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html) instance:
+In addition to retrieving records for a given table or subset, you can also retrieve a single table record. Instead of returning a collection of records like with the [all](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/all) function, the [find](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/find) function returns a single [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html) instance:
 ```
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -164,11 +177,11 @@ In addition to retrieving all of the records for a given table or asubset, you c
     self.flightLabel.text = flight.name;
 }
 ```
-Once you have a [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html) instance, you can use the column values of the table by accessing the corresponding property. For example, above we get a Flight instance from the [find](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/find) function, and begin accessing the name column from the Flight database table.
+Once you have a [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html) instance, you can use the column values of the table by accessing the corresponding property. For example, above we get a Flight instance from the [find](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/find) function, and begin accessing the name column from the Flight database table.
 
 
 ### Retrieving Aggregates
-You also have access to the [count](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/count) function provided by the Model class. This function returns the appropriate scalar value instead of a full model instance (or collection of instances):
+You also have access to the [count](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/count) function provided by the Model class. This function returns the appropriate scalar value instead of a full model instance (or collection of instances):
 ```
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -177,11 +190,11 @@ You also have access to the [count](http://cocoadocs.org/docsets/DataStoreAdvanc
     self.flightCountLabel.text = [NSString stringWithFormat:@"%d Flight(s) Booked", count];
 }
 ```
-In this example, we simply assign the count variable from the Flight model class' [count](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/count) function and report it to the UI component.
+In this example, we simply assign the count variable from the Flight model class' [count](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/count) function and report it to the UI component.
 
 
 ### Deleting Records
-To delete a record, call the [remove](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/remove) method on a model instance:
+To delete a record, call the [remove](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/remove) method on a model instance:
 ```
 - (IBAction)cancelFlight {
 
@@ -190,7 +203,7 @@ To delete a record, call the [remove](http://cocoadocs.org/docsets/DataStoreAdva
 }
 ```
 
-Alternatively, to delete all records from a database table, call the [truncate](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/truncate) function:
+Alternatively, to delete all records from a database table, call the [truncate](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/truncate) function:
 ```
 - (IBAction)cancelAllFlights {
 
@@ -199,17 +212,18 @@ Alternatively, to delete all records from a database table, call the [truncate](
 ```
 
 ## Example Project
-The Example Project has 3 screens that display advanced [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html) CRUD operations, using the Flight class as an example.
+The Example Project has 3 screens that display advanced [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html) CRUD operations, using the Flight class as an example.
 
 ![launch](0launch.png "Launch Screen") ![bookflight](1bookflight.png "Book Flight") ![showflights](2showflights.png "Show Flights")
 
-The CRUD operations are completed using the [count](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/count), [truncate](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/truncate), [remove](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/remove), [update](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/update), [save](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/save), [where](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/where:is), [orWhere](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/orWhere:is), [get](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/get) and [all](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.4/Classes/Model.html#//api/name/all) functions. 
+The CRUD operations are completed using the [count](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/count), [truncate](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/truncate), [remove](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/remove), [update](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/update), [save](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/save), [where](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/where:is), [orWhere](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/orWhere:is), [get](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/get) and [all](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.5/Classes/Model.html#//api/name/all) functions. 
 
 If you think we could have more advanced operations, we're accepting pull requests [here](https://github.com/the-mac/data-store-ios/compare). As a reference (or foundation), take a look at what the [Laravel Eloquent](https://laravel.com/docs/5.2/eloquent) model implementation looks like.
 
 To run the advanced example project, clone the repo, checkout the advanced branch, and run `pod install` from the Example directory first.
 ```
 git clone https://github.com/the-mac/data-store-ios.git
+cd data-store-ios
 git checkout advanced
 cd Example
 pod install

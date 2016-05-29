@@ -210,6 +210,7 @@ static NSMutableDictionary * queryFields = nil;
         equivalence = @"=";
     else equivalence = @"like";
     
+    
     if(queryString.length == 0) query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
     else query = [NSString stringWithFormat:@" and %@ %@ '%@'", column, equivalence, value];
     [queryString appendString:query];
@@ -219,6 +220,27 @@ static NSMutableDictionary * queryFields = nil;
 + (Model*) where:(NSString*) column is:(NSObject*) value {
     if(queryString.length == 0) queryInstance = [[self class] new];
     return [queryInstance where:column is:value];
+}
+
+
+- (Model*) where:(NSString*) column inside:(NSArray*) values {
+    if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
+    
+    NSString *equivalence = @"in";
+    NSString *query = nil;
+    
+    NSString *value = [values componentsJoinedByString:@"', '"];
+    
+    if(queryString.length == 0) query = [NSString stringWithFormat:@"%@ %@ ('%@')", column, equivalence, value];
+    else query = [NSString stringWithFormat:@" and %@ %@ '%@'", column, equivalence, value];
+    [queryString appendString:query];
+    
+    return queryInstance;
+
+}
++ (Model*) where:(NSString*) column inside:(NSArray*) values {
+    if(queryString.length == 0) queryInstance = [[self class] new];
+    return [queryInstance where:column inside:values];
 }
 
 - (Model *) orWhere:(NSString*)column is:(NSObject*)value {
