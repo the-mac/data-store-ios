@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "DataStoreAdvanced"
-s.version          = "2.1.6"
+s.version          = "2.1.7"
 s.summary          = "Data Store (a Laravel Eloquent like ORM) syncs your Objects (or Models) to an underlying SQLite table."
 
 s.description      = <<-DESC

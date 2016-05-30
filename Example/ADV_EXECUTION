@@ -1,8 +1,8 @@
 clear && printf '\e[3J' && \
-VERSION=2.1.6 && \
+VERSION=2.1.7 && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
 git add . && \
-git commit -m "v$VERSION: Added DataStorePopulate.xcodeproj, Updated docs and README, Passed 13/13 Unit Tests" && \
+git commit -m "v$VERSION: Removed UIKit reference, Updated docs and README, Passed 13/13 Unit Tests" && \
 git push origin advanced && \
 git tag $VERSION && \
 git push origin advanced $VERSION && \
