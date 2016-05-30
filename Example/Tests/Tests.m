@@ -5,13 +5,6 @@
 //  Created by Christopher Miller on 05/24/2016.
 //  Copyright (c) 2016 Christopher Miller. All rights reserved.
 //
-//
-//  DataStoreTests.m
-//  DataStoreTests
-//
-//  Created by Christopher Miller on 05/19/2016.
-//  Copyright (c) 2016 Christopher Miller. All rights reserved.
-//
 
 @import XCTest;
 @import FMDB;
@@ -31,20 +24,9 @@
 
 
 @interface Reel : Model
-@property (nonatomic, strong) NSString * Certificate;
 @property (nonatomic, strong) NSString * Directors;
 @property (nonatomic, strong) NSString * Name;
-@property (nonatomic, strong) NSString * NotSure;
-@property (nonatomic, strong) NSString * reel_id;
 @property (nonatomic, strong) NSString * ReelPlot;
-@property (nonatomic, strong) NSString * ReelRating;
-@property (nonatomic, strong) NSString * RunTime;
-@property (nonatomic, strong) NSString * SubGenre;
-@property (nonatomic, strong) NSString * Trailer;
-@property (nonatomic, strong) NSString * WatchedBad;
-@property (nonatomic, strong) NSString * WatchedGood;
-@property (nonatomic, strong) NSString * WatchLater;
-@property (nonatomic, strong) NSString * Year;
 @end
 
 @implementation Reel
@@ -177,7 +159,7 @@
     
     Reel *reel = [[Reel alloc] init];
     reel.Name = @"Pulp Fiction";
-    reel.reel_id = @"tt0110912";
+    reel.Directors = @"Quentin Tarantino";
     
     [reel save];
     
@@ -193,7 +175,7 @@
         XCTAssertEqual(count, 1);
     }];
     
-    reel.WatchedGood = @"16.05.22.03.02";
+    reel.Name = @"Pulp Fiction, The Sequel to Resevoir Dogs";
     
     [reel save];
     
@@ -233,7 +215,7 @@
     
     Reel *reel = [[Reel alloc] init];
     reel.Name = @"Pulp Fiction";
-    reel.reel_id = @"tt0110912";
+    reel.Directors = @"Quentin Tarantino";
     
     [reel save];
     
@@ -249,8 +231,8 @@
         XCTAssertEqual(count, 1);
     }];
     
-    __block NSString *status = @"16.05.22.03.02";
-    [Reel update:[@{ @"WatchedGood" : status } mutableCopy]];
+    __block NSString *update = @"Pulp Fiction, The Sequel to Resevoir Dogs";
+    [Reel update:[@{ @"Name" : update } mutableCopy]];
     
     [self.queue inDatabase:^(FMDatabase *db) {
         
@@ -259,14 +241,14 @@
         NSString *result = nil;
         
         while ([rsl next]) {
-            result = [rsl stringForColumnIndex:[rsl columnIndexForName:@"WatchedGood"]];
+            result = [rsl stringForColumnIndex:[rsl columnIndexForName:@"Name"]];
             NSLog(@"\n\n%@ = %@\n", @"select * from Reel", result);
             NSLog(@"%@", [[rsl resultDict] description]);
             count++;
         }
         
         XCTAssertEqual(count, 1);
-        XCTAssertEqualObjects(result, status);
+        XCTAssertEqualObjects(result, update);
     }];
 }
 - (void)testWhiteBoxReelWhereClauses {
@@ -281,25 +263,22 @@
         
         Reel *reel1 = [[Reel alloc] init];
         reel1.Name = @"Pulp Fiction";
-        reel1.reel_id = @"tt0110912";
         reel1.ReelPlot = @"The lives of two mob hit men, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.";
-        reel1.WatchedGood = @"16.05.22.03.02";
+        reel1.Directors = @"Quentin Tarantino";
         
         [reel1 save];
         
         Reel *reel2 = [[Reel alloc] init];
         reel2.Name = @"Django Unchained";
-        reel2.reel_id = @"tt1853728";
         reel1.ReelPlot = @"With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.";
-        reel2.WatchedGood = @"16.05.22.03.02";
+        reel2.Directors = @"Quentin Tarantino";
         
         [reel2 save];
         
         Reel *reel3 = [[Reel alloc] init];
         reel3.Name = @"Inglourious Basterds";
-        reel3.reel_id = @"tt1853728";
         reel3.ReelPlot = @"In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner's vengeful plans for the same.";
-        reel3.WatchedGood = @"16.05.22.03.02";
+        reel3.Directors = @"Quentin Tarantino";
         
         [reel3 save];
         
@@ -359,25 +338,22 @@
     
     Reel *reel1 = [[Reel alloc] init];
     reel1.Name = @"Pulp Fiction";
-    reel1.reel_id = @"tt0110912";
     reel1.ReelPlot = @"The lives of two mob hit men, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.";
-    reel1.WatchedGood = @"16.05.22.03.02";
+    reel1.Directors = @"Quentin Tarantino";
     
     [reel1 save];
     
     Reel *reel2 = [[Reel alloc] init];
     reel2.Name = @"Django Unchained";
-    reel2.reel_id = @"tt1853728";
     reel1.ReelPlot = @"With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.";
-    reel2.WatchedGood = @"16.05.22.03.02";
+    reel2.Directors = @"Quentin Tarantino";
     
     [reel2 save];
     
     Reel *reel3 = [[Reel alloc] init];
     reel3.Name = @"Inglourious Basterds";
-    reel3.reel_id = @"tt1853728";
     reel3.ReelPlot = @"In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner's vengeful plans for the same.";
-    reel3.WatchedGood = @"16.05.22.03.02";
+    reel3.Directors = @"Quentin Tarantino";
     
     [reel3 save];
     
@@ -391,33 +367,6 @@
         }
         
         XCTAssertEqual(count, 3);
-    }];
-    
-    NSNull *null = [NSNull null];
-    [[Reel where:@"Name" is:@"Pulp Fiction"]
-     update:[@{ @"WatchedGood" : null, @"WatchedBad" : null, @"WatchLater" : null, @"NotSure" : null } mutableCopy]];
-    
-    [self.queue inDatabase:^(FMDatabase *db) {
-        
-        int count = 0;
-        FMResultSet *rsl = [db executeQuery:@"select * from Reel"];
-        while ([rsl next]) {
-            NSLog(@"%@\n\n%@", @"select * from Reel", [[rsl resultDict] description]);
-            count++;
-        }
-        
-        XCTAssertEqual(count, 3);
-        
-        count = 0;
-        
-        rsl = [db executeQuery:@"select * from Reel where WatchedGood IS NULL"];
-        
-        while ([rsl next]) {
-            NSLog(@"\n\n%@ \n%@\n", @"select * from Reel", [[rsl resultDict] description]);
-            count++;
-        }
-        
-        XCTAssertEqual(count, 1);
     }];
     
     [[Reel where:@"Name" is:@"Pulp Fiction"] remove];
@@ -547,7 +496,7 @@
         int count = 0;
         FMResultSet *rsl = [db executeQuery:@"select * from Flight"];
         while ([rsl next]) {
-            NSLog(@"%@\n\n%@", @"select * from Reel", [[rsl resultDict] description]);
+            NSLog(@"%@\n\n%@", @"select * from Flight", [[rsl resultDict] description]);
             count++;
         }
         
@@ -558,7 +507,7 @@
         rsl = [db executeQuery:@"select * from Flight where delayed IS '1'"];
         
         while ([rsl next]) {
-            NSLog(@"\n\n%@ \n%@\n", @"select * from Reel", [[rsl resultDict] description]);
+            NSLog(@"\n\n%@ \n%@\n", @"select * from Flight", [[rsl resultDict] description]);
             count++;
         }
         
