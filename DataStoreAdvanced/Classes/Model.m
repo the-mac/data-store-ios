@@ -10,6 +10,12 @@
 #import "DataStore.h"
 #import <objc/runtime.h>
 
+#if TARGET_OS_IPHONE
+typedef UIImage Image; // Image is an alias for UIImage
+#else
+typedef NSImage Image; // Image is an alias for NSImage
+#endif
+
 static Model * queryInstance = nil;
 static NSMutableString * queryString = nil;
 static NSMutableDictionary * queryFields = nil;
@@ -412,9 +418,16 @@ static NSMutableDictionary * queryFields = nil;
                 else if([type isEqualToString:@"@\"NSInteger\""]) {
                     [object setValue:[NSNumber numberWithInt:[result intForColumn:column]] forKey:column];
                 }
-                else if([type isEqualToString:@"@\"UIImage\""]) {
+                else if([type isEqualToString:@"@\"UIImage\""]
+                || [type isEqualToString:@"@\"NSImage\""]) {
                     NSData *data = [result dataForColumn:column];
-                    [object setValue:[UIImage imageWithData:data] forKey:column];
+                    
+#if TARGET_OS_IPHONE
+                    [object setValue:[Image imageWithData:data] forKey:column];
+#else
+                    [object setValue:[[Image alloc] initWithData:data] forKey:column];
+#endif
+                    
                 }
                 else if([type isEqualToString:@"@\"NSDate\""]) {
                     NSDate *date = [result dateForColumn:column];

@@ -1,5 +1,6 @@
 clear && printf '\e[3J' && \
-VERSION=2.1.7 && \
+pod lib lint DataStoreAdvanced.podspec --no-clean --verbose --allow-warnings && \
+VERSION=2.1.8 && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
 git add . && \
 git commit -m "v$VERSION: Removed UIKit reference, Updated docs and README, Passed 13/13 Unit Tests" && \
