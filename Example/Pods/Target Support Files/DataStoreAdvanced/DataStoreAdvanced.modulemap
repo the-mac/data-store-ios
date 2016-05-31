@@ -1,6 +1,0 @@
-framework module DataStoreAdvanced {
-  umbrella header "DataStoreAdvanced-umbrella.h"
-
-  export *
-  module * { export * }
-}
