@@ -1,6 +1,0 @@
-use_frameworks!
-
-target 'DataStorePopulate' do
-    pod 'FMDB'
-    pod 'DataStoreAdvanced', :git => 'https://github.com/the-mac/data-store-ios.git', :branch => 'advanced'
-end
