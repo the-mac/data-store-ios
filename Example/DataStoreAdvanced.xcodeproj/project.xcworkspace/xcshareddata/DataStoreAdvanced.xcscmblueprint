@@ -7,14 +7,14 @@
     "9369845C31D8A2A2AA08B459F24C4F72068B7C28" : 0,
     "069D1A10015D498825B3FF01E8949D8244A64106" : 0
   },
-  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "ACF2DD15-7828-4087-BA03-C7FBA2B677B1",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "456B4762-84F3-41DB-8395-900ACB5CA4AB",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "9369845C31D8A2A2AA08B459F24C4F72068B7C28" : "DataStoreAdvanced\/",
     "069D1A10015D498825B3FF01E8949D8244A64106" : "..\/.."
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "DataStoreAdvanced",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/DataStoreAdvanced.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/DataStoreAdvanced.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/the-mac\/Tool-Kit.git",

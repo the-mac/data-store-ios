@@ -22,6 +22,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		9D4C62CA1CFD08400044B998 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4C62C91CFD08400044B998 /* main.m */; };
 		9DF9CBFE1CF4DA00004E0F7B /* ADV_EXECUTION in Resources */ = {isa = PBXBuildFile; fileRef = 9DF9CBFD1CF4DA00004E0F7B /* ADV_EXECUTION */; settings = {ASSET_TAGS = (); }; };
 		9DF9CC001CF4DA0B004E0F7B /* CONTRIBUTING.md in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9CBFF1CF4DA0B004E0F7B /* CONTRIBUTING.md */; settings = {ASSET_TAGS = (); }; };
 		9DF9CC031CF4DB13004E0F7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF9CC021CF4DB13004E0F7B /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -34,6 +35,7 @@
 		9DF9CC241CF525A5004E0F7B /* flight_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DF9CC221CF525A5004E0F7B /* flight_icon.png */; settings = {ASSET_TAGS = (); }; };
 		9DF9CC251CF525A5004E0F7B /* flight_path.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DF9CC231CF525A5004E0F7B /* flight_path.jpg */; settings = {ASSET_TAGS = (); }; };
 		9DF9CC271CF53646004E0F7B /* flights.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DF9CC261CF53646004E0F7B /* flights.plist */; settings = {ASSET_TAGS = (); }; };
+		DCE671DEC2A10D4BB2E93C15 /* Pods_DataStoreAdvanced_Populate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88406B40784F048E0DD872F9 /* Pods_DataStoreAdvanced_Populate.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,11 +49,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9D1767DD1CFC0CDD00A6FB04 /* CopyFiles */ = {
+		9D4C62C51CFD08400044B998 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = usr/share/man/man1;
+			dstSubfolderSpec = 10;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
@@ -61,6 +63,7 @@
 /* Begin PBXFileReference section */
 		3724A565EF80D0B6AE4B43D5 /* Pods_DataStoreAdvanced_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataStoreAdvanced_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E1FA437A1D0AF0A8703A08 /* Pods-DataStoreAdvanced_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataStoreAdvanced_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataStoreAdvanced_Tests/Pods-DataStoreAdvanced_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		4A1AE8BBF60820E9BE226D5C /* Pods-DataStoreAdvanced_Populate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataStoreAdvanced_Populate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataStoreAdvanced_Populate/Pods-DataStoreAdvanced_Populate.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* DataStoreAdvanced_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataStoreAdvanced_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -80,13 +83,18 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		6DA3B4B8E33911A970CDE42A /* Pods-DataStoreAdvanced_Populate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataStoreAdvanced_Populate.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataStoreAdvanced_Populate/Pods-DataStoreAdvanced_Populate.release.xcconfig"; sourceTree = "<group>"; };
 		88406B40784F048E0DD872F9 /* Pods_DataStoreAdvanced_Populate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataStoreAdvanced_Populate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BD87B000432429459E3C67 /* Pods_Pre_Populate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pre_Populate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8CF262785D46762CF13B57 /* DataStoreAdvanced.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DataStoreAdvanced.podspec; path = ../DataStoreAdvanced.podspec; sourceTree = "<group>"; };
 		94194D0500444AEE8D66BB2C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		9D1767DF1CFC0CDD00A6FB04 /* DataStoreAdvanced_Populate */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DataStoreAdvanced_Populate; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1AA1F31CFBB39100EAA633 /* DataStoreAdvanced.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DataStoreAdvanced.framework; path = "Pods/../build/Debug-iphoneos/DataStoreAdvanced/DataStoreAdvanced.framework"; sourceTree = "<group>"; };
 		9D2903EAB3865DB1E291C11D /* Pods-DataStoreAdvanced_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataStoreAdvanced_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataStoreAdvanced_Example/Pods-DataStoreAdvanced_Example.release.xcconfig"; sourceTree = "<group>"; };
+		9D47EF081CFCA5710087CFA2 /* DataStoreAdvanced.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DataStoreAdvanced.framework; path = "Pods/../build/Debug-iphoneos/DataStoreAdvanced/DataStoreAdvanced.framework"; sourceTree = "<group>"; };
+		9D47EF0E1CFCA6230087CFA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9D4C62C71CFD08400044B998 /* DataStoreAdvanced_Populate */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DataStoreAdvanced_Populate; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D4C62C91CFD08400044B998 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9D831CD01CFD0AA100BB04FE /* Pods_DataStoreAdvanced_Populate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Pods_DataStoreAdvanced_Populate.framework; path = "/Users/christopher/Library/Developer/Xcode/DerivedData/DataStoreAdvanced-bmyegpwswibqedackzwdcxmbvrry/Build/Products/Debug/Pods_DataStoreAdvanced_Populate.framework"; sourceTree = "<absolute>"; };
 		9DF9CBFD1CF4DA00004E0F7B /* ADV_EXECUTION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADV_EXECUTION; sourceTree = "<group>"; };
 		9DF9CBFF1CF4DA0B004E0F7B /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		9DF9CC021CF4DB13004E0F7B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -132,10 +140,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9D1767DC1CFC0CDD00A6FB04 /* Frameworks */ = {
+		9D4C62C41CFD08400044B998 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCE671DEC2A10D4BB2E93C15 /* Pods_DataStoreAdvanced_Populate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,9 +154,11 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				9D831CD01CFD0AA100BB04FE /* Pods_DataStoreAdvanced_Populate.framework */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for DataStoreAdvanced */,
 				6003F5B5195388D20070C39A /* Tests */,
+				9D4C62C81CFD08400044B998 /* DataStoreAdvanced_Populate */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				DBAED5BA88BBA6E10D85FFA3 /* Pods */,
@@ -159,7 +170,7 @@
 			children = (
 				6003F58A195388D20070C39A /* DataStoreAdvanced_Example.app */,
 				6003F5AE195388D20070C39A /* DataStoreAdvanced_Tests.xctest */,
-				9D1767DF1CFC0CDD00A6FB04 /* DataStoreAdvanced_Populate */,
+				9D4C62C71CFD08400044B998 /* DataStoreAdvanced_Populate */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,6 +178,8 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9D47EF0E1CFCA6230087CFA2 /* Foundation.framework */,
+				9D47EF081CFCA5710087CFA2 /* DataStoreAdvanced.framework */,
 				9D1AA1F31CFBB39100EAA633 /* DataStoreAdvanced.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
@@ -241,6 +254,14 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		9D4C62C81CFD08400044B998 /* DataStoreAdvanced_Populate */ = {
+			isa = PBXGroup;
+			children = (
+				9D4C62C91CFD08400044B998 /* main.m */,
+			);
+			path = DataStoreAdvanced_Populate;
+			sourceTree = "<group>";
+		};
 		9DF9CC011CF4DA23004E0F7B /* Headers */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +294,8 @@
 				9D2903EAB3865DB1E291C11D /* Pods-DataStoreAdvanced_Example.release.xcconfig */,
 				DDC849714CB696EDA7CDDA2E /* Pods-DataStoreAdvanced_Tests.debug.xcconfig */,
 				45E1FA437A1D0AF0A8703A08 /* Pods-DataStoreAdvanced_Tests.release.xcconfig */,
+				4A1AE8BBF60820E9BE226D5C /* Pods-DataStoreAdvanced_Populate.debug.xcconfig */,
+				6DA3B4B8E33911A970CDE42A /* Pods-DataStoreAdvanced_Populate.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -321,13 +344,15 @@
 			productReference = 6003F5AE195388D20070C39A /* DataStoreAdvanced_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9D1767DE1CFC0CDD00A6FB04 /* DataStoreAdvanced_Populate */ = {
+		9D4C62C61CFD08400044B998 /* DataStoreAdvanced_Populate */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9D1767E31CFC0CDD00A6FB04 /* Build configuration list for PBXNativeTarget "DataStoreAdvanced_Populate" */;
+			buildConfigurationList = 9D4C62CD1CFD08400044B998 /* Build configuration list for PBXNativeTarget "DataStoreAdvanced_Populate" */;
 			buildPhases = (
-				9D1767DB1CFC0CDD00A6FB04 /* Sources */,
-				9D1767DC1CFC0CDD00A6FB04 /* Frameworks */,
-				9D1767DD1CFC0CDD00A6FB04 /* CopyFiles */,
+				0B3C20F37AF2C10B5C7DAB7A /* 📦 Check Pods Manifest.lock */,
+				9D4C62C31CFD08400044B998 /* Sources */,
+				9D4C62C41CFD08400044B998 /* Frameworks */,
+				9D4C62C51CFD08400044B998 /* CopyFiles */,
+				ED928051191B3B5BC15170F7 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,7 +360,7 @@
 			);
 			name = DataStoreAdvanced_Populate;
 			productName = DataStoreAdvanced_Populate;
-			productReference = 9D1767DF1CFC0CDD00A6FB04 /* DataStoreAdvanced_Populate */;
+			productReference = 9D4C62C71CFD08400044B998 /* DataStoreAdvanced_Populate */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -351,7 +376,7 @@
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
-					9D1767DE1CFC0CDD00A6FB04 = {
+					9D4C62C61CFD08400044B998 = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
 				};
@@ -371,7 +396,7 @@
 			targets = (
 				6003F589195388D20070C39A /* DataStoreAdvanced_Example */,
 				6003F5AD195388D20070C39A /* DataStoreAdvanced_Tests */,
-				9D1767DE1CFC0CDD00A6FB04 /* DataStoreAdvanced_Populate */,
+				9D4C62C61CFD08400044B998 /* DataStoreAdvanced_Populate */,
 			);
 		};
 /* End PBXProject section */
@@ -404,6 +429,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0B3C20F37AF2C10B5C7DAB7A /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		2AD5C4A5050E8F53D79D3CDA /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -479,6 +519,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		ED928051191B3B5BC15170F7 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DataStoreAdvanced_Populate/Pods-DataStoreAdvanced_Populate-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F07795506194FBB1FE2818C1 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -520,10 +575,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9D1767DB1CFC0CDD00A6FB04 /* Sources */ = {
+		9D4C62C31CFD08400044B998 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4C62CA1CFD08400044B998 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,8 +768,9 @@
 			};
 			name = Release;
 		};
-		9D1767E41CFC0CDD00A6FB04 /* Debug */ = {
+		9D4C62CB1CFD08400044B998 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A1AE8BBF60820E9BE226D5C /* Pods-DataStoreAdvanced_Populate.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -726,8 +783,9 @@
 			};
 			name = Debug;
 		};
-		9D1767E51CFC0CDD00A6FB04 /* Release */ = {
+		9D4C62CC1CFD08400044B998 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DA3B4B8E33911A970CDE42A /* Pods-DataStoreAdvanced_Populate.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				COPY_PHASE_STRIP = NO;
@@ -771,11 +829,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D1767E31CFC0CDD00A6FB04 /* Build configuration list for PBXNativeTarget "DataStoreAdvanced_Populate" */ = {
+		9D4C62CD1CFD08400044B998 /* Build configuration list for PBXNativeTarget "DataStoreAdvanced_Populate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9D1767E41CFC0CDD00A6FB04 /* Debug */,
-				9D1767E51CFC0CDD00A6FB04 /* Release */,
+				9D4C62CB1CFD08400044B998 /* Debug */,
+				9D4C62CC1CFD08400044B998 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

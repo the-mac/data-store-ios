@@ -84,10 +84,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/DataStoreAdvanced-iOS/DataStoreAdvanced.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/FMDB-iOS/FMDB.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/DataStoreAdvanced-OSX/DataStoreAdvanced.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FMDB-OSX/FMDB.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/DataStoreAdvanced-iOS/DataStoreAdvanced.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/FMDB-iOS/FMDB.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/DataStoreAdvanced-OSX/DataStoreAdvanced.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FMDB-OSX/FMDB.framework"
 fi

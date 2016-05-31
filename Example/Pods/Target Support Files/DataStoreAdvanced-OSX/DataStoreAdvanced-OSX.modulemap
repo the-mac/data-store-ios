@@ -1,5 +1,5 @@
 framework module DataStoreAdvanced {
-  umbrella header "DataStoreAdvanced-umbrella.h"
+  umbrella header "DataStoreAdvanced-OSX-umbrella.h"
 
   export *
   module * { export * }

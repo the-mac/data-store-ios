@@ -1,0 +1,6 @@
+framework module Pods_DataStoreAdvanced_Populate {
+  umbrella header "Pods-DataStoreAdvanced_Populate-umbrella.h"
+
+  export *
+  module * { export * }
+}

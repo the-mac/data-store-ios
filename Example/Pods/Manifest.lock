@@ -1,5 +1,5 @@
 PODS:
-  - DataStoreAdvanced (2.1.6):
+  - DataStoreAdvanced (2.1.8):
     - FMDB
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
@@ -14,9 +14,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  DataStoreAdvanced: acc61e61cfab45981e8c1298ef5afbc51941c407
+  DataStoreAdvanced: 39dbff734ce6d74371be0eb518f4b31a34781a29
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
 
-PODFILE CHECKSUM: 30fda8fe1ca663858928ff3353deee4634c459b6
+PODFILE CHECKSUM: 9152011b11a0986d17a8cc3ba9fe2fa18df6e60b
 
 COCOAPODS: 1.0.0
