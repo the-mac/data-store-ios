@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "DataStoreAdvanced"
-s.version          = "2.1.8"
+s.version          = "2.1.9"
 s.summary          = "Data Store (a Laravel Eloquent like ORM) syncs your Objects (or Models) to an underlying SQLite table."
 
 s.description      = <<-DESC
@@ -24,9 +24,10 @@ s.homepage         = "https://github.com/the-mac/data-store-ios"
 s.license          = 'MIT'
 s.author           = { "Christopher Miller" => "christopher.d.miller.1@gmail.com" }
 s.source           = { :git => "https://github.com/the-mac/data-store-ios.git", :tag => s.version.to_s }
+s.frameworks       = 'Foundation'
 
 s.ios.deployment_target = '8.0'
-s.osx.deployment_target = '10.10'
+s.osx.deployment_target = '10.9'
 
 s.source_files = 'Pods/FMDB/standard/*.{m,h}', 'DataStoreAdvanced/Classes/**/*', 'DataStoreAdvanced/Classes/*.{m,h}'
 s.dependency 'FMDB'

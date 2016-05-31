@@ -26,7 +26,7 @@
 /* Begin PBXFileReference section */
 		9D1767C11CFC026400A6FB04 /* DataStorePopulate */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DataStorePopulate; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1767C41CFC026400A6FB04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9D1767CB1CFC029000A6FB04 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
+		9D1767CB1CFC029000A6FB04 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9D1767CC1CFC04E900A6FB04 /* Reels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Reels.json; sourceTree = "<group>"; };
 		9D1767CD1CFC04E900A6FB04 /* Reel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reel.m; sourceTree = "<group>"; };
 		9D1767CE1CFC04E900A6FB04 /* Reel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reel.h; sourceTree = "<group>"; };
@@ -43,11 +43,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		615B7126ADD68C284D569A79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9D1767B81CFC026400A6FB04 = {
 			isa = PBXGroup;
 			children = (
 				9D1767C31CFC026400A6FB04 /* DataStorePopulate */,
 				9D1767C21CFC026400A6FB04 /* Products */,
+				EF9F1450BC3E1FB36DE7EC5C /* Pods */,
+				615B7126ADD68C284D569A79 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +80,13 @@
 			path = DataStorePopulate;
 			sourceTree = "<group>";
 		};
+		EF9F1450BC3E1FB36DE7EC5C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,9 +94,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D1767C81CFC026400A6FB04 /* Build configuration list for PBXNativeTarget "DataStorePopulate" */;
 			buildPhases = (
+				87B53B1FC4A26CA6C4AA375C /* 📦 Check Pods Manifest.lock */,
 				9D1767BD1CFC026400A6FB04 /* Sources */,
 				9D1767BE1CFC026400A6FB04 /* Frameworks */,
 				9D1767BF1CFC026400A6FB04 /* CopyFiles */,
+				7395291FD7EB0EED1BC5FC45 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -121,6 +139,39 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7395291FD7EB0EED1BC5FC45 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DataStorePopulate/Pods-DataStorePopulate-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87B53B1FC4A26CA6C4AA375C /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9D1767BD1CFC026400A6FB04 /* Sources */ = {
