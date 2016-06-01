@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ODq-9m-60O">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Flights Table View Controller-->
+        <scene sceneID="fqd-ct-MrZ">
+            <objects>
+                <tableViewController storyboardIdentifier="FlightsTable" id="7j2-6k-xCR" customClass="FlightsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" id="u69-YM-si8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Puk-dM-r0K">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7qb-Im-lTR">
+                                    <rect key="frame" x="8" y="20" width="584" height="30"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="82" id="PUO-p4-q6p" customClass="FlightTableViewCell">
+                                <rect key="frame" x="0.0" y="86" width="600" height="82"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PUO-p4-q6p" id="wKq-oX-8Om">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="81"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flight.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="CnP-PI-qle">
+                                            <rect key="frame" x="27" y="8" width="59" height="60"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="To: Destination" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gvo-P1-qEu">
+                                            <rect key="frame" x="161" y="46" width="426" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Flight #" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcY-RE-YE5">
+                                            <rect key="frame" x="161" y="0.0" width="426" height="49"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="IcY-RE-YE5" secondAttribute="trailing" constant="5" id="33h-wj-sQl"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Gvo-P1-qEu" secondAttribute="trailing" constant="5" id="Lsj-PS-Cb4"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="flightDestination" destination="Gvo-P1-qEu" id="3bt-Fo-KHd"/>
+                                    <outlet property="flightIcon" destination="CnP-PI-qle" id="HbO-XV-GfC"/>
+                                    <outlet property="flightNumber" destination="IcY-RE-YE5" id="vjm-36-gWh"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7j2-6k-xCR" id="gXp-UA-Idw"/>
+                            <outlet property="delegate" destination="7j2-6k-xCR" id="7hZ-a0-Gzc"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g07-8P-lXQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="981" y="52"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qVt-hr-Yif">
+            <objects>
+                <viewController id="K2d-u3-5J6" customClass="MACViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0sa-Zz-b1L"/>
+                        <viewControllerLayoutGuide type="bottom" id="KCl-kO-Paj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ghF-ym-uTD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fy-G3-05i">
+                                <rect key="frame" x="20" y="204" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="Show Your Flights">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showFlights" destination="K2d-u3-5J6" eventType="touchUpInside" id="Lje-Cj-aPZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSK-3F-GAm">
+                                <rect key="frame" x="20" y="310" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="Cancel All Flights">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelAllFlights" destination="K2d-u3-5J6" eventType="touchUpInside" id="Br4-mM-DtB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="# Flights Booked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpe-82-fGk">
+                                <rect key="frame" x="20" y="142" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2g-CX-8aO">
+                                <rect key="frame" x="20" y="259" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="Book A Flight">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bookAFlight" destination="K2d-u3-5J6" eventType="touchUpInside" id="JgU-Xw-D0e"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="jpe-82-fGk" secondAttribute="trailing" id="Eu1-Wz-d7B"/>
+                            <constraint firstItem="BSK-3F-GAm" firstAttribute="top" secondItem="C2g-CX-8aO" secondAttribute="bottom" constant="21" id="FEw-jW-2h8"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="jpe-82-fGk" secondAttribute="leading" id="FRc-EI-jx1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5fy-G3-05i" secondAttribute="trailing" id="Qck-cy-XY2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C2g-CX-8aO" secondAttribute="trailing" id="ZXw-NU-ESK"/>
+                            <constraint firstItem="C2g-CX-8aO" firstAttribute="top" secondItem="5fy-G3-05i" secondAttribute="bottom" constant="22" id="cDp-GQ-7Zf"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="C2g-CX-8aO" secondAttribute="leading" id="cwa-2K-3hM"/>
+                            <constraint firstItem="5fy-G3-05i" firstAttribute="top" secondItem="jpe-82-fGk" secondAttribute="bottom" constant="41" id="pxD-xS-wvp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BSK-3F-GAm" secondAttribute="trailing" id="uH3-Xi-jbi"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="BSK-3F-GAm" secondAttribute="leading" id="vqs-87-D16"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5fy-G3-05i" secondAttribute="leading" id="yWy-B4-SH4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qJ1-kk-HrG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gBl-HN-zNp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="433"/>
+        </scene>
+        <!--Book Flight View Controller-->
+        <scene sceneID="GSd-NE-7Pz">
+            <objects>
+                <viewController storyboardIdentifier="BookFlight" id="Hab-i9-Ief" customClass="BookFlightViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tOi-2a-Pkr"/>
+                        <viewControllerLayoutGuide type="bottom" id="o58-Cm-6bw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c9O-ae-yaX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TDB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyG-hO-Nye">
+                                <rect key="frame" x="20" y="327" width="94" height="70"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Lovemade, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vk5-Hc-DaP">
+                                <rect key="frame" x="30" y="298" width="263" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Lovemade, CA" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdM-bh-VnS">
+                                <rect key="frame" x="317" y="298" width="263" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TDB" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Au0-te-KaE">
+                                <rect key="frame" x="478" y="327" width="102" height="70"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="flight_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="YG8-lP-f8Q">
+                                <rect key="frame" x="132" y="327" width="338" height="70"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="flight_path.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="FHd-bU-CWi">
+                                <rect key="frame" x="20" y="80" width="560" height="185"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70v-Ox-cGq">
+                                <rect key="frame" x="21" y="437" width="560" height="61"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <state key="normal" title="Book Flight">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o58-Cm-6bw" firstAttribute="top" secondItem="70v-Ox-cGq" secondAttribute="bottom" constant="143" id="68b-YM-52j"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="70v-Ox-cGq" secondAttribute="leading" id="B7b-16-9t2"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="tyG-hO-Nye" secondAttribute="leading" id="ILp-gs-tsH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FHd-bU-CWi" secondAttribute="trailing" id="LMk-Gd-JTO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DdM-bh-VnS" secondAttribute="trailing" id="Mmq-O2-hdK"/>
+                            <constraint firstItem="70v-Ox-cGq" firstAttribute="top" secondItem="YG8-lP-f8Q" secondAttribute="bottom" constant="40" id="Nej-vg-fL1"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="FHd-bU-CWi" secondAttribute="leading" id="Prs-do-voh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="70v-Ox-cGq" secondAttribute="trailing" id="R9c-HP-iCs"/>
+                            <constraint firstItem="DdM-bh-VnS" firstAttribute="top" secondItem="FHd-bU-CWi" secondAttribute="bottom" constant="33" id="e6J-eM-ReB"/>
+                            <constraint firstItem="YG8-lP-f8Q" firstAttribute="leading" secondItem="tyG-hO-Nye" secondAttribute="trailing" constant="8" id="ej4-OV-aOb"/>
+                            <constraint firstItem="Vk5-Hc-DaP" firstAttribute="top" secondItem="FHd-bU-CWi" secondAttribute="bottom" constant="33" id="hT0-yk-zva"/>
+                            <constraint firstItem="Vk5-Hc-DaP" firstAttribute="leading" secondItem="c9O-ae-yaX" secondAttribute="leadingMargin" constant="10" id="lap-1q-DKT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Au0-te-KaE" secondAttribute="trailing" id="s0C-XY-agO"/>
+                            <constraint firstItem="DdM-bh-VnS" firstAttribute="leading" secondItem="Vk5-Hc-DaP" secondAttribute="trailing" constant="24" id="tN2-EF-Ev6"/>
+                            <constraint firstItem="Au0-te-KaE" firstAttribute="leading" secondItem="YG8-lP-f8Q" secondAttribute="trailing" constant="8" id="yhR-mm-M5h"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3By-JT-ezj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="981" y="718"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OIo-U2-Mun">
+            <objects>
+                <navigationController id="ODq-9m-60O" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="46j-QL-6Y9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t9P-r6-vda" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-423" y="433"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="flight.jpg" width="2000" height="800"/>
+        <image name="flight_icon.png" width="51" height="51"/>
+        <image name="flight_path.jpg" width="1198" height="446"/>
+    </resources>
+</document>

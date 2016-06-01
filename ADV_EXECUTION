@@ -1,0 +1,9 @@
+commitMessage="Decommissioning Cocoapods repo commit" && \
+VERSION=2.2.0 && \
+clear && printf '\e[3J' && \
+cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
+git add . && \
+git commit -m "v$VERSION: $commitMessage" && \
+git push origin advanced && \
+git tag $VERSION && \
+git push origin advanced $VERSION
