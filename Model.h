@@ -27,6 +27,12 @@
 @property (readonly, nonatomic) NSNumber *_id;
 
 /*!
+ @discussion    Execute this function when you want the current Model's class type.
+ @return        <b>Class</b> The Model type.
+ */
++ (Class) classType;
+
+/*!
  @brief         The function counts the total number of records in a table
  @discussion    Execute this function when you want the current count of your Model.
  @return        <b>int</b> The Model count.

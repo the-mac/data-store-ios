@@ -32,6 +32,9 @@ static NSMutableDictionary * queryFields = nil;
 + (void) initialize {
     [Model clearQuery];
 }
++ (Class) classType {
+    return [self class];
+}
 + (void) clearQuery {
     queryInstance = [[self class] new];
     queryString = [@"" mutableCopy];

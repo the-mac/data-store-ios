@@ -41,7 +41,7 @@ int main(int argc, const char * argv[]) {
         NSLog(@"Success ([fileManager removeItemAtPath:%@ error:nil]): %@", dbPath, success ? @"YES" : @"NO");
         
         // SET UP DATABASE
-        NSArray* tables = @[ [Reel class] ];
+        NSArray* tables = @[ [Reel classType] ];
         [DataStoreHelper setup:@"ReelExampleDB.sqlite" with:tables];
         
         // READ Reel Objects
