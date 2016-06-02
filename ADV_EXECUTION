@@ -1,5 +1,5 @@
-commitMessage="Decommissioning Cocoapods repo commit" && \
-VERSION=2.2.0 && \
+commitMessage="Updated project to encompass repo for Carthage & is Passing 13/13 Unit Tests" && \
+VERSION=2.2.2 && \
 clear && printf '\e[3J' && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
 git add . && \

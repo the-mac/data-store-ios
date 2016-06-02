@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OSXDataStore.h"
+#import <OSXDataStore/OSXDataStore.h>
 
 @interface Reel : Model
 
