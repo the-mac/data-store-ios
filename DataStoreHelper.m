@@ -151,9 +151,8 @@ static NSString * cachedDatabasePath = nil;
         
         [defaults setObject:version forKey:className];
         [defaults synchronize];
+        [NSThread sleepForTimeInterval:.5];
     }
-    
-    
 }
 
 + (NSString*) generateColumns:(NSArray*)fields {

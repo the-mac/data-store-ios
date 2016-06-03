@@ -743,6 +743,21 @@
 
 - (void)testCreate {
     
+//    [self.queue inDatabase:^(FMDatabase *db) {
+//        
+//        [db executeUpdate:@"drop table if exists Flight"];
+//        [db executeUpdate:@"create table Flight (_id integer primary key autoincrement, name text, arriving text)"];
+//        
+//        int count = 0;
+//        FMResultSet *rsl = [db executeQuery:@"select * from Flight"];
+//        while ([rsl next]) {
+//            NSLog(@"\n\n%@ = %@\n", @"select * from Flight", [rsl stringForColumnIndex:0]);
+//            count++;
+//        }
+//        
+//        XCTAssertEqual(count, 0);
+//    }];
+    
     NSDictionary *flightData = [@{
          @"name" : @"Flight 888",
          @"arriving" : @"Atlanta, GA"

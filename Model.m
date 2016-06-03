@@ -151,13 +151,13 @@ static NSMutableDictionary * queryFields = nil;
             query = [NSString stringWithFormat:@"insert into %@(%@) values (%@)", table, columns, params];
             NSLog(@"query =%@", query);
             
-            self._id = [NSNumber numberWithInt:[[self class] count] + 1];
-            
             [queryString appendString:query];
             
             NSArray * values = [Model getValues: self];
             NSLog(@"values =%@", values);
             result = [db executeUpdate:queryString withArgumentsInArray:values];
+            
+            self._id = [NSNumber numberWithLong:[db lastInsertRowId]];
             
         }
     }];
@@ -476,7 +476,7 @@ static NSMutableDictionary * queryFields = nil;
             case 's': [object setValue:[NSNumber numberWithShort:[[result objectForKey:column] shortValue]] forKey:column]; break;
             case 'l': [object setValue:[NSNumber numberWithLong:[[result objectForKey:column] longValue]] forKey:column]; break;
             case 'q': [object setValue:[NSNumber numberWithLongLong:[[result objectForKey:column] longLongValue]] forKey:column]; break;
-            case 'I': [object setValue:[NSNumber numberWithInt:[[result objectForKey:column] integerValue]] forKey:column]; break;
+            case 'I': [object setValue:[NSNumber numberWithLong:[[result objectForKey:column] integerValue]] forKey:column]; break;
             case 'S': [object setValue:[result objectForKey:column] forKey:column]; break;
             case 'L': [object setValue:[NSNumber numberWithLong:[[result objectForKey:column] longValue]] forKey:column]; break;
             case 'Q': [object setValue:[NSNumber numberWithLong:[[result objectForKey:column] longValue]] forKey:column]; break;
