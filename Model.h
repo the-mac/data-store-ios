@@ -51,7 +51,7 @@
  @discussion    Execute this method when you want to insert an record.
  @return        <b>Model</b> The new Model result of the query.
  */
-+ (Model *) create:(NSDictionary*)data;
++ (Model *) create:(NSMutableDictionary*)data;
 
 /*!
  @brief         Search method for first record in the database

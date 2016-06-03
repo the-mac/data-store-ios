@@ -47,7 +47,20 @@
     self.queue = [FMDatabaseQueue databaseQueueWithPath: [DataStoreHelper databasePath]];
 }
 - (void)tearDown {
-    [Flight truncate];
+    [self.queue inDatabase:^(FMDatabase *db) {
+        
+        [db executeUpdate:@"drop table if exists Flight"];
+        [db executeUpdate:@"create table Flight (_id integer primary key autoincrement, name text, arriving text)"];
+        
+        int count = 0;
+        FMResultSet *rsl = [db executeQuery:@"select * from Flight"];
+        while ([rsl next]) {
+            NSLog(@"\n\n%@ = %@\n", @"select * from Flight", [rsl stringForColumnIndex:0]);
+            count++;
+        }
+        
+        XCTAssertEqual(count, 0);
+    }];
     [super tearDown];
 }
 
@@ -61,14 +74,22 @@
 
 - (void)testCreate {
     
-    NSDictionary *flightData = @{
-         @"name" : @"Flight 888",
-         @"arriving" : @"Atlanta, GA"
-    };
+    NSDictionary *flightData = [@{
+          @"name" : @"Flight 888",
+          @"arriving" : @"Atlanta, GA"
+      } mutableCopy];
+    Class classType = [Flight class];
+    Flight *flight = (Flight *)[classType create:flightData];
     
-    Flight *flight = (Flight *)[Flight create:flightData];
+    int _id = [flight._id intValue];
+    Flight *flight1 = (Flight *)[Flight find:_id];
+    
     XCTAssertEqual(flight.name, @"Flight 888", @"Did not create successfully!");
     XCTAssertEqual(flight.name, flightData[@"name"], @"Did not create successfully!");
+    XCTAssertEqual(flight.arriving, @"Atlanta, GA");
+    
+    XCTAssertEqualObjects(flight.name, flight1.name);
+    XCTAssertEqualObjects(flight.arriving, flight1.arriving);
 }
 
 @end

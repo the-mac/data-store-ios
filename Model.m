@@ -112,7 +112,7 @@ static NSMutableDictionary * queryFields = nil;
 }
 
 
-+ (Model *) create:(NSDictionary*)data {
++ (Model *) create:(NSMutableDictionary*)data {
     Model * model = [Model generateModel:data forClass:[self class]];
     [model save];
     return model;
@@ -135,7 +135,7 @@ static NSMutableDictionary * queryFields = nil;
             NSLog(@"query =%@", query);
             
             [queryString appendString:query];
-            result = [db executeUpdate:queryString] != nil;
+            result = [db executeUpdate:queryString];
         } else {
             
             
@@ -156,12 +156,15 @@ static NSMutableDictionary * queryFields = nil;
             [queryString appendString:query];
             
             NSArray * values = [Model getValues: self];
-            result = [db executeUpdate:queryString withArgumentsInArray:values] != nil;
+            NSLog(@"values =%@", values);
+            result = [db executeUpdate:queryString withArgumentsInArray:values];
             
         }
     }];
     
     [Model clearQuery];
+    NSLog(@"result =%d", result);
+
     return result;
 }
 - (NSInteger) update:(NSMutableDictionary*) attributes {

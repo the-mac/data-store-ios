@@ -743,12 +743,12 @@
 
 - (void)testCreate {
     
-    NSDictionary *flightData = @{
+    NSDictionary *flightData = [@{
          @"name" : @"Flight 888",
          @"arriving" : @"Atlanta, GA"
-     };
-    
-    Flight *flight = (Flight *)[Flight create:flightData];
+     } mutableCopy];
+    Class classType = [Flight class];
+    Flight *flight = (Flight *)[classType create:flightData];
     
     int _id = [flight._id intValue];
     Flight *flight1 = (Flight *)[Flight find:_id];
