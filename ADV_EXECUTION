@@ -1,5 +1,5 @@
-commitMessage="Added classType function for setup & is Passing 13/13 Unit Tests" && \
-VERSION=2.2.2 && \
+commitMessage="Removed classType function & Added the create function & is Passing 14/14 Unit Tests" && \
+VERSION=2.2.3 && \
 clear && printf '\e[3J' && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
 git add . && \
@@ -7,3 +7,5 @@ git commit -m "v$VERSION: $commitMessage" && \
 git push origin advanced && \
 git tag $VERSION && \
 git push origin advanced $VERSION
+
+cd "/Users/christopher/git/Tool-Kit/MAC Guide - Persistence/DataStore/ObjCExample" && carthage update

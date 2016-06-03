@@ -32,9 +32,6 @@ static NSMutableDictionary * queryFields = nil;
 + (void) initialize {
     [Model clearQuery];
 }
-+ (Class) classType {
-    return [self class];
-}
 + (void) clearQuery {
     queryInstance = [[self class] new];
     queryString = [@"" mutableCopy];
@@ -114,6 +111,12 @@ static NSMutableDictionary * queryFields = nil;
     return self;
 }
 
+
++ (Model *) create:(NSDictionary*)data {
+    Model * model = [Model generateModel:data forClass:[self class]];
+    [model save];
+    return model;
+}
 - (BOOL) save {
     NSLog(@"called %s", __FUNCTION__);
     __block BOOL result = YES;
@@ -447,6 +450,81 @@ static NSMutableDictionary * queryFields = nil;
                     [object setValue:date forKey:column];
                 }
                 else [object setValue:[result dataForColumn:column] forKey:column];
+                
+                break;
+        }
+    }
+    
+    return object;
+}
++ (Model *) generateModel:(NSDictionary *) result forClass:(Class) class {
+    
+    Model * object = [class new];
+    NSArray *columns = [Model getFields:class];
+    
+    for (NSDictionary *field in columns) {
+        NSString *column       = [field valueForKey:@"column"];
+        NSString *type       = [field valueForKey:@"dataType"];
+        
+        const char *typeValue = [type UTF8String];
+        
+        switch (typeValue[0]) {
+            case 'i': [object setValue:[NSNumber numberWithInt:[[result objectForKey:column] intValue]] forKey:column]; break;
+            case 's': [object setValue:[NSNumber numberWithShort:[[result objectForKey:column] shortValue]] forKey:column]; break;
+            case 'l': [object setValue:[NSNumber numberWithLong:[[result objectForKey:column] longValue]] forKey:column]; break;
+            case 'q': [object setValue:[NSNumber numberWithLongLong:[[result objectForKey:column] longLongValue]] forKey:column]; break;
+            case 'I': [object setValue:[NSNumber numberWithInt:[[result objectForKey:column] integerValue]] forKey:column]; break;
+            case 'S': [object setValue:[result objectForKey:column] forKey:column]; break;
+            case 'L': [object setValue:[NSNumber numberWithLong:[[result objectForKey:column] longValue]] forKey:column]; break;
+            case 'Q': [object setValue:[NSNumber numberWithLong:[[result objectForKey:column] longValue]] forKey:column]; break;
+            case 'f': [object setValue:[NSNumber numberWithFloat:[[result objectForKey:column] floatValue]] forKey:column]; break;
+            case 'd': [object setValue:[NSNumber numberWithDouble:[[result objectForKey:column] doubleValue]] forKey:column]; break;
+            case 'B': [object setValue:[NSNumber numberWithInt:[[result objectForKey:column] boolValue]] forKey:column]; break;
+            case 'C': [object setValue:[result objectForKey:column] forKey:column]; break;
+            case 'c': [object setValue:[result objectForKey:column] forKey:column]; break;
+            default:
+                
+                if([type isEqualToString:@"@\"NSNumber\""]) {
+                    [object setValue:[result objectForKey:column] forKey:column];
+                }
+                else if([type isEqualToString:@"@\"NSString\""]) {
+                    [object setValue:[result objectForKey:column] forKey:column];
+                }
+                else if([type isEqualToString:@"@\"NSArray\""]) {
+                    NSData *data = [result objectForKey:column];
+                    NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                    [object setValue:array forKey:column];
+                }
+                else if([type isEqualToString:@"@\"NSData\""]) {
+                    [object setValue:[result objectForKey:column] forKey:column];
+                }
+                else if([type isEqualToString:@"@\"NSSet\""]) {
+                    NSData *data = [result objectForKey:column];
+                    NSSet *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                    [object setValue:array forKey:column];
+                }
+                else if([type isEqualToString:@"@\"NSURL\""]) {
+                    [object setValue:[NSURL URLWithString:[result objectForKey:column]] forKey:column];
+                }
+                else if([type isEqualToString:@"@\"NSInteger\""]) {
+                    [object setValue:[NSNumber numberWithInt:[[result objectForKey:column] intValue]] forKey:column];
+                }
+                else if([type isEqualToString:@"@\"UIImage\""]
+                        || [type isEqualToString:@"@\"NSImage\""]) {
+                    NSData *data = [result objectForKey:column];
+                    
+#if TARGET_OS_IPHONE
+                    [object setValue:[Image imageWithData:data] forKey:column];
+#else
+                    [object setValue:[[Image alloc] initWithData:data] forKey:column];
+#endif
+                    
+                }
+                else if([type isEqualToString:@"@\"NSDate\""]) {
+                    NSDate *date = [result objectForKey:column];
+                    [object setValue:date forKey:column];
+                }
+                else [object setValue:[result objectForKey:column] forKey:column];
                 
                 break;
         }

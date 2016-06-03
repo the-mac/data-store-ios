@@ -30,7 +30,7 @@
  @discussion    Execute this function when you want the current Model's class type.
  @return        <b>Class</b> The Model type.
  */
-+ (Class) classType;
+//+ (Class) classType;
 
 /*!
  @brief         The function counts the total number of records in a table
@@ -51,7 +51,7 @@
  @discussion    Execute this method when you want to insert an record.
  @return        <b>Model</b> The new Model result of the query.
  */
-//- (Model *) create:(NSDictionary*)data;
++ (Model *) create:(NSDictionary*)data;
 
 /*!
  @brief         Search method for first record in the database
@@ -230,4 +230,9 @@
  */
 + (BOOL) truncate;
 
+/*!
+ @discussion    Execute this function when you want to generate a model object from a NSDictionary.
+ @return        <b>Model</b> Model Object but not saved
+ */
+//+ (Model *) generateModel:(NSDictionary *) result forClass:(Class) c;
 @end

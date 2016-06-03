@@ -8,62 +8,62 @@
 
 /* Begin PBXBuildFile section */
 		9D46BFE51CFDF3DE001631ED /* OSXDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46BFE41CFDF3DE001631ED /* OSXDataStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D46BFEC1CFDF3DE001631ED /* OSXDataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D46BFE11CFDF3DE001631ED /* OSXDataStore.framework */; settings = {ASSET_TAGS = (); }; };
+		9D46BFEC1CFDF3DE001631ED /* OSXDataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D46BFE11CFDF3DE001631ED /* OSXDataStore.framework */; };
 		9D46BFF11CFDF3DE001631ED /* OSXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46BFF01CFDF3DE001631ED /* OSXTests.m */; };
 		9D46BFF91CFDF486001631ED /* Model.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46BFDA1CFDF390001631ED /* Model.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D46BFFA1CFDF497001631ED /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46BFDB1CFDF390001631ED /* Model.m */; settings = {ASSET_TAGS = (); }; };
+		9D46BFFA1CFDF497001631ED /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46BFDB1CFDF390001631ED /* Model.m */; };
 		9D46C0031CFDF705001631ED /* iOSDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0021CFDF705001631ED /* iOSDataStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D46C00A1CFDF705001631ED /* iOSDataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D46C0001CFDF705001631ED /* iOSDataStore.framework */; settings = {ASSET_TAGS = (); }; };
+		9D46C00A1CFDF705001631ED /* iOSDataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D46C0001CFDF705001631ED /* iOSDataStore.framework */; };
 		9D46C00F1CFDF705001631ED /* iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C00E1CFDF705001631ED /* iOSTests.m */; };
 		9D46C0171CFDF718001631ED /* Model.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46BFDA1CFDF390001631ED /* Model.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D46C0181CFDF71F001631ED /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46BFDB1CFDF390001631ED /* Model.m */; settings = {ASSET_TAGS = (); }; };
+		9D46C0181CFDF71F001631ED /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46BFDB1CFDF390001631ED /* Model.m */; };
 		9D46C0511CFE057D001631ED /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D46C0501CFE057D001631ED /* libsqlite3.tbd */; };
 		9D46C0531CFE0593001631ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D46C0521CFE0593001631ED /* Foundation.framework */; };
 		9D46C09D1CFE074C001631ED /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D46C09C1CFE074C001631ED /* libsqlite3.tbd */; };
 		9D46C0A31CFE096B001631ED /* DataStoreHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C09F1CFE096B001631ED /* DataStoreHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D46C0A41CFE096B001631ED /* DataStoreHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C09F1CFE096B001631ED /* DataStoreHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D46C0A51CFE096B001631ED /* DataStoreHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0A01CFE096B001631ED /* DataStoreHelper.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0A61CFE096B001631ED /* DataStoreHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0A01CFE096B001631ED /* DataStoreHelper.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0A71CFE096B001631ED /* ExtendNSLogFunctionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0A11CFE096B001631ED /* ExtendNSLogFunctionality.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0A81CFE096B001631ED /* ExtendNSLogFunctionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0A11CFE096B001631ED /* ExtendNSLogFunctionality.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0A91CFE096B001631ED /* ExtendNSLogFunctionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0A21CFE096B001631ED /* ExtendNSLogFunctionality.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0AA1CFE096B001631ED /* ExtendNSLogFunctionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0A21CFE096B001631ED /* ExtendNSLogFunctionality.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0B91CFE0AB0001631ED /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0AD1CFE0AB0001631ED /* FMDatabase.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0BA1CFE0AB0001631ED /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0AD1CFE0AB0001631ED /* FMDatabase.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0BB1CFE0AB0001631ED /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0AE1CFE0AB0001631ED /* FMDatabase.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0BC1CFE0AB0001631ED /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0AE1CFE0AB0001631ED /* FMDatabase.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0BD1CFE0AB0001631ED /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0AE1CFE0AB0001631ED /* FMDatabase.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0BE1CFE0AB0001631ED /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0AE1CFE0AB0001631ED /* FMDatabase.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0BF1CFE0AB0001631ED /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0AF1CFE0AB0001631ED /* FMDatabaseAdditions.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0C01CFE0AB0001631ED /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0AF1CFE0AB0001631ED /* FMDatabaseAdditions.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0C11CFE0AB0001631ED /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B01CFE0AB0001631ED /* FMDatabaseAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0C21CFE0AB0001631ED /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B01CFE0AB0001631ED /* FMDatabaseAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0C31CFE0AB0001631ED /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B01CFE0AB0001631ED /* FMDatabaseAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0C41CFE0AB0001631ED /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B01CFE0AB0001631ED /* FMDatabaseAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0C51CFE0AB0001631ED /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B11CFE0AB0001631ED /* FMDatabasePool.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0C61CFE0AB0001631ED /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B11CFE0AB0001631ED /* FMDatabasePool.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0C71CFE0AB0001631ED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B21CFE0AB0001631ED /* FMDatabasePool.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0C81CFE0AB0001631ED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B21CFE0AB0001631ED /* FMDatabasePool.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0C91CFE0AB0001631ED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B21CFE0AB0001631ED /* FMDatabasePool.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0CA1CFE0AB0001631ED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B21CFE0AB0001631ED /* FMDatabasePool.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0CB1CFE0AB0001631ED /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B31CFE0AB0001631ED /* FMDatabaseQueue.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0CC1CFE0AB0001631ED /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B31CFE0AB0001631ED /* FMDatabaseQueue.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0CD1CFE0AB0001631ED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B41CFE0AB0001631ED /* FMDatabaseQueue.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0CE1CFE0AB0001631ED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B41CFE0AB0001631ED /* FMDatabaseQueue.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0CF1CFE0AB0001631ED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B41CFE0AB0001631ED /* FMDatabaseQueue.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0D01CFE0AB0001631ED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B41CFE0AB0001631ED /* FMDatabaseQueue.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0D11CFE0AB0001631ED /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B51CFE0AB0001631ED /* FMDB.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0D21CFE0AB0001631ED /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B51CFE0AB0001631ED /* FMDB.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0D31CFE0AB0001631ED /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B61CFE0AB0001631ED /* FMResultSet.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0D41CFE0AB0001631ED /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B61CFE0AB0001631ED /* FMResultSet.h */; settings = {ASSET_TAGS = (); }; };
-		9D46C0D51CFE0AB0001631ED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B71CFE0AB0001631ED /* FMResultSet.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0D61CFE0AB0001631ED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B71CFE0AB0001631ED /* FMResultSet.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0D71CFE0AB0001631ED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B71CFE0AB0001631ED /* FMResultSet.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0D81CFE0AB0001631ED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B71CFE0AB0001631ED /* FMResultSet.m */; settings = {ASSET_TAGS = (); }; };
-		9D46C0D91CFE0AB0001631ED /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C0B81CFE0AB0001631ED /* Info.plist */; settings = {ASSET_TAGS = (); }; };
-		9D46C0DA1CFE0AB0001631ED /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C0B81CFE0AB0001631ED /* Info.plist */; settings = {ASSET_TAGS = (); }; };
-		9D46C0DB1CFE0AB0001631ED /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C0B81CFE0AB0001631ED /* Info.plist */; settings = {ASSET_TAGS = (); }; };
-		9D46C0DC1CFE0AB0001631ED /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C0B81CFE0AB0001631ED /* Info.plist */; settings = {ASSET_TAGS = (); }; };
+		9D46C0A51CFE096B001631ED /* DataStoreHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0A01CFE096B001631ED /* DataStoreHelper.m */; };
+		9D46C0A61CFE096B001631ED /* DataStoreHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0A01CFE096B001631ED /* DataStoreHelper.m */; };
+		9D46C0A71CFE096B001631ED /* ExtendNSLogFunctionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0A11CFE096B001631ED /* ExtendNSLogFunctionality.h */; };
+		9D46C0A81CFE096B001631ED /* ExtendNSLogFunctionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0A11CFE096B001631ED /* ExtendNSLogFunctionality.h */; };
+		9D46C0A91CFE096B001631ED /* ExtendNSLogFunctionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0A21CFE096B001631ED /* ExtendNSLogFunctionality.m */; };
+		9D46C0AA1CFE096B001631ED /* ExtendNSLogFunctionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0A21CFE096B001631ED /* ExtendNSLogFunctionality.m */; };
+		9D46C0B91CFE0AB0001631ED /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0AD1CFE0AB0001631ED /* FMDatabase.h */; };
+		9D46C0BA1CFE0AB0001631ED /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0AD1CFE0AB0001631ED /* FMDatabase.h */; };
+		9D46C0BB1CFE0AB0001631ED /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0AE1CFE0AB0001631ED /* FMDatabase.m */; };
+		9D46C0BC1CFE0AB0001631ED /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0AE1CFE0AB0001631ED /* FMDatabase.m */; };
+		9D46C0BD1CFE0AB0001631ED /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0AE1CFE0AB0001631ED /* FMDatabase.m */; };
+		9D46C0BE1CFE0AB0001631ED /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0AE1CFE0AB0001631ED /* FMDatabase.m */; };
+		9D46C0BF1CFE0AB0001631ED /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0AF1CFE0AB0001631ED /* FMDatabaseAdditions.h */; };
+		9D46C0C01CFE0AB0001631ED /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0AF1CFE0AB0001631ED /* FMDatabaseAdditions.h */; };
+		9D46C0C11CFE0AB0001631ED /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B01CFE0AB0001631ED /* FMDatabaseAdditions.m */; };
+		9D46C0C21CFE0AB0001631ED /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B01CFE0AB0001631ED /* FMDatabaseAdditions.m */; };
+		9D46C0C31CFE0AB0001631ED /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B01CFE0AB0001631ED /* FMDatabaseAdditions.m */; };
+		9D46C0C41CFE0AB0001631ED /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B01CFE0AB0001631ED /* FMDatabaseAdditions.m */; };
+		9D46C0C51CFE0AB0001631ED /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B11CFE0AB0001631ED /* FMDatabasePool.h */; };
+		9D46C0C61CFE0AB0001631ED /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B11CFE0AB0001631ED /* FMDatabasePool.h */; };
+		9D46C0C71CFE0AB0001631ED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B21CFE0AB0001631ED /* FMDatabasePool.m */; };
+		9D46C0C81CFE0AB0001631ED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B21CFE0AB0001631ED /* FMDatabasePool.m */; };
+		9D46C0C91CFE0AB0001631ED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B21CFE0AB0001631ED /* FMDatabasePool.m */; };
+		9D46C0CA1CFE0AB0001631ED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B21CFE0AB0001631ED /* FMDatabasePool.m */; };
+		9D46C0CB1CFE0AB0001631ED /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B31CFE0AB0001631ED /* FMDatabaseQueue.h */; };
+		9D46C0CC1CFE0AB0001631ED /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B31CFE0AB0001631ED /* FMDatabaseQueue.h */; };
+		9D46C0CD1CFE0AB0001631ED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B41CFE0AB0001631ED /* FMDatabaseQueue.m */; };
+		9D46C0CE1CFE0AB0001631ED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B41CFE0AB0001631ED /* FMDatabaseQueue.m */; };
+		9D46C0CF1CFE0AB0001631ED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B41CFE0AB0001631ED /* FMDatabaseQueue.m */; };
+		9D46C0D01CFE0AB0001631ED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B41CFE0AB0001631ED /* FMDatabaseQueue.m */; };
+		9D46C0D11CFE0AB0001631ED /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B51CFE0AB0001631ED /* FMDB.h */; };
+		9D46C0D21CFE0AB0001631ED /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B51CFE0AB0001631ED /* FMDB.h */; };
+		9D46C0D31CFE0AB0001631ED /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B61CFE0AB0001631ED /* FMResultSet.h */; };
+		9D46C0D41CFE0AB0001631ED /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0B61CFE0AB0001631ED /* FMResultSet.h */; };
+		9D46C0D51CFE0AB0001631ED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B71CFE0AB0001631ED /* FMResultSet.m */; };
+		9D46C0D61CFE0AB0001631ED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B71CFE0AB0001631ED /* FMResultSet.m */; };
+		9D46C0D71CFE0AB0001631ED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B71CFE0AB0001631ED /* FMResultSet.m */; };
+		9D46C0D81CFE0AB0001631ED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0B71CFE0AB0001631ED /* FMResultSet.m */; };
+		9D46C0D91CFE0AB0001631ED /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C0B81CFE0AB0001631ED /* Info.plist */; };
+		9D46C0DA1CFE0AB0001631ED /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C0B81CFE0AB0001631ED /* Info.plist */; };
+		9D46C0DB1CFE0AB0001631ED /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C0B81CFE0AB0001631ED /* Info.plist */; };
+		9D46C0DC1CFE0AB0001631ED /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C0B81CFE0AB0001631ED /* Info.plist */; };
 		9D46C0DE1CFE118B001631ED /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D46C0DD1CFE118B001631ED /* libsqlite3.tbd */; };
 		9D46C0DF1CFE1195001631ED /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D46C09C1CFE074C001631ED /* libsqlite3.tbd */; };
 		9D46C0F31CFE25A3001631ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0F21CFE25A3001631ED /* AppDelegate.swift */; };
@@ -72,13 +72,14 @@
 		9D46C0FA1CFE25A3001631ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C0F91CFE25A3001631ED /* Assets.xcassets */; };
 		9D46C0FD1CFE25A3001631ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C0FB1CFE25A3001631ED /* LaunchScreen.storyboard */; };
 		9D46C1031CFE2615001631ED /* ReelExampleDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C1021CFE2615001631ED /* ReelExampleDB.sqlite */; };
-		9D46C1071CFE2A36001631ED /* Reel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C1061CFE2A36001631ED /* Reel.swift */; settings = {ASSET_TAGS = (); }; };
+		9D46C1071CFE2A36001631ED /* Reel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C1061CFE2A36001631ED /* Reel.swift */; };
 		9D46C10F1CFE3636001631ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C10E1CFE3636001631ED /* main.m */; };
 		9D46C1711CFE539B001631ED /* OSXDataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D46BFE11CFDF3DE001631ED /* OSXDataStore.framework */; };
-		9D613E301CFE5657003C59E8 /* Reels.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D613E2F1CFE5657003C59E8 /* Reels.json */; settings = {ASSET_TAGS = (); }; };
+		9D613E301CFE5657003C59E8 /* Reels.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D613E2F1CFE5657003C59E8 /* Reels.json */; };
 		9D613E331CFE567D003C59E8 /* Reels.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D613E2F1CFE5657003C59E8 /* Reels.json */; };
 		9D613E351CFE5C54003C59E8 /* Reels.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D613E2F1CFE5657003C59E8 /* Reels.json */; };
 		9D613E361CFE5CB4003C59E8 /* Reels.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D613E2F1CFE5657003C59E8 /* Reels.json */; };
+		9DD4E8181D023B8600211C80 /* ADV_EXECUTION in Resources */ = {isa = PBXBuildFile; fileRef = 9DD4E8171D023B8600211C80 /* ADV_EXECUTION */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,7 @@
 		9D46C10E1CFE3636001631ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9D46C1151CFE3F17001631ED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9D613E2F1CFE5657003C59E8 /* Reels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Reels.json; sourceTree = "<group>"; };
+		9DD4E8171D023B8600211C80 /* ADV_EXECUTION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADV_EXECUTION; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 		9D46BFD31CFDF311001631ED = {
 			isa = PBXGroup;
 			children = (
+				9DD4E8171D023B8600211C80 /* ADV_EXECUTION */,
 				9D46C1151CFE3F17001631ED /* README.md */,
 				9D46C0AB1CFE0987001631ED /* Source */,
 				9D46BFE31CFDF3DE001631ED /* OSX */,
@@ -553,6 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D46C0D91CFE0AB0001631ED /* Info.plist in Resources */,
+				9DD4E8181D023B8600211C80 /* ADV_EXECUTION in Resources */,
 				9D613E301CFE5657003C59E8 /* Reels.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

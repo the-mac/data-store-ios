@@ -47,6 +47,7 @@
     self.queue = [FMDatabaseQueue databaseQueueWithPath: [DataStoreHelper databasePath]];
 }
 - (void)tearDown {
+    [Flight truncate];
     [super tearDown];
 }
 
@@ -56,6 +57,18 @@
     flight.arriving = @"Lovemade, CA";
     
     XCTAssert([flight save], @"Did not save successfully!");
+}
+
+- (void)testCreate {
+    
+    NSDictionary *flightData = @{
+         @"name" : @"Flight 888",
+         @"arriving" : @"Atlanta, GA"
+    };
+    
+    Flight *flight = (Flight *)[Flight create:flightData];
+    XCTAssertEqual(flight.name, @"Flight 888", @"Did not create successfully!");
+    XCTAssertEqual(flight.name, flightData[@"name"], @"Did not create successfully!");
 }
 
 @end

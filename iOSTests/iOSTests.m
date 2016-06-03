@@ -741,4 +741,23 @@
     XCTAssertEqualObjects(flight.arriving, flight1.arriving);
 }
 
+- (void)testCreate {
+    
+    NSDictionary *flightData = @{
+         @"name" : @"Flight 888",
+         @"arriving" : @"Atlanta, GA"
+     };
+    
+    Flight *flight = (Flight *)[Flight create:flightData];
+    
+    int _id = [flight._id intValue];
+    Flight *flight1 = (Flight *)[Flight find:_id];
+    
+    XCTAssertEqual(flight.name, @"Flight 888", @"Did not create successfully!");
+    XCTAssertEqual(flight.name, flightData[@"name"], @"Did not create successfully!");
+    XCTAssertEqual(flight.arriving, @"Atlanta, GA");
+    
+    XCTAssertEqualObjects(flight.name, flight1.name);
+    XCTAssertEqualObjects(flight.arriving, flight1.arriving);
+}
 @end
