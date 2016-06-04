@@ -92,6 +92,8 @@ static NSString * cachedDatabasePath = nil;
 }
 + (void) setup:(NSString*) database with:(NSArray*) tables {
     
+    NSLog(@"%s was called", __FUNCTION__);
+    
     NSBundle * mainBundle = [NSBundle mainBundle];
     NSDictionary *infoDictionary = [mainBundle infoDictionary];
     NSString* version = [infoDictionary objectForKey:@"CFBundleVersion"];
@@ -108,16 +110,19 @@ static NSString * cachedDatabasePath = nil;
     NSArray *database_parts = [database componentsSeparatedByString:@"."];
     NSString *preloadPath = [mainBundle pathForResource:database_parts[0] ofType:database_parts[1]];
     
-    if ([defaultManager fileExistsAtPath:preloadPath isDirectory:NO]) {
+    BOOL databaseReadyForCopy = [defaultManager fileExistsAtPath:preloadPath isDirectory:nil];
+    if (databaseReadyForCopy) {
         NSURL* preloadURL = [NSURL fileURLWithPath: preloadPath];
 
-        if (![defaultManager fileExistsAtPath:cachedDatabasePath isDirectory:NO]) {
+        if (![defaultManager fileExistsAtPath:cachedDatabasePath isDirectory:nil]) {
             [defaultManager copyItemAtURL:preloadURL toURL:[NSURL fileURLWithPath:cachedDatabasePath] error:nil];
         }
     }
     
     for (id element in tables){
         Class class = [element class];
+        
+        NSLog(@"%@ is being processed", NSStringFromClass(class));
         
         NSArray *columns = [self getFields:class];
         NSString *className = NSStringFromClass (class);
