@@ -157,6 +157,7 @@ static NSString * cachedDatabasePath = nil;
             
             NSLog(@"Model: %@\nqueryString=%@\nqueryResult=%d", element, queryString, queryResult);
         }];
+        NSLog(@"className=%@\nqueryString=%@\nqueue=%@", className, queryString, queue);
         
         [defaults setObject:version forKey:className];
         [defaults synchronize];
