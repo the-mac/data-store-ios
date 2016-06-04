@@ -111,9 +111,6 @@ static NSString * cachedDatabasePath = nil;
     NSString *preloadPath = [mainBundle pathForResource:database_parts[0] ofType:database_parts[1]];
     
     BOOL databaseReadyForCopy = [defaultManager fileExistsAtPath:preloadPath isDirectory:nil];
-    NSLog(@"mainBundle=%@\ninfoDictionary=%@\nversion=%@\ndefaults=%@\ndefaultManager=%@\ndatabaseDir=%@\ncachedDatabasePath=%@\ndatabase_parts=%@\npreloadPath=%@\ndatabaseReadyForCopy=%d\n", mainBundle, infoDictionary, version, defaults, defaultManager, databaseDir, cachedDatabasePath, database_parts, preloadPath, databaseReadyForCopy);
-    
-    
     if (databaseReadyForCopy) {
         NSURL* preloadURL = [NSURL fileURLWithPath: preloadPath];
 
@@ -143,7 +140,7 @@ static NSString * cachedDatabasePath = nil;
             }
             else {
                 // DATABASE TABLE NEEDS SEED
-                [queryString appendString:[NSString stringWithFormat:@"DROP TABLE IF EXISTS '%@'; ", className]];
+                //[queryString appendString:[NSString stringWithFormat:@"DROP TABLE IF EXISTS '%@'; ", className]];
             }
         }
         
@@ -152,12 +149,9 @@ static NSString * cachedDatabasePath = nil;
         [queryString appendString:[self generateColumns:columns]];
         [queryString appendString:@");"];
         
-        NSLog(@"Pre Queue: className=%@\nqueryString=%@\n", className, queryString);
         FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:cachedDatabasePath];
-        NSLog(@"Pre Query: className=%@\nqueryString=%@\nqueue=%@", className, queryString, queue);
         
-        [queue inDatabase:^(FMDatabase *db) {
-//        [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
             
             BOOL queryResult = [db executeStatements:queryString];
             
@@ -166,7 +160,6 @@ static NSString * cachedDatabasePath = nil;
         
         [defaults setObject:version forKey:className];
         [defaults synchronize];
-        [NSThread sleepForTimeInterval:.5];
     }
 }
 
