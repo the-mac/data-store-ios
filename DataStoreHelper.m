@@ -149,6 +149,7 @@ static NSString * cachedDatabasePath = nil;
         [queryString appendString:[self generateColumns:columns]];
         [queryString appendString:@");"];
         
+        NSLog(@"Pre Queue: className=%@\nqueryString=%@\n", className, queryString);
         FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:cachedDatabasePath];
         NSLog(@"Pre Query: className=%@\nqueryString=%@\nqueue=%@", className, queryString, queue);
         
