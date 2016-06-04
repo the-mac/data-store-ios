@@ -9,6 +9,7 @@
 #import "FMDB.h"
 #import "DataStoreHelper.h"
 #import <objc/runtime.h>
+#import "ExtendNSLogFunctionality.h"
 
 static NSString * cachedDatabasePath = nil;
 
@@ -132,8 +133,8 @@ static NSString * cachedDatabasePath = nil;
         NSString *savedValue = [defaults stringForKey:className];
         NSMutableString *queryString = [[NSMutableString alloc] init];
         
-        if(savedValue != nil) { // DATABASE TABLE IS CACHED
-            NSLog(@"Table: %@ Version: %@\n", className, version);
+        NSLog(@"Table: %@ Version: %@\n", className, version);
+        if(savedValue != nil && !DEBUG) { // DATABASE TABLE IS CACHED
             if([version isEqualToString:savedValue]) {
                 NSLog(@"Note: To update %@ table schema or populate your database you may need to update your app version from: %@", className, version);
                 continue;  // DATABASE TABLE ALREADY AT CORRECT VERSION
