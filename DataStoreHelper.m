@@ -149,7 +149,9 @@ static NSString * cachedDatabasePath = nil;
         [queryString appendString:[self generateColumns:columns]];
         [queryString appendString:@");"];
         
-        FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[self databasePath]];
+        FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:cachedDatabasePath];
+        NSLog(@"Pre Query: className=%@\nqueryString=%@\nqueue=%@", className, queryString, queue);
+        
         [queue inDatabase:^(FMDatabase *db) {
 //        [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
             
@@ -157,7 +159,6 @@ static NSString * cachedDatabasePath = nil;
             
             NSLog(@"Model: %@\nqueryString=%@\nqueryResult=%d", element, queryString, queryResult);
         }];
-        NSLog(@"className=%@\nqueryString=%@\nqueue=%@", className, queryString, queue);
         
         [defaults setObject:version forKey:className];
         [defaults synchronize];
