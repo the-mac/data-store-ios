@@ -127,7 +127,7 @@ static NSString * cachedDatabasePath = nil;
         NSString *className = NSStringFromClass (class);
         
         NSArray *columns = [self getFields:class];
-        NSLog(@"%@ is being processed\n%@columns=%@", className, columns);
+        NSLog(@"%@ is being processed\ncolumns=%@", className, columns);
         
         NSArray *parts = [className componentsSeparatedByString:@"."];
         if(parts.count > 1) className = parts[1];
@@ -136,7 +136,11 @@ static NSString * cachedDatabasePath = nil;
         NSMutableString *queryString = [[NSMutableString alloc] init];
         
         if(savedValue != nil) { // DATABASE TABLE IS CACHED
-            if([version isEqualToString:savedValue]) continue;  // DATABASE TABLE ALREADY AT CORRECT VERSION
+            NSLog(@"Table: %@ Version: %@\n", className, version);
+            if([version isEqualToString:savedValue]) {
+                NSLog(@"Note: To update %@ table schema or populate your database you may need to update your app version from: %@", className, version);
+                continue;  // DATABASE TABLE ALREADY AT CORRECT VERSION
+            }
             else {
                 // DATABASE TABLE NEEDS SEED
                 [queryString appendString:[NSString stringWithFormat:@"DROP TABLE IF EXISTS '%@'; ", className]];
