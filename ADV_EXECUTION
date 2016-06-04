@@ -1,4 +1,4 @@
-commitMessage="Prepared for the Objective-C Example's Populate Target & is Passing 15/15 Unit Tests" && \
+commitMessage="Added failing DEBUG flag & is Passing 15/15 Unit Tests" && \
 VERSION=2.3.0 && \
 clear && printf '\e[3J' && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
