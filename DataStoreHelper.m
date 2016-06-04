@@ -124,11 +124,10 @@ static NSString * cachedDatabasePath = nil;
     
     for (id element in tables){
         Class class = [element class];
-        
-        NSLog(@"%@ is being processed", NSStringFromClass(class));
+        NSString *className = NSStringFromClass (class);
         
         NSArray *columns = [self getFields:class];
-        NSString *className = NSStringFromClass (class);
+        NSLog(@"%@ is being processed\n%@columns=%@", className, columns);
         
         NSArray *parts = [className componentsSeparatedByString:@"."];
         if(parts.count > 1) className = parts[1];
