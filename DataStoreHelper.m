@@ -147,7 +147,8 @@ static NSString * cachedDatabasePath = nil;
         [queryString appendString:@");"];
         
         FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[self databasePath]];
-        [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        [queue inDatabase:^(FMDatabase *db) {
+//        [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
             
             BOOL queryResult = [db executeStatements:queryString];
             

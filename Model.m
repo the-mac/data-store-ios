@@ -157,7 +157,7 @@ static NSMutableDictionary * queryFields = nil;
             NSLog(@"values =%@", values);
             result = [db executeUpdate:queryString withArgumentsInArray:values];
             
-            self._id = [NSNumber numberWithLong:[db lastInsertRowId]];
+            self._id = [NSNumber numberWithLongLong:[db lastInsertRowId]];
             
         }
     }];
