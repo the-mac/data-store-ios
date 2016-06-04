@@ -111,6 +111,9 @@ static NSString * cachedDatabasePath = nil;
     NSString *preloadPath = [mainBundle pathForResource:database_parts[0] ofType:database_parts[1]];
     
     BOOL databaseReadyForCopy = [defaultManager fileExistsAtPath:preloadPath isDirectory:nil];
+    NSLog(@"mainBundle=%@\ninfoDictionary=%@\nversion=%@\ndefaults=%@\ndefaultManager=%@\ndatabaseDir=%@\ncachedDatabasePath=%@\ndatabase_parts=%@\npreloadPath=%@\ndatabaseReadyForCopy=%d\n", mainBundle, infoDictionary, version, defaults, defaultManager, databaseDir, cachedDatabasePath, database_parts, preloadPath, databaseReadyForCopy);
+    
+    
     if (databaseReadyForCopy) {
         NSURL* preloadURL = [NSURL fileURLWithPath: preloadPath];
 

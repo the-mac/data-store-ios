@@ -16,6 +16,6 @@ FOUNDATION_EXPORT const unsigned char iOSDataStoreVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <iOS/PublicHeader.h>
 
+#import "ExtendNSLogFunctionality.h"
 #import "Model.h"
 #import "DataStoreHelper.h"
-#import "ExtendNSLogFunctionality.h"
