@@ -121,6 +121,8 @@ static NSMutableDictionary * queryFields = nil;
 - (BOOL) save {
     NSLog(@"called %s", __FUNCTION__);
     __block BOOL result = YES;
+    
+    NSMutableString *lines = [@"" mutableCopy];
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStoreHelper databasePath]];
     
     [queue inDatabase:^(FMDatabase *db) {
@@ -133,29 +135,30 @@ static NSMutableDictionary * queryFields = nil;
             
             NSString *params = [Model getParams: self];
             query = [NSString stringWithFormat:@"update %@ set %@ where _id='%@'", table, params, self._id];
-            NSLog(@"query =%@", query);
+            [lines appendString:[NSString stringWithFormat:@"query = %@\n", query]];
             
             [queryString appendString:query];
             result = [db executeUpdate:queryString];
         } else {
             
-            
+
             NSMutableArray *keys = [Model getKeys: self];
-            NSLog(@"keys =%@", [keys description]);
+            [lines appendString:[NSString stringWithFormat:@"keys = %@\n", [keys description]]];
             
             NSString *columns =  [[keys valueForKey:@"description"] componentsJoinedByString:@", "];
-            NSLog(@"columns =%@", columns);
+            [lines appendString:[NSString stringWithFormat:@"columns = %@\n", columns]];
             
             NSString *param = @", ?";
             NSString *params = [@"?" stringByPaddingToLength:(keys.count - 1) * param.length + 1 withString:param startingAtIndex:0];
             
             query = [NSString stringWithFormat:@"insert into %@(%@) values (%@)", table, columns, params];
-            NSLog(@"query =%@", query);
+            [lines appendString:[NSString stringWithFormat:@"query = %@\n", query]];
             
             [queryString appendString:query];
             
             NSArray * values = [Model getValues: self];
-            NSLog(@"values =%@", values);
+            [lines appendString:[NSString stringWithFormat:@"values = %@\n", values]];
+
             result = [db executeUpdate:queryString withArgumentsInArray:values];
             
             self._id = [NSNumber numberWithLongLong:[db lastInsertRowId]];
@@ -164,7 +167,9 @@ static NSMutableDictionary * queryFields = nil;
     }];
     
     [Model clearQuery];
-    NSLog(@"result =%d", result);
+    [lines appendString:[NSString stringWithFormat:@"result = %d\n", result]];
+
+    NSLog(@"%@", lines);
 
     return result;
 }
