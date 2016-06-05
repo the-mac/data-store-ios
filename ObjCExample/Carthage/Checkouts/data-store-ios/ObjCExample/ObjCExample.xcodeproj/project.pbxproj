@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9D46C1421CFE47A7001631ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C1411CFE47A7001631ED /* main.m */; };
+		9D46C1451CFE47A7001631ED /* MACAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C1441CFE47A7001631ED /* MACAppDelegate.m */; };
+		9D46C1481CFE47A7001631ED /* MACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C1471CFE47A7001631ED /* MACViewController.m */; };
+		9D46C14B1CFE47A7001631ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C1491CFE47A7001631ED /* Main.storyboard */; };
+		9D46C14D1CFE47A7001631ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C14C1CFE47A7001631ED /* Assets.xcassets */; };
+		9D46C1501CFE47A7001631ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C14E1CFE47A7001631ED /* LaunchScreen.storyboard */; };
+		9D46C1621CFE4936001631ED /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C15E1CFE4936001631ED /* Flight.m */; };
+		9D46C1631CFE4936001631ED /* Reel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C15F1CFE4936001631ED /* Reel.m */; };
+		9D46C1641CFE4936001631ED /* FlightsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C1601CFE4936001631ED /* FlightsTableViewController.m */; };
+		9D46C1651CFE4936001631ED /* BookFlightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C1611CFE4936001631ED /* BookFlightViewController.m */; };
+		9D46C16A1CFE4976001631ED /* flight_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C1661CFE4976001631ED /* flight_icon.png */; };
+		9D46C16B1CFE4976001631ED /* flight_path.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C1671CFE4976001631ED /* flight_path.jpg */; };
+		9D46C16C1CFE4976001631ED /* flight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C1681CFE4976001631ED /* flight.jpg */; };
+		9D46C16D1CFE4976001631ED /* sky_101.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C1691CFE4976001631ED /* sky_101.bmp */; };
+		9D46C1701CFE4A2A001631ED /* flights.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C16F1CFE4A2A001631ED /* flights.plist */; };
+		9D4BD5BE1D015A7F00263EB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BD5BD1D015A7F00263EB0 /* main.m */; };
+		9D4BD5C01D015A7F00263EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D4BD5BF1D015A7F00263EB0 /* Assets.xcassets */; };
+		9D4BD5C31D015A7F00263EB0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4BD5C11D015A7F00263EB0 /* MainMenu.xib */; };
+		9D4BD5C81D01EEAA00263EB0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BD5BA1D015A7F00263EB0 /* AppDelegate.m */; };
+		9DACFDD31CFE8AF8003FB43A /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 9DACFDD21CFE8AF8003FB43A /* Cartfile */; };
+		9DACFDDB1CFE939A003FB43A /* iOSDataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DACFDDA1CFE9399003FB43A /* iOSDataStore.framework */; };
+		9DD93ABA1D02B5E40096568C /* OSXDataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD93AB91D02B5E40096568C /* OSXDataStore.framework */; };
+		9DD93ABB1D02B5E40096568C /* OSXDataStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD93AB91D02B5E40096568C /* OSXDataStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9DD93ABD1D02C1080096568C /* FlightsExampleDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9DD93ABC1D02C1080096568C /* FlightsExampleDB.sqlite */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9D020B511D02735100234676 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9DD93ABB1D02B5E40096568C /* OSXDataStore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DACFDD91CFE9053003FB43A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9D46C13D1CFE47A7001631ED /* ObjCExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjCExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D46C1411CFE47A7001631ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9D46C1431CFE47A7001631ED /* MACAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MACAppDelegate.h; sourceTree = "<group>"; };
+		9D46C1441CFE47A7001631ED /* MACAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MACAppDelegate.m; sourceTree = "<group>"; };
+		9D46C1461CFE47A7001631ED /* MACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MACViewController.h; sourceTree = "<group>"; };
+		9D46C1471CFE47A7001631ED /* MACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MACViewController.m; sourceTree = "<group>"; };
+		9D46C14A1CFE47A7001631ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9D46C14C1CFE47A7001631ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9D46C14F1CFE47A7001631ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9D46C1511CFE47A7001631ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D46C1581CFE485A001631ED /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flight.h; sourceTree = "<group>"; };
+		9D46C1591CFE485A001631ED /* Reel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reel.h; sourceTree = "<group>"; };
+		9D46C15A1CFE485A001631ED /* BookFlightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookFlightViewController.h; sourceTree = "<group>"; };
+		9D46C15B1CFE485A001631ED /* FlightsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsTableViewController.h; sourceTree = "<group>"; };
+		9D46C15C1CFE485A001631ED /* MACAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACAppDelegate.h; sourceTree = "<group>"; };
+		9D46C15D1CFE485A001631ED /* MACViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACViewController.h; sourceTree = "<group>"; };
+		9D46C15E1CFE4936001631ED /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flight.m; sourceTree = "<group>"; };
+		9D46C15F1CFE4936001631ED /* Reel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reel.m; sourceTree = "<group>"; };
+		9D46C1601CFE4936001631ED /* FlightsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsTableViewController.m; sourceTree = "<group>"; };
+		9D46C1611CFE4936001631ED /* BookFlightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookFlightViewController.m; sourceTree = "<group>"; };
+		9D46C1661CFE4976001631ED /* flight_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flight_icon.png; sourceTree = "<group>"; };
+		9D46C1671CFE4976001631ED /* flight_path.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flight_path.jpg; sourceTree = "<group>"; };
+		9D46C1681CFE4976001631ED /* flight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flight.jpg; sourceTree = "<group>"; };
+		9D46C1691CFE4976001631ED /* sky_101.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = sky_101.bmp; sourceTree = "<group>"; };
+		9D46C16F1CFE4A2A001631ED /* flights.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flights.plist; sourceTree = "<group>"; };
+		9D4BD5B71D015A7F00263EB0 /* Populate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Populate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D4BD5B91D015A7F00263EB0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9D4BD5BA1D015A7F00263EB0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9D4BD5BD1D015A7F00263EB0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9D4BD5BF1D015A7F00263EB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9D4BD5C21D015A7F00263EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9D4BD5C41D015A7F00263EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DACFDD21CFE8AF8003FB43A /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
+		9DACFDDA1CFE9399003FB43A /* iOSDataStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iOSDataStore.framework; path = Carthage/Build/iOS/iOSDataStore.framework; sourceTree = "<group>"; };
+		9DACFDE91CFE953D003FB43A /* Flights.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Flights.json; sourceTree = "<group>"; };
+		9DACFDEC1CFEA20F003FB43A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9DD93AB91D02B5E40096568C /* OSXDataStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSXDataStore.framework; path = Carthage/Build/Mac/OSXDataStore.framework; sourceTree = "<group>"; };
+		9DD93ABC1D02C1080096568C /* FlightsExampleDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FlightsExampleDB.sqlite; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9D46C13A1CFE47A7001631ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DACFDDB1CFE939A003FB43A /* iOSDataStore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D4BD5B41D015A7F00263EB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DD93ABA1D02B5E40096568C /* OSXDataStore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9D46C1341CFE47A7001631ED = {
+			isa = PBXGroup;
+			children = (
+				9DD93ABC1D02C1080096568C /* FlightsExampleDB.sqlite */,
+				9DACFDE91CFE953D003FB43A /* Flights.json */,
+				9DD93AB91D02B5E40096568C /* OSXDataStore.framework */,
+				9DACFDEC1CFEA20F003FB43A /* Foundation.framework */,
+				9DACFDDA1CFE9399003FB43A /* iOSDataStore.framework */,
+				9D46C13F1CFE47A7001631ED /* ObjCExample */,
+				9D4BD5B81D015A7F00263EB0 /* Populate */,
+				9D46C13E1CFE47A7001631ED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9D46C13E1CFE47A7001631ED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D46C13D1CFE47A7001631ED /* ObjCExample.app */,
+				9D4BD5B71D015A7F00263EB0 /* Populate.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D46C13F1CFE47A7001631ED /* ObjCExample */ = {
+			isa = PBXGroup;
+			children = (
+				9D46C1571CFE47CF001631ED /* Headers */,
+				9D46C1401CFE47A7001631ED /* Supporting Files */,
+				9D46C15E1CFE4936001631ED /* Flight.m */,
+				9D46C15F1CFE4936001631ED /* Reel.m */,
+				9D46C1601CFE4936001631ED /* FlightsTableViewController.m */,
+				9D46C1611CFE4936001631ED /* BookFlightViewController.m */,
+				9D46C1441CFE47A7001631ED /* MACAppDelegate.m */,
+				9D46C1471CFE47A7001631ED /* MACViewController.m */,
+			);
+			path = ObjCExample;
+			sourceTree = "<group>";
+		};
+		9D46C1401CFE47A7001631ED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9D46C16E1CFE497C001631ED /* Images */,
+				9D46C1491CFE47A7001631ED /* Main.storyboard */,
+				9D46C14E1CFE47A7001631ED /* LaunchScreen.storyboard */,
+				9D46C1511CFE47A7001631ED /* Info.plist */,
+				9D46C16F1CFE4A2A001631ED /* flights.plist */,
+				9D46C1411CFE47A7001631ED /* main.m */,
+				9DACFDD21CFE8AF8003FB43A /* Cartfile */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9D46C1571CFE47CF001631ED /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				9D46C1581CFE485A001631ED /* Flight.h */,
+				9D46C1591CFE485A001631ED /* Reel.h */,
+				9D46C15A1CFE485A001631ED /* BookFlightViewController.h */,
+				9D46C15B1CFE485A001631ED /* FlightsTableViewController.h */,
+				9D46C15C1CFE485A001631ED /* MACAppDelegate.h */,
+				9D46C15D1CFE485A001631ED /* MACViewController.h */,
+				9D46C1431CFE47A7001631ED /* MACAppDelegate.h */,
+				9D46C1461CFE47A7001631ED /* MACViewController.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		9D46C16E1CFE497C001631ED /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9D46C14C1CFE47A7001631ED /* Assets.xcassets */,
+				9D46C1661CFE4976001631ED /* flight_icon.png */,
+				9D46C1671CFE4976001631ED /* flight_path.jpg */,
+				9D46C1681CFE4976001631ED /* flight.jpg */,
+				9D46C1691CFE4976001631ED /* sky_101.bmp */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		9D4BD5B81D015A7F00263EB0 /* Populate */ = {
+			isa = PBXGroup;
+			children = (
+				9D4BD5B91D015A7F00263EB0 /* AppDelegate.h */,
+				9D4BD5BA1D015A7F00263EB0 /* AppDelegate.m */,
+				9D4BD5BF1D015A7F00263EB0 /* Assets.xcassets */,
+				9D4BD5C11D015A7F00263EB0 /* MainMenu.xib */,
+				9D4BD5C41D015A7F00263EB0 /* Info.plist */,
+				9D4BD5BC1D015A7F00263EB0 /* Supporting Files */,
+			);
+			path = Populate;
+			sourceTree = "<group>";
+		};
+		9D4BD5BC1D015A7F00263EB0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9D4BD5BD1D015A7F00263EB0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9D46C13C1CFE47A7001631ED /* ObjCExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D46C1541CFE47A7001631ED /* Build configuration list for PBXNativeTarget "ObjCExample" */;
+			buildPhases = (
+				9D46C1391CFE47A7001631ED /* Sources */,
+				9D46C13A1CFE47A7001631ED /* Frameworks */,
+				9D46C13B1CFE47A7001631ED /* Resources */,
+				9DACFDD61CFE8D40003FB43A /* ShellScript */,
+				9DACFDD91CFE9053003FB43A /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjCExample;
+			productName = ObjCExample;
+			productReference = 9D46C13D1CFE47A7001631ED /* ObjCExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9D4BD5B61D015A7F00263EB0 /* Populate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D4BD5C71D015A7F00263EB0 /* Build configuration list for PBXNativeTarget "Populate" */;
+			buildPhases = (
+				9D4BD5B31D015A7F00263EB0 /* Sources */,
+				9D4BD5B41D015A7F00263EB0 /* Frameworks */,
+				9D4BD5B51D015A7F00263EB0 /* Resources */,
+				9D020B511D02735100234676 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Populate;
+			productName = Populate;
+			productReference = 9D4BD5B71D015A7F00263EB0 /* Populate.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9D46C1351CFE47A7001631ED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "The MAC";
+				TargetAttributes = {
+					9D46C13C1CFE47A7001631ED = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					9D4BD5B61D015A7F00263EB0 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = D6SA4DL5UV;
+					};
+				};
+			};
+			buildConfigurationList = 9D46C1381CFE47A7001631ED /* Build configuration list for PBXProject "ObjCExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9D46C1341CFE47A7001631ED;
+			productRefGroup = 9D46C13E1CFE47A7001631ED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9D46C13C1CFE47A7001631ED /* ObjCExample */,
+				9D4BD5B61D015A7F00263EB0 /* Populate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9D46C13B1CFE47A7001631ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DD93ABD1D02C1080096568C /* FlightsExampleDB.sqlite in Resources */,
+				9DACFDD31CFE8AF8003FB43A /* Cartfile in Resources */,
+				9D46C1701CFE4A2A001631ED /* flights.plist in Resources */,
+				9D46C16B1CFE4976001631ED /* flight_path.jpg in Resources */,
+				9D46C16A1CFE4976001631ED /* flight_icon.png in Resources */,
+				9D46C1501CFE47A7001631ED /* LaunchScreen.storyboard in Resources */,
+				9D46C16C1CFE4976001631ED /* flight.jpg in Resources */,
+				9D46C14D1CFE47A7001631ED /* Assets.xcassets in Resources */,
+				9D46C16D1CFE4976001631ED /* sky_101.bmp in Resources */,
+				9D46C14B1CFE47A7001631ED /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D4BD5B51D015A7F00263EB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D4BD5C01D015A7F00263EB0 /* Assets.xcassets in Resources */,
+				9D4BD5C31D015A7F00263EB0 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9DACFDD61CFE8D40003FB43A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/iOSDataStore.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9D46C1391CFE47A7001631ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D46C1631CFE4936001631ED /* Reel.m in Sources */,
+				9D46C1651CFE4936001631ED /* BookFlightViewController.m in Sources */,
+				9D46C1641CFE4936001631ED /* FlightsTableViewController.m in Sources */,
+				9D46C1481CFE47A7001631ED /* MACViewController.m in Sources */,
+				9D46C1621CFE4936001631ED /* Flight.m in Sources */,
+				9D46C1451CFE47A7001631ED /* MACAppDelegate.m in Sources */,
+				9D46C1421CFE47A7001631ED /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D4BD5B31D015A7F00263EB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D4BD5C81D01EEAA00263EB0 /* AppDelegate.m in Sources */,
+				9D4BD5BE1D015A7F00263EB0 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9D46C1491CFE47A7001631ED /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D46C14A1CFE47A7001631ED /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9D46C14E1CFE47A7001631ED /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D46C14F1CFE47A7001631ED /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9D4BD5C11D015A7F00263EB0 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D4BD5C21D015A7F00263EB0 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9D46C1521CFE47A7001631ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9D46C1531CFE47A7001631ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9D46C1551CFE47A7001631ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = ObjCExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = us.the.mac.data.store.ObjCExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9D46C1561CFE47A7001631ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = ObjCExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = us.the.mac.data.store.ObjCExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9D4BD5C51D015A7F00263EB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Populate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = us.the.mac.data.store.Populate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9D4BD5C61D015A7F00263EB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Populate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = us.the.mac.data.store.Populate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9D46C1381CFE47A7001631ED /* Build configuration list for PBXProject "ObjCExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D46C1521CFE47A7001631ED /* Debug */,
+				9D46C1531CFE47A7001631ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D46C1541CFE47A7001631ED /* Build configuration list for PBXNativeTarget "ObjCExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D46C1551CFE47A7001631ED /* Debug */,
+				9D46C1561CFE47A7001631ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D4BD5C71D015A7F00263EB0 /* Build configuration list for PBXNativeTarget "Populate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D4BD5C51D015A7F00263EB0 /* Debug */,
+				9D4BD5C61D015A7F00263EB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9D46C1351CFE47A7001631ED /* Project object */;
+}

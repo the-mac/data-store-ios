@@ -42,7 +42,12 @@ More can be found on the system that layed the foundation for DataStoreAdvanced 
 
 ### Installation
 
-DataStoreAdvanced is available through [CocoaPods](http://cocoapods.org). To install
+DataStoreAdvanced is available through [Carthage](https://github.com/Carthage/Carthage). To install
+it, simply add the following line to your Cartfile:
+```
+github "the-mac/data-store-ios" "advanced"
+```
+DataStoreAdvanced is also available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
@@ -51,7 +56,7 @@ pod 'DataStoreAdvanced', :git => 'https://github.com/the-mac/data-store-ios.git'
 
 ### Defining Models
 
-You can update any class to implement [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.7/Classes/Model.html) in Objective-C:
+You can update any NSObject class to implement [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.7/Classes/Model.html) in Objective-C:
 
 ```
 @interface Flight : Model
@@ -212,28 +217,45 @@ Alternatively, to delete all records from a database table, call the [truncate](
 ```
 
 ## Example Project
-The Example Project has 3 screens that display advanced [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.7/Classes/Model.html) CRUD operations, using the Flight class as an example.
+
+The [Example Project](#) uses a pre-populated database with 8 Flight records included. The project also has 3 screens that display advanced [Model](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.7/Classes/Model.html) CRUD operations.
 
 ![launch](0launch.png "Launch Screen") ![bookflight](1bookflight.png "Book Flight") ![showflights](2showflights.png "Show Flights")
 
 The CRUD operations are completed using the [count](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.7/Classes/Model.html#//api/name/count), [truncate](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.7/Classes/Model.html#//api/name/truncate), [remove](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.7/Classes/Model.html#//api/name/remove), [update](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.7/Classes/Model.html#//api/name/update), [save](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.7/Classes/Model.html#//api/name/save), [where](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.7/Classes/Model.html#//api/name/where:is), [orWhere](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.7/Classes/Model.html#//api/name/orWhere:is), [get](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.7/Classes/Model.html#//api/name/get) and [all](http://cocoadocs.org/docsets/DataStoreAdvanced/2.1.7/Classes/Model.html#//api/name/all) functions. 
 
-If you think we could have more advanced operations, we're accepting pull requests [here](https://github.com/the-mac/data-store-ios/compare). As a reference (or foundation), take a look at what the [Laravel Eloquent](https://laravel.com/docs/5.2/eloquent) model implementation looks like.
+You should also know that [DataStoreAdvanced](http://cocoadocs.org/docsets/DataStoreAdvanced) has made pre-populating iOS SQLite databases easier than ever, through its Desktop companion (Populate).
 
-To run the advanced example project, clone the repo, checkout the advanced branch, and run `pod install` from the Example directory first.
+![desktop](3populate.png "Desktop Populate")
+
+To run the advanced example project using [Carthage](https://github.com/Carthage/Carthage), clone the repo, checkout the advanced branch, and run `carthage update` in the extracted ObjCExample directory first.
 ```
 git clone https://github.com/the-mac/data-store-ios.git
 cd data-store-ios
 git checkout advanced
-cd Example
+unzip ObjCExample
+cd ObjCExample
+cathage update
+```
+
+To run the advanced example project using [CocoaPods](http://cocoapods.org), clone the repo, checkout the advanced branch, and run `pod install` in the extracted ObjCExample directory first.
+```
+git clone https://github.com/the-mac/data-store-ios.git
+cd data-store-ios
+git checkout advanced
+unzip ObjCExample
+cd ObjCExample
 pod install
 ```
 ## Requirements
-This pod uses the [FMDB](http://cocoadocs.org/docsets/FMDB/2.6.2/) Framework, and is already included in the Example Project's Podfile. For your own project (and Podfile), our DataStoreAdvanced reference could look as follows:
+This project uses the [FMDB](http://cocoadocs.org/docsets/FMDB/2.6.2/) Framework, and is already included in the Project's source. For your own project (and Cartfile), our DataStoreAdvanced reference could look as follows:
+```
+github "the-mac/data-store-ios" "advanced"
+```
+And for [CocoaPods](http://cocoapods.org) Podfiles
 ```
 platform :ios, '8.0'
 target 'MyApp'
-pod 'FMDB'
 pod 'DataStoreAdvanced', :git => 'https://github.com/the-mac/data-store-ios.git', :branch => 'advanced'
 ```
 
@@ -244,7 +266,7 @@ Android/iOS Project Manager
 - [Linked-In Profile](https://www.linkedin.com/in/christophermiller64)
 
 ## Contributing
-See [CONTRIBUTING.md](#) for more on what is required to contribute.
+If you think we could have more advanced operations, we're accepting pull requests [here](https://github.com/the-mac/data-store-ios/compare). As a reference (or foundation), take a look at what the [Laravel Eloquent](https://laravel.com/docs/5.2/eloquent) model implementation looks like, and also see [CONTRIBUTING.md](#) for more on what is required to contribute.
 
 ### Current Contributors
 

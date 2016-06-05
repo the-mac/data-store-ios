@@ -74,7 +74,7 @@
 
 - (void)testCreate {
     
-    NSDictionary *flightData = [@{
+    NSMutableDictionary *flightData = [@{
           @"name" : @"Flight 888",
           @"arriving" : @"Atlanta, GA"
       } mutableCopy];
