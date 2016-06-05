@@ -1,5 +1,5 @@
-commitMessage="Updated API Versions to 10.9 and 8.0 & is Passing 16/16 Unit Tests" && \
-VERSION=2.3.3 && \
+commitMessage="Remove Sample Carthage folders from repo & is Passing 16/16 Unit Tests" && \
+VERSION=2.3.4 && \
 clear && printf '\e[3J' && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
 git add . && \

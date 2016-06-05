@@ -27,9 +27,6 @@
 		9D4BD5C31D015A7F00263EB0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4BD5C11D015A7F00263EB0 /* MainMenu.xib */; };
 		9D4BD5C81D01EEAA00263EB0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BD5BA1D015A7F00263EB0 /* AppDelegate.m */; };
 		9DACFDD31CFE8AF8003FB43A /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 9DACFDD21CFE8AF8003FB43A /* Cartfile */; };
-		9DACFDDB1CFE939A003FB43A /* iOSDataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DACFDDA1CFE9399003FB43A /* iOSDataStore.framework */; };
-		9DD93ABA1D02B5E40096568C /* OSXDataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD93AB91D02B5E40096568C /* OSXDataStore.framework */; };
-		9DD93ABB1D02B5E40096568C /* OSXDataStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD93AB91D02B5E40096568C /* OSXDataStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9DD93ABD1D02C1080096568C /* FlightsExampleDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9DD93ABC1D02C1080096568C /* FlightsExampleDB.sqlite */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +37,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9DD93ABB1D02B5E40096568C /* OSXDataStore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,10 +87,8 @@
 		9D4BD5C21D015A7F00263EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		9D4BD5C41D015A7F00263EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DACFDD21CFE8AF8003FB43A /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
-		9DACFDDA1CFE9399003FB43A /* iOSDataStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iOSDataStore.framework; path = Carthage/Build/iOS/iOSDataStore.framework; sourceTree = "<group>"; };
 		9DACFDE91CFE953D003FB43A /* Flights.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Flights.json; sourceTree = "<group>"; };
 		9DACFDEC1CFEA20F003FB43A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		9DD93AB91D02B5E40096568C /* OSXDataStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSXDataStore.framework; path = Carthage/Build/Mac/OSXDataStore.framework; sourceTree = "<group>"; };
 		9DD93ABC1D02C1080096568C /* FlightsExampleDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FlightsExampleDB.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +97,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DACFDDB1CFE939A003FB43A /* iOSDataStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +104,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DD93ABA1D02B5E40096568C /* OSXDataStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,9 +115,7 @@
 			children = (
 				9DD93ABC1D02C1080096568C /* FlightsExampleDB.sqlite */,
 				9DACFDE91CFE953D003FB43A /* Flights.json */,
-				9DD93AB91D02B5E40096568C /* OSXDataStore.framework */,
 				9DACFDEC1CFEA20F003FB43A /* Foundation.framework */,
-				9DACFDDA1CFE9399003FB43A /* iOSDataStore.framework */,
 				9D46C13F1CFE47A7001631ED /* ObjCExample */,
 				9D4BD5B81D015A7F00263EB0 /* Populate */,
 				9D46C13E1CFE47A7001631ED /* Products */,

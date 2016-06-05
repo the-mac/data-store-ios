@@ -55,6 +55,8 @@ fastlane/test_output
 # Carthage
 Carthage/Checkouts
 Carthage/Build
+ObjCExample/Carthage
+SwiftExample/Carthage
 
 # fastlane
 #
