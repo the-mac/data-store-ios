@@ -1,5 +1,5 @@
-commitMessage="Update logging for update get and save & is Passing 16/16 Unit Tests" && \
-VERSION=2.3.5 && \
+commitMessage="Disabled bitcode & is Passing 16/16 Unit Tests" && \
+VERSION=2.3.6 && \
 clear && printf '\e[3J' && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
 git add . && \
@@ -10,4 +10,4 @@ git push origin advanced $VERSION
 
 cd "/Users/christopher/git/Tool-Kit/MAC Guide - Persistence/DataStore/DataStoreAdvanced/ObjCExample" && carthage update
 
-cd "/Users/christopher/git/Tool-Kit/MAC Guide - Persistence/DataStore/DataStoreAdvanced/ObjCExample" && carthage update
+cd "/Users/christopher/git/reel-life-content/ios-development/ReelLife" && carthage update
