@@ -7,6 +7,7 @@
 //
 
 #import "FMDB.h"
+#import "Model.h"
 #import "DataStoreHelper.h"
 #import <objc/runtime.h>
 #import "ExtendNSLogFunctionality.h"
@@ -120,15 +121,19 @@ static NSString * cachedDatabasePath = nil;
         }
     }
     
-    for (id element in tables){
-        Class class = [element class];
-        NSString *className = NSStringFromClass (class);
+    for (id element in tables) {
         
-        NSArray *columns = [self getFields:class];
+        Class classType = [element class];
+        NSString *className = [self getTableName:classType];
+        
+        if([classType isSubclassOfClass:[Model class]]) {
+            NSLog(@"Note: %@ table schema can not be constructed because it is of type %@ instead of Model", className, [classType superclass]);
+            continue;
+        }
+        
+        NSArray *columns = [self getFields:classType];
         NSLog(@"%@ is being processed\ncolumns=%@", className, columns);
         
-        NSArray *parts = [className componentsSeparatedByString:@"."];
-        if(parts.count > 1) className = parts[1];
         
         NSString *savedValue = [defaults stringForKey:className];
         NSMutableString *queryString = [[NSMutableString alloc] init];

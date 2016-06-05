@@ -47,12 +47,6 @@ it, simply add the following line to your Cartfile:
 ```
 github "the-mac/data-store-ios" "advanced"
 ```
-DataStoreAdvanced is also available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'DataStoreAdvanced', :git => 'https://github.com/the-mac/data-store-ios.git', :branch => 'advanced'
-```
 
 ### Defining Models
 
@@ -251,12 +245,6 @@ pod install
 This project uses the [FMDB](http://cocoadocs.org/docsets/FMDB/2.6.2/) Framework, and is already included in the Project's source. For your own project (and Cartfile), our DataStoreAdvanced reference could look as follows:
 ```
 github "the-mac/data-store-ios" "advanced"
-```
-And for [CocoaPods](http://cocoapods.org) Podfiles
-```
-platform :ios, '8.0'
-target 'MyApp'
-pod 'DataStoreAdvanced', :git => 'https://github.com/the-mac/data-store-ios.git', :branch => 'advanced'
 ```
 
 ## Author: Christopher Miller

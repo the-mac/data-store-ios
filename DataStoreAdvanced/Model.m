@@ -119,10 +119,9 @@ static NSMutableDictionary * queryFields = nil;
     return model;
 }
 - (BOOL) save {
-    NSLog(@"called %s", __FUNCTION__);
+    NSMutableString *lines = [@"" mutableCopy];
     __block BOOL result = YES;
     
-    NSMutableString *lines = [@"" mutableCopy];
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStoreHelper databasePath]];
     
     [queue inDatabase:^(FMDatabase *db) {
@@ -143,8 +142,6 @@ static NSMutableDictionary * queryFields = nil;
             
 
             NSMutableArray *keys = [Model getKeys: self];
-            [lines appendString:[NSString stringWithFormat:@"keys = %@\n", [keys description]]];
-            
             NSString *columns =  [[keys valueForKey:@"description"] componentsJoinedByString:@", "];
             [lines appendString:[NSString stringWithFormat:@"columns = %@\n", columns]];
             
@@ -177,7 +174,7 @@ static NSMutableDictionary * queryFields = nil;
     
     if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
     
-    NSLog(@"called %s", __FUNCTION__);
+    NSMutableString *lines = [@"" mutableCopy];
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStoreHelper databasePath]];
     
     [queue inDatabase:^(FMDatabase *db) {
@@ -188,13 +185,15 @@ static NSMutableDictionary * queryFields = nil;
         
         if(queryString.length == 0) query = [NSString stringWithFormat:@"update %@ set %@", table, params];
         else query = [NSString stringWithFormat:@"update %@ set %@ where %@", table, params, queryString];
-        NSLog(@"query =%@", query);
+        [lines appendString:[NSString stringWithFormat:@"query = %@\n", query]];
         
+        [lines appendString:[NSString stringWithFormat:@"attributes = %@\n", attributes]];
         [db executeUpdate:query withParameterDictionary:attributes];
         
     }];
     
     [Model clearQuery];
+    NSLog(@"%@", lines);
     return 0;
 }
 + (NSInteger) update:(NSMutableDictionary*) attributes {
@@ -205,7 +204,7 @@ static NSMutableDictionary * queryFields = nil;
     
     if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
     
-    NSLog(@"called %s", __FUNCTION__);
+    NSMutableString *lines = [@"" mutableCopy];
     NSMutableArray *allResults = [[NSMutableArray alloc] init];
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStoreHelper databasePath]];
     
@@ -216,18 +215,20 @@ static NSMutableDictionary * queryFields = nil;
         
         if(queryString.length == 0) query = [NSString stringWithFormat:@"select * from %@", table];
         else query = [NSString stringWithFormat:@"select * from %@ where %@", table, queryString];
-        NSLog(@"query =%@", query);
         
+        [lines appendString:[NSString stringWithFormat:@"query = %@\n", query]];
         
         FMResultSet *results = [db executeQuery:query];
         
         while([results next]) {
             [allResults addObject:[Model generateNSObject:results forClass:[self class]]];
         }
+        [lines appendString:[NSString stringWithFormat:@"allResults = %@\n", allResults]];
         [results close];
     }];
     
     [Model clearQuery];
+    NSLog(@"%@", lines);
     return allResults;
 }
 
