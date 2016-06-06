@@ -1,5 +1,5 @@
-commitMessage="Disabled bitcode & is Passing 16/16 Unit Tests" && \
-VERSION=2.3.6 && \
+commitMessage="Fixed model check fault & is Passing 16/16 Unit Tests" && \
+VERSION=2.3.7 && \
 clear && printf '\e[3J' && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
 git add . && \

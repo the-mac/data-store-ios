@@ -126,7 +126,7 @@ static NSString * cachedDatabasePath = nil;
         Class classType = [element class];
         NSString *className = [self getTableName:classType];
         
-        if([classType isSubclassOfClass:[Model class]]) {
+        if(![classType isSubclassOfClass:[Model class]]) {
             NSLog(@"Note: %@ table schema can not be constructed because it is of type %@ instead of Model", className, [classType superclass]);
             continue;
         }
