@@ -242,9 +242,17 @@ static NSMutableDictionary * queryFields = nil;
         equivalence = @"=";
     else equivalence = @"like";
     
-    if(value == nil || value == [NSNull null]) value = @"NULL";
-    if(queryString.length == 0) query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
-    else query = [NSString stringWithFormat:@" and %@ %@ '%@'", column, equivalence, value];
+    if(queryString.length == 0) {
+        
+        if(value == nil || value == [NSNull null]) query = [NSString stringWithFormat:@"%@ %@ NULL", column, equivalence];
+        else query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
+    }
+    else {
+        if(value == nil || value == [NSNull null]) query = [NSString stringWithFormat:@"%@ %@ NULL", column, equivalence];
+        else query = [NSString stringWithFormat:@" and %@ %@ '%@'", column, equivalence, value];
+    }
+        
+    
     [queryString appendString:query];
     
     return queryInstance;
@@ -265,9 +273,15 @@ static NSMutableDictionary * queryFields = nil;
         equivalence = @"=";
     else equivalence = @"like";
     
-    if(value == nil || value == [NSNull null]) value = @"NULL";
-    if(queryString.length == 0) query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
-    else query = [NSString stringWithFormat:@" or %@ %@ '%@'", column, equivalence, value];
+    if(queryString.length == 0) {
+        
+        if(value == nil || value == [NSNull null]) query = [NSString stringWithFormat:@"%@ %@ NULL", column, equivalence];
+        else query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
+    }
+    else {
+        if(value == nil || value == [NSNull null]) query = [NSString stringWithFormat:@"%@ %@ NULL", column, equivalence];
+        else query = [NSString stringWithFormat:@" or %@ %@ '%@'", column, equivalence, value];
+    }
     [queryString appendString:query];
     
     return queryInstance;
