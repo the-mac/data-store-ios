@@ -108,14 +108,24 @@ static NSString * cachedDatabasePath = nil;
     }];
 }
 + (void) setup:(NSString*) database with:(NSArray*) tables {
+    NSMutableString *lines = [@"" mutableCopy];
     
     NSBundle * mainBundle = [NSBundle mainBundle];
     NSDictionary *infoDictionary = [mainBundle infoDictionary];
     NSString* version = [infoDictionary objectForKey:@"CFBundleVersion"];
     
+    [lines appendString:[NSString stringWithFormat:@"mainBundle = %@\n", mainBundle]];
+    [lines appendString:[NSString stringWithFormat:@"infoDictionary = %@\n", infoDictionary]];
+    [lines appendString:[NSString stringWithFormat:@"version = %@\n", version]];
+    
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSFileManager * defaultManager = [NSFileManager defaultManager];
     NSString *databaseDir = [self directoryForDatabaseFilename];
+    
+    [lines appendString:[NSString stringWithFormat:@"defaults = %@\n", defaults]];
+    [lines appendString:[NSString stringWithFormat:@"defaultManager = %@\n", defaultManager]];
+    [lines appendString:[NSString stringWithFormat:@"databaseDir = %@\n", databaseDir]];
     
     [defaultManager createDirectoryAtPath:databaseDir
               withIntermediateDirectories:YES
@@ -126,16 +136,24 @@ static NSString * cachedDatabasePath = nil;
     NSString *preloadPath = [mainBundle pathForResource:database_parts[0] ofType:database_parts[1]];
     
     BOOL databaseReadyForCopy = [defaultManager fileExistsAtPath:preloadPath isDirectory:nil];
+    BOOL databaseIsAlreadyCached = NO;
     if (databaseReadyForCopy) {
         NSURL* preloadURL = [NSURL fileURLWithPath: preloadPath];
-
-        if (![defaultManager fileExistsAtPath:cachedDatabasePath isDirectory:nil]) {
+        databaseIsAlreadyCached = [defaultManager fileExistsAtPath:cachedDatabasePath isDirectory:nil];
+        if (!databaseIsAlreadyCached) {
             [defaultManager copyItemAtURL:preloadURL toURL:[NSURL fileURLWithPath:cachedDatabasePath] error:nil];
         }
     }
+    [lines appendString:[NSString stringWithFormat:@"cachedDatabasePath = %@\n", cachedDatabasePath]];
+    [lines appendString:[NSString stringWithFormat:@"database_parts = %@\n", database_parts]];
+    [lines appendString:[NSString stringWithFormat:@"preloadPath = %@\n", preloadPath]];
+    [lines appendString:[NSString stringWithFormat:@"databaseReadyForCopy = %d\n", databaseReadyForCopy]];
+    [lines appendString:[NSString stringWithFormat:@"databaseIsAlreadyCached = %d\n", databaseIsAlreadyCached]];
+    
+    NSLog(@"%@", lines);
     
     for (id element in tables) {
-        
+        lines = [@"" mutableCopy];
         Class classType = [element class];
         NSString *className = [self getTableName:classType];
         
@@ -145,25 +163,25 @@ static NSString * cachedDatabasePath = nil;
         }
         
         NSArray *columns = [self getFields:classType];
-        NSLog(@"%@ is being processed\ncolumns=%@", className, columns);
-        
-        
         NSString *savedValue = [defaults stringForKey:className];
         NSMutableString *queryString = [[NSMutableString alloc] init];
         
-        NSLog(@"Table: %@ Version: %@\n", className, version);
+        [lines appendString:[NSString stringWithFormat:@"savedValue = %@\n", savedValue]];
+        [lines appendString:[NSString stringWithFormat:@"version = %@\n", version]];
+        [lines appendString:[NSString stringWithFormat:@"className = %@\n", className]];
+        [lines appendString:[NSString stringWithFormat:@"columns = %@\n", columns]];
+        
         if(savedValue != nil && !DEBUG) { // DATABASE TABLE IS CACHED
             if([version isEqualToString:savedValue]) {
                 NSLog(@"Note: To update %@ table schema or populate your database you may need to update your app version from: %@", className, version);
                 continue;  // DATABASE TABLE ALREADY AT CORRECT VERSION
             }
             else {
-                // DATABASE TABLE NEEDS SEED
                 //[queryString appendString:[NSString stringWithFormat:@"DROP TABLE IF EXISTS '%@'; ", className]];
+                // DATABASE TABLE NEEDS MIGRATION (AND SEED)
             }
         }
         
-        // DATABASE TABLE NEEDS MIGRATION ()
         [queryString appendString:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ( ", className]];
         [queryString appendString:[self generateColumns:columns]];
         [queryString appendString:@");"];
@@ -174,13 +192,15 @@ static NSString * cachedDatabasePath = nil;
             
             BOOL queryResult = [db executeStatements:queryString];
             
-            NSLog(@"Model: %@\nqueryString=%@\nqueryResult=%d", element, queryString, queryResult);
+            [lines appendString:[NSString stringWithFormat:@"queryString = %@\n", queryString]];
+            [lines appendString:[NSString stringWithFormat:@"queryResult = %d\n", queryResult]];
         }];
         
         if(version) {
             [defaults setObject:version forKey:className];
             [defaults synchronize];
         }
+        NSLog(@"%@", lines);
     }
 }
 
