@@ -235,6 +235,7 @@ static NSMutableDictionary * queryFields = nil;
 - (Model*) where:(NSString*) column is:(NSObject*) value {
     if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
     
+    BOOL isNil = value == nil || value == [NSNull null];
     NSString *equivalence = nil;
     NSString *query = nil;
     
@@ -244,11 +245,11 @@ static NSMutableDictionary * queryFields = nil;
     
     if(queryString.length == 0) {
         
-        if(value == nil || value == [NSNull null]) query = [NSString stringWithFormat:@"%@ %@ NULL", column, equivalence];
+        if(isNil) query = [NSString stringWithFormat:@"%@ = NULL", column];
         else query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
     }
     else {
-        if(value == nil || value == [NSNull null]) query = [NSString stringWithFormat:@"%@ %@ NULL", column, equivalence];
+        if(isNil) query = [NSString stringWithFormat:@"%@ = NULL", column];
         else query = [NSString stringWithFormat:@" and %@ %@ '%@'", column, equivalence, value];
     }
         
@@ -266,6 +267,7 @@ static NSMutableDictionary * queryFields = nil;
     
     if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
     
+    BOOL isNil = value == nil || value == [NSNull null];
     NSString *equivalence = nil;
     NSString *query = nil;
     
@@ -275,11 +277,11 @@ static NSMutableDictionary * queryFields = nil;
     
     if(queryString.length == 0) {
         
-        if(value == nil || value == [NSNull null]) query = [NSString stringWithFormat:@"%@ %@ NULL", column, equivalence];
+        if(isNil) query = [NSString stringWithFormat:@"%@ = NULL", column];
         else query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
     }
     else {
-        if(value == nil || value == [NSNull null]) query = [NSString stringWithFormat:@"%@ %@ NULL", column, equivalence];
+        if(isNil) query = [NSString stringWithFormat:@"%@ = NULL", column];
         else query = [NSString stringWithFormat:@" or %@ %@ '%@'", column, equivalence, value];
     }
     [queryString appendString:query];
