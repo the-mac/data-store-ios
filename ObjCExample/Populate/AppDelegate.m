@@ -24,6 +24,29 @@
 @implementation Flight
 @end
 
+
+@interface Reel : Model
+
+@property (nonatomic, strong) NSString * Certificate;
+@property (nonatomic, strong) NSString * Directors;
+@property (nonatomic, strong) NSString * Name;
+@property (nonatomic, strong) NSString * NotSure;
+@property (nonatomic, strong) NSString * ReelID;
+@property (nonatomic, strong) NSString * ReelPlot;
+@property (nonatomic, strong) NSString * ReelRating;
+@property (nonatomic, strong) NSString * RunTime;
+@property (nonatomic, strong) NSString * SubGenre;
+@property (nonatomic, strong) NSString * Trailer;
+@property (nonatomic, strong) NSString * WatchedBad;
+@property (nonatomic, strong) NSString * WatchedGood;
+@property (nonatomic, strong) NSString * WatchLater;
+@property (nonatomic, strong) NSString * Year;
+
+@end
+
+@implementation Reel
+@end
+
 @interface AppDelegate ()
 
 @property (strong, nonatomic) NSArray *models;
@@ -41,7 +64,7 @@
     return @"FlightsExampleDB";
 }
 - (NSArray<Model*>*)getTables {
-    return @[ [Flight class] ];
+    return @[ [Reel class] ];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -153,8 +176,7 @@
     
     if(err) {
         NSLog(@"Error with dbPath(%@), %@\n", dbPath, err);
-        self.generateButton.enabled = YES;
-        return;
+        err = nil;
     }
     
     NSLog(@"Success ([fileManager removeItemAtPath:%@ error:nil]): %@\n", dbPath, success ? @"YES" : @"NO");

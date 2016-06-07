@@ -94,9 +94,9 @@ static NSString * cachedDatabasePath = nil;
 }
 + (void) setup:(NSString*) database with:(NSArray*) tables {
     
-    NSLog(@"%s was called", __FUNCTION__);
-    
     NSBundle * mainBundle = [NSBundle mainBundle];
+    if(!mainBundle) mainBundle = [NSBundle bundleForClass:[self class]];
+    
     NSDictionary *infoDictionary = [mainBundle infoDictionary];
     NSString* version = [infoDictionary objectForKey:@"CFBundleVersion"];
     
@@ -113,7 +113,7 @@ static NSString * cachedDatabasePath = nil;
     NSString *preloadPath = [mainBundle pathForResource:database_parts[0] ofType:database_parts[1]];
     
     BOOL databaseReadyForCopy = [defaultManager fileExistsAtPath:preloadPath isDirectory:nil];
-    if (databaseReadyForCopy) {
+    if (DEBUG && databaseReadyForCopy) {
         NSURL* preloadURL = [NSURL fileURLWithPath: preloadPath];
 
         if (![defaultManager fileExistsAtPath:cachedDatabasePath isDirectory:nil]) {

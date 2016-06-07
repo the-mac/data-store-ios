@@ -74,8 +74,8 @@
 		9D46C1031CFE2615001631ED /* ReelExampleDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C1021CFE2615001631ED /* ReelExampleDB.sqlite */; };
 		9D46C1071CFE2A36001631ED /* Reel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C1061CFE2A36001631ED /* Reel.swift */; };
 		9D613E301CFE5657003C59E8 /* Reels.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D613E2F1CFE5657003C59E8 /* Reels.json */; };
-		9D613E351CFE5C54003C59E8 /* Reels.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D613E2F1CFE5657003C59E8 /* Reels.json */; };
 		9D613E361CFE5CB4003C59E8 /* Reels.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D613E2F1CFE5657003C59E8 /* Reels.json */; };
+		9DA780B61D067B1D00CE3AA5 /* ReelExampleDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C1021CFE2615001631ED /* ReelExampleDB.sqlite */; };
 		9DD4E8181D023B8600211C80 /* ADV_EXECUTION in Resources */ = {isa = PBXBuildFile; fileRef = 9DD4E8171D023B8600211C80 /* ADV_EXECUTION */; };
 /* End PBXBuildFile section */
 
@@ -103,7 +103,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				9D613E351CFE5C54003C59E8 /* Reels.json in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +527,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DA780B61D067B1D00CE3AA5 /* ReelExampleDB.sqlite in Resources */,
 				9D46C0DC1CFE0AB0001631ED /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

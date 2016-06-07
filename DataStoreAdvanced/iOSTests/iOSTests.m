@@ -61,6 +61,18 @@
     
 }
 
+
+//- (void)testPreload {
+//    
+//    [Reel truncate];
+//    
+//    NSArray* tables = @[ [Flight class], [Reel class] ];
+//    [DataStoreHelper setup:@"ReelExampleDB.sqlite" with:tables];
+//    
+//    int count = [Reel count];
+//    XCTAssertEqual(count, 2);
+//    
+//}
 - (void)testWhiteBoxFlightSave {
     [self.queue inDatabase:^(FMDatabase *db) {
         
