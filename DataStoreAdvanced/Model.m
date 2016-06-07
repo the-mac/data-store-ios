@@ -242,7 +242,7 @@ static NSMutableDictionary * queryFields = nil;
         equivalence = @"=";
     else equivalence = @"like";
     
-    
+    if(value == nil) value = [NSNull null];
     if(queryString.length == 0) query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
     else query = [NSString stringWithFormat:@" and %@ %@ '%@'", column, equivalence, value];
     [queryString appendString:query];
@@ -306,6 +306,7 @@ static NSMutableDictionary * queryFields = nil;
         equivalence = @"=";
     else equivalence = @"like";
     
+    if(value == nil) value = [NSNull null];
     if(queryString.length == 0) query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
     else query = [NSString stringWithFormat:@" or %@ %@ '%@'", column, equivalence, value];
     [queryString appendString:query];
@@ -584,6 +585,7 @@ static NSMutableDictionary * queryFields = nil;
         
         [string appendString:[NSString stringWithFormat:@"Property %@ Value: %@\n", name, [self valueForKey:name]]];
     }
+    [string appendString:[NSString stringWithFormat:@"Property %@ Value: %@\n", @"queryString", queryString]];
     return string;
 }
 
