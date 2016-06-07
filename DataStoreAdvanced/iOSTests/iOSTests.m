@@ -61,18 +61,6 @@
     
 }
 
-
-//- (void)testPreload {
-//    
-//    [DataStoreHelper drop:[Reel class]];
-//    
-//    NSArray* tables = @[ [Flight class], [Reel class] ];
-//    [DataStoreHelper setup:@"ReelExampleDB.sqlite" with:tables];
-//    
-//    int count = [Reel count];
-//    XCTAssertEqual(count, 2);
-//    
-//}
 - (void)testWhiteBoxFlightSave {
     [self.queue inDatabase:^(FMDatabase *db) {
         
@@ -752,6 +740,55 @@
     XCTAssertEqualObjects(flight.name, flight1.name);
     XCTAssertEqualObjects(flight.arriving, flight1.arriving);
 }
+
+- (void)testBlackBoxTake {
+
+    [self.queue inDatabase:^(FMDatabase *db) {
+        
+        [db executeUpdate:@"drop table if exists Flight"];
+        [db executeUpdate:@"create table Flight (_id integer primary key autoincrement, name text, arriving text)"];
+        
+        int count = 0;
+        FMResultSet *rsl = [db executeQuery:@"select * from Flight"];
+        while ([rsl next]) {
+            NSLog(@"\n\n%@ = %@\n", @"select * from Flight", [rsl stringForColumnIndex:0]);
+            count++;
+        }
+        
+        XCTAssertEqual(count, 0);
+    }];
+
+    Flight *flight1 = nil;
+    for (int i = 1; i <= 10; i++) {
+        flight1 = [[Flight alloc] init];
+        flight1.name = @"Flight 288";
+        flight1.arriving = @"Lovemade, CA";
+        
+        [flight1 save];
+        
+        
+        Flight *flight2 = [[Flight alloc] init];
+        flight2.name = @"Flight 144";
+        flight2.arriving = @"Lovemade, CA";
+        
+        [flight2 save];
+    }
+
+    
+    Flight *flight = (Flight *)[Flight find:1];
+    NSArray * portion = [[[Flight where:@"name" is:@"Flight 288" ] take:2] get];
+    flight1 = portion[0];
+    
+    int recount = (int) portion.count;
+    XCTAssertEqual(recount, 2);
+    
+    XCTAssertEqualObjects(flight.name, @"Flight 288");
+    XCTAssertEqualObjects(flight.arriving, @"Lovemade, CA");
+    
+    XCTAssertEqualObjects(flight.name, flight1.name);
+    XCTAssertEqualObjects(flight.arriving, flight1.arriving);
+}
+
 
 - (void)testCreate {
     

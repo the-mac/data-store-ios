@@ -155,11 +155,10 @@
 //- (Model *) orderBy:(NSString*)field direction:(NSString*)direction;
 
 /*!
- @brief         Builder method for limiting results from the database
  @discussion    Execute this method when you want to limit the results from the database.
  @return        <b>Model</b> The query record, which allows appending query components.
  */
-//- (Model *) take:(NSInteger)amount;
+- (Model *) take:(NSInteger)amount;
 
 /*!
  @brief         Retrieve records from the database table

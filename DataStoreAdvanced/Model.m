@@ -297,6 +297,15 @@ static NSMutableDictionary * queryFields = nil;
     return [queryInstance orWhere:column is:value];
 }
 
+- (Model *) take:(NSInteger)amount {
+    
+    if(self != queryInstance || queryString.length == 0) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance or without a query" userInfo:nil]);
+    
+    [queryString appendString:[NSString stringWithFormat:@" limit %ld", amount]];
+    
+    return queryInstance;
+}
+
 + (Model *) find:(int)identifier {
     
     __block int _id = identifier;
