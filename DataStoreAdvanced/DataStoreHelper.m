@@ -92,6 +92,21 @@ static NSString * cachedDatabasePath = nil;
     NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     return dirs[0];
 }
++ (void) drop:(Class) classType {
+    
+    NSMutableString *queryString = [[NSMutableString alloc] init];
+    NSString *className = [self getTableName:classType];
+    [queryString appendString:[NSString stringWithFormat:@"DROP TABLE IF EXISTS '%@'; ", className]];
+    
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:cachedDatabasePath];
+    
+    [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        
+        BOOL queryResult = [db executeStatements:queryString];
+        
+        NSLog(@"Model: %@\nqueryString=%@\nqueryResult=%d", className, queryString, queryResult);
+    }];
+}
 + (void) setup:(NSString*) database with:(NSArray*) tables {
     
     NSBundle * mainBundle = [NSBundle mainBundle];
@@ -162,8 +177,10 @@ static NSString * cachedDatabasePath = nil;
             NSLog(@"Model: %@\nqueryString=%@\nqueryResult=%d", element, queryString, queryResult);
         }];
         
-        [defaults setObject:version forKey:className];
-        [defaults synchronize];
+        if(version) {
+            [defaults setObject:version forKey:className];
+            [defaults synchronize];
+        }
     }
 }
 

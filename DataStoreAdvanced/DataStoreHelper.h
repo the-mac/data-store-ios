@@ -48,6 +48,13 @@
  @return <b>NSString</b> A string of the database columns for CREATE Statement
  */
 + (NSString*) generateColumns:(NSArray*)fields;
+
+/**
+ Drops the sqlite table for the application
+ @param classType The Model class type
+ */
++ (void) drop:(Class) classType;
+
 /**
  Sets up the sqlite database for the application
  @param database The SQLite database name, that can also be a prepopulated and bundled db.

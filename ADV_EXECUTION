@@ -1,5 +1,5 @@
-commitMessage="Removed reassignment of bundle reference & is Passing 16/16 Unit Tests" && \
-VERSION=2.3.9 && \
+commitMessage="Added the drop function to DatStoreHelper & is Passing 16/16 Unit Tests" && \
+VERSION=2.3.10 && \
 clear && printf '\e[3J' && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
 git add . && \

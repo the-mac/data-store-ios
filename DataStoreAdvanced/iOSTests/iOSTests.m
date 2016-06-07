@@ -64,7 +64,7 @@
 
 //- (void)testPreload {
 //    
-//    [Reel truncate];
+//    [DataStoreHelper drop:[Reel class]];
 //    
 //    NSArray* tables = @[ [Flight class], [Reel class] ];
 //    [DataStoreHelper setup:@"ReelExampleDB.sqlite" with:tables];
