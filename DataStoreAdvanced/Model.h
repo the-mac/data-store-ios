@@ -127,6 +127,18 @@
 - (Model*) where:(NSString*) column inside:(NSArray*) values;
 
 /*!
+ @discussion    Execute this method when you want to add a where clause to a query to the database.
+ @return        <b>Model</b> The model which allows appending query components.
+ */
++ (Model*) where:(NSString*) column outside:(NSArray*) values;
+
+/*!
+ @discussion    Execute this method when you want to add a where clause to a query to the database.
+ @return        <b>Model</b> The model which allows appending query components.
+ */
+- (Model*) where:(NSString*) column outside:(NSArray*) values;
+
+/*!
  @brief         Builder method for queries to the database, with comparison operator included
  @discussion    Execute this method when you want to add a where clause to a query to the database.
  @return        <b>Model</b> The query record, which allows appending query components.

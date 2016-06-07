@@ -275,6 +275,26 @@ static NSMutableDictionary * queryFields = nil;
     return [queryInstance where:column inside:values];
 }
 
+- (Model*) where:(NSString*) column outside:(NSArray*) values {
+    if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
+    
+    NSString *equivalence = @"not in";
+    NSString *query = nil;
+    
+    NSString *value = [values componentsJoinedByString:@"', '"];
+    
+    if(queryString.length == 0) query = [NSString stringWithFormat:@"%@ %@ ('%@')", column, equivalence, value];
+    else query = [NSString stringWithFormat:@" and %@ %@ '%@'", column, equivalence, value];
+    [queryString appendString:query];
+    
+    return queryInstance;
+    
+}
++ (Model*) where:(NSString*) column outside:(NSArray*) values {
+    if(queryString.length == 0) queryInstance = [[self class] new];
+    return [queryInstance where:column outside:values];
+}
+
 - (Model *) orWhere:(NSString*)column is:(NSObject*)value {
     
     if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
@@ -301,7 +321,7 @@ static NSMutableDictionary * queryFields = nil;
     
     if(self != queryInstance || queryString.length == 0) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance or without a query" userInfo:nil]);
     
-    [queryString appendString:[NSString stringWithFormat:@" limit %ld", amount]];
+    [queryString appendString:[NSString stringWithFormat:@" limit %ld", (long) amount]];
     
     return queryInstance;
 }

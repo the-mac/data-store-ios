@@ -551,6 +551,11 @@
     
     NSLog(@"\n\nsearchShortResults: %@", [insideResults[0] description]);
     XCTAssertEqual(insideResults.count, 4);
+    
+    NSArray *outsideResults = [[Flight where:@"name" outside: @[@"Flight 845"]] get];
+    
+    NSLog(@"\n\nsearchShortResults: %@", [outsideResults[0] description]);
+    XCTAssertEqual(outsideResults.count, 2);
 }
 
 - (void)testWhiteBoxCount {
