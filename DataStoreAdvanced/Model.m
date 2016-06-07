@@ -249,7 +249,7 @@ static NSMutableDictionary * queryFields = nil;
         else query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
     }
     else {
-        if(isNil) query = [NSString stringWithFormat:@"%@ = NULL", column];
+        if(isNil) query = [NSString stringWithFormat:@" and %@ = NULL", column];
         else query = [NSString stringWithFormat:@" and %@ %@ '%@'", column, equivalence, value];
     }
         
@@ -281,7 +281,7 @@ static NSMutableDictionary * queryFields = nil;
         else query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
     }
     else {
-        if(isNil) query = [NSString stringWithFormat:@"%@ = NULL", column];
+        if(isNil) query = [NSString stringWithFormat:@" or %@ = NULL", column];
         else query = [NSString stringWithFormat:@" or %@ %@ '%@'", column, equivalence, value];
     }
     [queryString appendString:query];

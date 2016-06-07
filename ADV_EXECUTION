@@ -1,5 +1,5 @@
 commitMessage="Updated logic for nil check in where/orWhere & is Passing 17/17 Unit Tests" && \
-VERSION=2.3.17 && \
+VERSION=2.3.18 && \
 clear && printf '\e[3J' && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
 git add . && \
