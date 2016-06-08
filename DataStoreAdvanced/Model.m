@@ -252,7 +252,7 @@ static NSMutableDictionary * queryFields = nil;
         if(isNil) query = [NSString stringWithFormat:@" and %@ is null", column];
         else query = [NSString stringWithFormat:@" and %@ %@ '%@'", column, equivalence, value];
     }
-        
+    
     
     [queryString appendString:query];
     
@@ -291,6 +291,67 @@ static NSMutableDictionary * queryFields = nil;
 + (Model*) orWhere:(NSString*) column is:(NSObject*) value {
     if(queryString.length == 0) queryInstance = [[self class] new];
     return [queryInstance orWhere:column is:value];
+}
+
+- (Model*) where:(NSString*) column not:(NSObject*) value {
+    if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
+    
+    BOOL isNil = value == nil || value == [NSNull null];
+    NSString *equivalence = nil;
+    NSString *query = nil;
+    
+    if([[value description] rangeOfString:@"%"].location == NSNotFound)
+        equivalence = @"!=";
+    else equivalence = @"not like";
+    
+    if(queryString.length == 0) {
+        
+        if(isNil) query = [NSString stringWithFormat:@"%@ is not null", column];
+        else query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
+    }
+    else {
+        if(isNil) query = [NSString stringWithFormat:@" and %@ is not null", column];
+        else query = [NSString stringWithFormat:@" and %@ %@ '%@'", column, equivalence, value];
+    }
+        
+    
+    [queryString appendString:query];
+    
+    return queryInstance;
+}
++ (Model*) where:(NSString*) column not:(NSObject*) value {
+    if(queryString.length == 0) queryInstance = [[self class] new];
+    return [queryInstance where:column not:value];
+}
+
+- (Model *) orWhere:(NSString*)column not:(NSObject*)value {
+    
+    if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
+    
+    BOOL isNil = value == nil || value == [NSNull null];
+    NSString *equivalence = nil;
+    NSString *query = nil;
+    
+    if([[value description] rangeOfString:@"%"].location == NSNotFound)
+        equivalence = @"!=";
+    else equivalence = @"not like";
+    
+    if(queryString.length == 0) {
+        
+        if(isNil) query = [NSString stringWithFormat:@"%@ is not null", column];
+        else query = [NSString stringWithFormat:@"%@ %@ '%@'", column, equivalence, value];
+    }
+    else {
+        if(isNil) query = [NSString stringWithFormat:@" or %@ is not null", column];
+        else query = [NSString stringWithFormat:@" or %@ %@ '%@'", column, equivalence, value];
+    }
+    [queryString appendString:query];
+    
+    return queryInstance;
+}
++ (Model*) orWhere:(NSString*) column not:(NSObject*) value {
+    if(queryString.length == 0) queryInstance = [[self class] new];
+    return [queryInstance orWhere:column not:value];
 }
 
 

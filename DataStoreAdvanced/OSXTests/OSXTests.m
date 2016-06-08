@@ -76,20 +76,17 @@
         
         Flight *flight2 = [[Flight alloc] init];
         flight2.name = @"Flight 144";
-        flight2.arriving = @"San Diego, CA";
-        
         [flight2 save];
         
         
         Flight *flight3 = [[Flight alloc] init];
         flight3.name = @"Flight 843";
-        flight3.arriving = @"San Francisco, CA";
-        
         [flight3 save];
     }
     XCTAssertEqual([Flight count], 30);
     
-    Flight *builder = (Flight *)[Flight where:@"name" outside: @[ @"Flight 144", @"Flight 843" ] ];
+    //    Flight *builder = (Flight *)[Flight where:@"name" outside: @[ @"Flight 144", @"Flight 843" ] ];
+    Flight *builder = (Flight *)[Flight where:@"arriving" not: nil];
     [builder take:3];
     
     NSArray *results = [builder get];

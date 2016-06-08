@@ -118,6 +118,18 @@
  @discussion    Execute this method when you want to add a where clause to a query to the database.
  @return        <b>Model</b> The model which allows appending query components.
  */
++ (Model*) where:(NSString*) column not:(NSObject*) value;
+
+/*!
+ @discussion    Execute this method when you want to add a where clause to a query to the database.
+ @return        <b>Model</b> The model which allows appending query components.
+ */
+- (Model*) where:(NSString*) column not:(NSObject*) value;
+
+/*!
+ @discussion    Execute this method when you want to add a where clause to a query to the database.
+ @return        <b>Model</b> The model which allows appending query components.
+ */
 + (Model*) where:(NSString*) column inside:(NSArray*) values;
 
 /*!
@@ -146,11 +158,16 @@
 //- (Model *) where:(NSString*)field comparisonOperator:(char) queryOperator is:(id);
 
 /*!
- @brief         Builder method for queries to the database
  @discussion    Execute this method when you want to add a where clause to a query to the database.
  @return        <b>Model</b> The query record, which allows appending query components.
  */
 - (Model *) orWhere:(NSString*)field is:(NSObject*)obj;
+
+/*!
+ @discussion    Execute this method when you want to add a where clause to a query to the database.
+ @return        <b>Model</b> The query record, which allows appending query components.
+ */
+- (Model *) orWhere:(NSString*)field not:(NSObject*)obj;
 
 /*!
  @brief         Builder method for queries to the database, with comparison operator included
