@@ -303,7 +303,7 @@ static NSMutableDictionary * queryFields = nil;
     NSString *value = [values componentsJoinedByString:@"', '"];
     
     if(queryString.length == 0) query = [NSString stringWithFormat:@"%@ %@ ('%@')", column, equivalence, value];
-    else query = [NSString stringWithFormat:@" and %@ %@ '%@'", column, equivalence, value];
+    else query = [NSString stringWithFormat:@" and %@ %@ ('%@')", column, equivalence, value];
     [queryString appendString:query];
     
     return queryInstance;
@@ -323,7 +323,7 @@ static NSMutableDictionary * queryFields = nil;
     NSString *value = [values componentsJoinedByString:@"', '"];
     
     if(queryString.length == 0) query = [NSString stringWithFormat:@"%@ %@ ('%@')", column, equivalence, value];
-    else query = [NSString stringWithFormat:@" and %@ %@ '%@'", column, equivalence, value];
+    else query = [NSString stringWithFormat:@" and %@ %@ ('%@')", column, equivalence, value];
     [queryString appendString:query];
     
     return queryInstance;

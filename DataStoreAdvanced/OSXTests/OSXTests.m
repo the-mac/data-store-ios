@@ -65,11 +65,44 @@
 }
 
 - (void)testExample {
-    Flight *flight = [[Flight alloc] init];
-    flight.name = @"Flight 288";
-    flight.arriving = @"Lovemade, CA";
+    [Flight truncate];
+    for (int i = 1; i <= 10; i++) {
+        Flight *flight1 = [[Flight alloc] init];
+        flight1.name = @"Flight 888";
+        flight1.arriving = @"Lovemade, CA";
+        
+        [flight1 save];
+        
+        
+        Flight *flight2 = [[Flight alloc] init];
+        flight2.name = @"Flight 144";
+        flight2.arriving = @"San Diego, CA";
+        
+        [flight2 save];
+        
+        
+        Flight *flight3 = [[Flight alloc] init];
+        flight3.name = @"Flight 843";
+        flight3.arriving = @"San Francisco, CA";
+        
+        [flight3 save];
+    }
+    XCTAssertEqual([Flight count], 30);
     
-    XCTAssert([flight save], @"Did not save successfully!");
+    Flight *builder = (Flight *)[Flight where:@"name" outside: @[ @"Flight 144", @"Flight 843" ] ];
+    [builder take:3];
+    
+    NSArray *results = [builder get];
+    XCTAssertEqual(results.count, 3);
+    
+    Flight *first = results[0];
+    Flight *second = results[1];
+    
+    XCTAssertTrue([first.name isEqualToString: @"Flight 888"], @"Did not create successfully!");
+    XCTAssertTrue([first.arriving isEqualToString: @"Lovemade, CA"]);
+    
+    XCTAssertEqualObjects(first.name, second.name);
+    XCTAssertEqualObjects(first.arriving, second.arriving);
 }
 
 - (void)testCreate {
