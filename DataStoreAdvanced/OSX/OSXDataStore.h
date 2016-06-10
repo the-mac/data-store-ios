@@ -18,3 +18,4 @@ FOUNDATION_EXPORT const unsigned char OSXDataStoreVersionString[];
 
 #import "Model.h"
 #import "DataStoreHelper.h"
+#import "ExtendNSLogFunctionality.h"

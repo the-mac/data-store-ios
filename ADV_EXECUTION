@@ -1,5 +1,5 @@
-commitMessage="Added ability to call count on where/orWhere clauses & is Passing 18/18 Unit Tests" && \
-VERSION=2.4.1 && \
+commitMessage="Added ExtendNSLogFunctionality.h to ReelKit header & is Passing 18/18 Unit Tests" && \
+VERSION=2.4.2 && \
 clear && printf '\e[3J' && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
 git add . && \
