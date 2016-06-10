@@ -24,8 +24,8 @@
 		9D46C0A41CFE096B001631ED /* DataStoreHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C09F1CFE096B001631ED /* DataStoreHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D46C0A51CFE096B001631ED /* DataStoreHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0A01CFE096B001631ED /* DataStoreHelper.m */; };
 		9D46C0A61CFE096B001631ED /* DataStoreHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0A01CFE096B001631ED /* DataStoreHelper.m */; };
-		9D46C0A71CFE096B001631ED /* ExtendNSLogFunctionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0A11CFE096B001631ED /* ExtendNSLogFunctionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D46C0A81CFE096B001631ED /* ExtendNSLogFunctionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0A11CFE096B001631ED /* ExtendNSLogFunctionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D46C0A71CFE096B001631ED /* ExtendNSLogFunctionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0A11CFE096B001631ED /* ExtendNSLogFunctionality.h */; };
+		9D46C0A81CFE096B001631ED /* ExtendNSLogFunctionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0A11CFE096B001631ED /* ExtendNSLogFunctionality.h */; };
 		9D46C0A91CFE096B001631ED /* ExtendNSLogFunctionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0A21CFE096B001631ED /* ExtendNSLogFunctionality.m */; };
 		9D46C0AA1CFE096B001631ED /* ExtendNSLogFunctionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C0A21CFE096B001631ED /* ExtendNSLogFunctionality.m */; };
 		9D46C0B91CFE0AB0001631ED /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D46C0AD1CFE0AB0001631ED /* FMDatabase.h */; };
