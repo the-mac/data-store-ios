@@ -449,6 +449,11 @@ static NSMutableDictionary * queryFields = nil;
     return allResults;
 }
 + (int) count {
+    if(queryString.length == 0) queryInstance = [[self class] new];
+    return [queryInstance count];
+}
+- (int) count {
+    if(self != queryInstance) @throw([NSException exceptionWithName:@"Illegal Action" reason:@"This method can not be called directly by an instance" userInfo:nil]);
     
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[DataStoreHelper databasePath]];
     __block int count = -1;
@@ -456,10 +461,13 @@ static NSMutableDictionary * queryFields = nil;
     [queue inDatabase:^(FMDatabase *db) {
         
         NSString *table = [Model getTableName:[self class]];
-        NSString *query = [NSString stringWithFormat:@"select count(*) from (%@)", table];
         
-        [queryString appendString:query];
-        FMResultSet *rsl = [db executeQuery:queryString];
+        NSString *query = nil;
+        if(queryString.length == 0) query = [NSString stringWithFormat:@"select count(*) from (%@)", table];
+        else query = [NSString stringWithFormat:@"select count(*) from (%@) where %@", table, queryString];
+        NSLog(@"query =%@", query);
+        
+        FMResultSet *rsl = [db executeQuery:query];
         while ([rsl next]) {
             count = [rsl intForColumnIndex:0];
         }

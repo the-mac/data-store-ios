@@ -105,9 +105,9 @@
 - (void)testCreate {
     
     NSMutableDictionary *flightData = [@{
-          @"name" : @"Flight 888",
-          @"arriving" : @"Atlanta, GA"
-      } mutableCopy];
+                                         @"name" : @"Flight 888",
+                                         @"arriving" : @"Atlanta, GA"
+                                         } mutableCopy];
     Class classType = [Flight class];
     Flight *flight = (Flight *)[classType create:flightData];
     
@@ -120,6 +120,39 @@
     
     XCTAssertEqualObjects(flight.name, flight1.name);
     XCTAssertEqualObjects(flight.arriving, flight1.arriving);
+}
+
+- (void)testClausedCount {
+    [Flight truncate];
+    
+    NSMutableDictionary *flightData = [@{
+          @"name" : @"Flight 999",
+          @"arriving" : @"Atlanta, GA"
+      } mutableCopy];
+    Class classType = [Flight class];
+    Flight *flight = (Flight *)[classType create:flightData];
+    
+    for (int i = 1; i <= 2; i++) {
+        Flight *flight1 = [[Flight alloc] init];
+        flight1.name = @"Flight 888";
+        [flight1 save];
+        
+        
+        Flight *flight2 = [[Flight alloc] init];
+        flight2.name = @"Flight 144";
+        [flight2 save];
+        
+        
+        Flight *flight3 = [[Flight alloc] init];
+        flight3.name = @"Flight 843";
+        [flight3 save];
+    }
+    
+    Flight *builder = (Flight *)[Flight where:@"arriving" not: nil];
+    int count = [builder count];
+    
+    XCTAssertTrue([Flight count] == 7, @"The count is not 7!");
+    XCTAssertTrue(count == 1, @"The claused count is not 1!");
 }
 
 @end

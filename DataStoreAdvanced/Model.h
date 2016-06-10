@@ -40,6 +40,13 @@
 + (int) count;
 
 /*!
+ @brief         The function counts the total number of records in a table
+ @discussion    Execute this function when you want the current count of your Model.
+ @return        <b>int</b> The Model count.
+ */
+- (int) count;
+
+/*!
  @brief         The method for counting the total of your Model in database
  @discussion    Execute this method when you want the current count of your Model.
  @return        <b>int</b> The Model count.
