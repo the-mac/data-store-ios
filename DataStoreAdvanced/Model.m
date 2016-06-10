@@ -10,7 +10,6 @@
 #import "DataStoreHelper.h"
 #import "Model.h"
 #import <objc/runtime.h>
-#import "ExtendNSLogFunctionality.h"
 
 
 #if TARGET_OS_IPHONE

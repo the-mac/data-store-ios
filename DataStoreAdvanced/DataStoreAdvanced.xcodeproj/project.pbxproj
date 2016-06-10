@@ -75,6 +75,8 @@
 		9D46C1071CFE2A36001631ED /* Reel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46C1061CFE2A36001631ED /* Reel.swift */; };
 		9D613E301CFE5657003C59E8 /* Reels.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D613E2F1CFE5657003C59E8 /* Reels.json */; };
 		9D613E361CFE5CB4003C59E8 /* Reels.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D613E2F1CFE5657003C59E8 /* Reels.json */; };
+		9D84F4A91D0B3617009C93A5 /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 9D84F4A81D0B3617009C93A5 /* PrefixHeader.pch */; };
+		9D84F4AA1D0B3617009C93A5 /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 9D84F4A81D0B3617009C93A5 /* PrefixHeader.pch */; };
 		9DA780B61D067B1D00CE3AA5 /* ReelExampleDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9D46C1021CFE2615001631ED /* ReelExampleDB.sqlite */; };
 		9DD4E8181D023B8600211C80 /* ADV_EXECUTION in Resources */ = {isa = PBXBuildFile; fileRef = 9DD4E8171D023B8600211C80 /* ADV_EXECUTION */; };
 /* End PBXBuildFile section */
@@ -154,6 +156,7 @@
 		9D46C1061CFE2A36001631ED /* Reel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reel.swift; sourceTree = "<group>"; };
 		9D46C1151CFE3F17001631ED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9D613E2F1CFE5657003C59E8 /* Reels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Reels.json; sourceTree = "<group>"; };
+		9D84F4A81D0B3617009C93A5 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		9DD4E8171D023B8600211C80 /* ADV_EXECUTION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ADV_EXECUTION; path = ../ADV_EXECUTION; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,6 +211,7 @@
 			children = (
 				9DD4E8171D023B8600211C80 /* ADV_EXECUTION */,
 				9D46C1151CFE3F17001631ED /* README.md */,
+				9D84F4A81D0B3617009C93A5 /* PrefixHeader.pch */,
 				9D46C0AB1CFE0987001631ED /* Source */,
 				9D46BFE31CFDF3DE001631ED /* OSX */,
 				9D46BFEF1CFDF3DE001631ED /* OSXTests */,
@@ -326,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D46C0A71CFE096B001631ED /* ExtendNSLogFunctionality.h in Headers */,
+				9D84F4A91D0B3617009C93A5 /* PrefixHeader.pch in Headers */,
 				9D46BFF91CFDF486001631ED /* Model.h in Headers */,
 				9D46C0BF1CFE0AB0001631ED /* FMDatabaseAdditions.h in Headers */,
 				9D46C0D11CFE0AB0001631ED /* FMDB.h in Headers */,
@@ -343,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D46C0A81CFE096B001631ED /* ExtendNSLogFunctionality.h in Headers */,
+				9D84F4AA1D0B3617009C93A5 /* PrefixHeader.pch in Headers */,
 				9D46C0171CFDF718001631ED /* Model.h in Headers */,
 				9D46C0C01CFE0AB0001631ED /* FMDatabaseAdditions.h in Headers */,
 				9D46C0D21CFE0AB0001631ED /* FMDB.h in Headers */,
@@ -691,6 +697,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -746,6 +754,8 @@
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=0";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -886,6 +896,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -942,6 +954,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=0";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

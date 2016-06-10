@@ -1,5 +1,5 @@
-commitMessage="Added ExtendNSLogFunctionality.h to ReelKit header & is Passing 18/18 Unit Tests" && \
-VERSION=2.4.2 && \
+commitMessage="Removed ExtendNSLogFunctionality.h from ReelKit header (added to pch file) & is Passing 18/18 Unit Tests" && \
+VERSION=2.4.3 && \
 clear && printf '\e[3J' && \
 cd ~/git/Tool-Kit/MAC\ Guide\ -\ Persistence/DataStore/DataStoreAdvanced/ && \
 git add . && \

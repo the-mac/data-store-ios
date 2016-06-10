@@ -10,7 +10,6 @@
 #import "Model.h"
 #import "DataStoreHelper.h"
 #import <objc/runtime.h>
-#import "ExtendNSLogFunctionality.h"
 
 static NSString * cachedDatabasePath = nil;
 
